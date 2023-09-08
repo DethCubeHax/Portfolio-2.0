@@ -6,7 +6,7 @@ import './Home.css'
 
 import DethCubeHax from './assets/DethCubeHax.png';
 
-function Asteroid() {
+function Logo() {
     const DethCubeLogo = new THREE.TextureLoader().load(DethCubeHax);
     return(
         <mesh>
@@ -23,7 +23,7 @@ const Home = () => {
             <Canvas>
                 <ambientLight />
                 <pointLight position={[10, 10, 10]} />                
-                <Asteroid />
+                <Logo />
             </Canvas>
         
         </div>
