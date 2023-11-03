@@ -8,7 +8,7 @@ function PageRoutes() {
     return(
         <Routes>
             <Route path="/" element={<Home />} />
-            <Route path="/love" element={<Love />} />
+            <Route path="love" element={<Love />} />
         </Routes>
     );
 }
