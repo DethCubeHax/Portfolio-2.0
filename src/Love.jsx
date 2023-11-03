@@ -14,9 +14,9 @@ function Love() {
   const [imageFadeIn, setImageFadeIn] = useState(true);
   const [textVisible, setTextVisible] = useState(false);
   const [images] = useState([
-    '/assets/tusi-min-1.png',
-    '/assets/tusi-min-2.png',
-    '/assets/tusi-min-3.png',
+    'assets/tusi-min-1.png',
+    'assets/tusi-min-2.png',
+    'assets/tusi-min-3.png',
   ]);
 
   useEffect(() => {
