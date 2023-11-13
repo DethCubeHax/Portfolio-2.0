@@ -2,7 +2,14 @@
     background-color: #1c204b;
     min-height: 100vh;
     min-width: 100vw;
+    z-index: -10;
 }
+
+.ParticleCanvas {
+    height: 85vh;
+    width: 100vw;
+    opacity: 0.2;
+  }
 
 a{
     text-decoration: none;
