@@ -120,6 +120,7 @@ const createParticles = (numParticles, canvas) => {
     const resizeCanvas = () => {
       canvas.width = window.innerWidth;
       canvas.height = window.innerHeight;
+      particles = createParticles(particles.length, canvas); // Re-create particles when canvas is resized
     };
   
     const updateMousePosition = (event) => {
@@ -147,5 +148,5 @@ const createParticles = (numParticles, canvas) => {
       canvas.removeEventListener('mousemove', updateMousePosition);
     };
   };
-
-export { initializeParticles };
+  
+  export { initializeParticles };
