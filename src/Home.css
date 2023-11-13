@@ -47,7 +47,7 @@ a{
 
 .HomeHeaderTitleHolder > div{
     margin: 3px;
-    margin-top: 20px;
+    margin-top: 25px;
 }
 
 .HomeHeaderTitleFN{
@@ -117,8 +117,25 @@ canvas{
     left: 0;
 }
 
-@media screen and (min-width: 500px){
+@media (min-width: 500px){
     .TypewriterText{
         font-size: 2.5em;
+    }
+    .HomeHeaderTitleHolder > div{
+        margin: 6px;
+        margin-top: 25px;
+    }
+    .HomeHeaderTitleFN{
+        font-size: 3.5em;
+        font-weight: bold;
+    }
+    .HomeHeaderTitleMN{
+        font-size: 3.5em;
+        font-weight: normal;
+    }
+    .HomeHeaderTitleLN{
+        color: #ff6f00;
+        font-size: 3.5em;
+        font-weight: normal;
     }
 }
