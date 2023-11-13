@@ -4,6 +4,15 @@ Import monteserrat font
 */
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700&display=swap');
 
+/* Disable selection, highlight and scrollbar */
+* {
+    -webkit-user-select: none;
+    -webkit-tap-highlight-color: transparent;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+}
+
 .Home{
     background-color: #1c204b;
     min-height: 100vh;
@@ -103,13 +112,111 @@ and line up on the bottom
 
 .TypewriterText{
     font-family: 'Montserrat', sans-serif;
-    font-size: 1.1em;
+    font-size: 1.5em;
+    font-weight: 300;
     color: white;
     text-align: center;
-    margin-top: 10vh;
-    padding-left: 5%;
-    padding-right: 5%;
+    margin-top: 20px;
+    margin-left: 5%;
+    margin-right: 5%;
+
 }
+
+.NavPanel {
+    position: fixed;
+    width: 80px;
+    height: 80px;
+    background-color: #595b78;
+    right: 40px;
+    top: calc(50% - 250px);
+    border-radius: 40px;
+    transition: width 0.5s ease, height 0.5s ease, background-color 0.5s ease;
+    z-index: 100;
+    opacity: 1;
+    overflow: visible;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  
+  .NavPanel.loaded {
+    width: 80px;
+    height: 500px;
+    transition: width 0.5s ease, height 0.5s ease;
+  }
+  
+  .PanelButtonContainer {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+  }
+  
+  .NavPanelButton {
+    width: 50px;
+    height: 50px;
+    line-height: 50px;
+    text-align: center;
+    margin-top: 20px;
+    margin-left: 15px;
+    color: #ffffff;
+    overflow: visible;
+    position: relative;
+  }
+  
+  .NavPanelButton::before {
+    content: attr(alt);
+    position: absolute;
+    top: 0;
+    left: 100%;
+    width: 100%;
+    height: 100%;
+    background-color: #595b78;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 14px;
+    transform-origin: left;
+    transform: scaleX(0);
+    transition: transform 0.3s ease;
+  }
+  
+  .NavPanelButton:hover::before {
+    transform: scaleX(1);
+  }
+  
+  .NavPanel:hover {
+    width: 150px;
+    transition: width 0.5s ease;
+  }
+  
+  .NavPanel:hover .NavPanelButton {
+    animation: none;
+  }
+  
+  .NavPanel:hover .NavPanelButton:hover::before {
+    transform: scaleX(1);
+  }
+  
+  .NavPanel:hover .PanelButtonContainer div {
+    display: block;
+    margin-top: 30px;
+    margin-left: 15px;
+    animation: fadeIn 0.5s ease;
+  }
+  
+  .PanelButtonContainer div {
+    display: none;
+    margin-top: 5px;
+  }
+  
+  @keyframes fadeIn {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
 
 canvas{
     position:fixed;
@@ -137,5 +244,9 @@ canvas{
         color: #ff6f00;
         font-size: 3.5em;
         font-weight: normal;
+    }
+    .TypewriterText{
+        margin-left: 5%;
+        margin-right: 15%;
     }
 }

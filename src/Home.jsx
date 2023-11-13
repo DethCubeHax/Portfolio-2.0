@@ -1,17 +1,14 @@
 import React, { useEffect, useRef } from 'react';
 import './Home.css';
-
-
 import DethCubeHax from './assets/DethCubeHax.png';
 import LinkedIn from './assets/LinkedIn.png';
-
 import { initializeParticles } from './components/Particles';
 import typewriter from './components/Typewriter';
+import NavPanel from './NavPanel';
 
 const Home = () => {
   const canvasRef = useRef(null);
   const canvasTextRef = useRef(null);
-
   const titleFNTextRef = useRef(null);
   const titleMNTextRef = useRef(null);
   const titleLNTextRef = useRef(null);
@@ -47,6 +44,7 @@ const Home = () => {
         </div>
       </div>
       <div ref={canvasTextRef} className="TypewriterText"></div>
+      {window.innerWidth > 600 && <NavPanel />}
       <canvas ref={canvasRef} className="ParticleCanvas" />
     </div>
   );
