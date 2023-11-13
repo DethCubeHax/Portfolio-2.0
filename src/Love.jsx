@@ -124,7 +124,7 @@ function Love() {
                 additionalDivVisible ? 'fade-in' : '' 
               }`} 
             >
-              You are {(daysSinceLastBirthday/365 * 100).toFixed(5)}% to becoming {years} years old!
+              You are {(daysSinceLastBirthday/365 * 100).toFixed(5)}% to becoming {years + 1} years old!
 
               <div className="progress-bar-container">
                 <div  
