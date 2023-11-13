@@ -1,9 +1,89 @@
 .Home{
-    background-color: #282c34;
-    height: 100vh;
-    width: 100vw;
+    background-color: #1c204b;
+    min-height: 100vh;
+    min-width: 100vw;
+}
+
+a{
+    text-decoration: none;
+    color: none;
+}
+
+/*
+    Header UI
+    Keep a 5% space to the left and right of the screen
+*/
+.HomeHeader{
+    display: grid;
+    grid-template-columns: 5% 90% 5%;
+    background-color: #1c204b;
+    color: white;
+    min-height: 10vh;
+    min-width: 100vw;
+}
+
+.HomeHeaderTitle{
     display: flex;
-    flex-direction: column;
+    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+.HomeHeaderTitleHolder{
+    flex: 1;
+    display: flex;
+}
+
+.HomeHeaderTitleHolder > div{
+    margin: 3px;
+    margin-top: 20px;
+}
+
+.HomeHeaderTitleFN{
+    font-size: 2em;
+    font-weight: bold;
+}
+.HomeHeaderTitleMN{
+    font-size: 2em;
+    font-weight: normal;
+}
+.HomeHeaderTitleLN{
+    color: #ff6f00;
+    font-size: 2em;
+    font-weight: normal;
+}
+.HomeHeaderTitleButtonPanel{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
     align-items: center;
-    justify-content: center;
+}
+
+/* Flow the flex from right to left */
+.HomeHeaderTitleButtonHolder{
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+/*
+Align buttons to the right
+and line up on the bottom
+*/
+
+.HomeHeaderTitleButton{
+    margin-top: 18px;
+    height: 30px;
+    width: 30px;
+    opacity: 0.6;
+}
+
+/*
+    3x3 grid with the center being the main content
+    all other grids will have 5% of the screen, left right top and bottom
+    give it alternating colors to see the grid
+*/
+
+.CoreGrid{
+    display: grid;
+    grid-template-columns: 5% 90% 5%;
 }
