@@ -102,12 +102,9 @@ const Home = () => {
             </div>
             I do art.
           </div>
-          {window.innerWidth > 600 && (
-            <div className="TypewriterTextSmallLast">And more.
-            </div>
-          )}
       </div>
-      <div className="TypeWriterTextSmall" ref={manyMore}></div>
+      
+      <div className="TypewriterTextSmallLast" ref={manyMore}></div>
     </div>
   );
 };

@@ -372,6 +372,11 @@ canvas {
         margin-left: 17%;
     }
 
+    .TypewriterTextSmallLast {
+        font-size: 1.5em;
+        font-family: 'Montserrat', sans-serif;
+    }
+
 .Skills.visible {
   opacity: 1;
 }
@@ -388,10 +393,9 @@ canvas {
         Align div with the text in the center vertically and horizontally
     */
     .TypewriterTextSmallLast {
-        display: flex;
-        justify-content: center;
-        align-items: center;
         font-size: 1.5em;
         font-family: 'Montserrat', sans-serif;
+        margin-top: 20px;
+        margin-right: 6%;
     }
 }
