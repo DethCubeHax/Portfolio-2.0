@@ -345,7 +345,7 @@ canvas {
     }
 
     .PhotoFrame {
-        margin: 0% 35%;
+        margin: 0% calc(42% - 150px);
         width: 450px;
         height: 450px;
     }
