@@ -45,10 +45,11 @@ a {
     color: white;
     min-height: 10vh;
     min-width: 100vw;
+    z-index: 1000;
 }
 
 .SpacerHeader{
-    margin-top: 10vh;
+    margin-top: 115px;
 }
 
 .HomeHeaderTitle {
