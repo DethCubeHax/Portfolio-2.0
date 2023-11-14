@@ -218,6 +218,39 @@ and line up on the bottom
     }
   }
 
+  .PhotoFrame {
+    margin-top: 50px;
+    width: 300px;
+    height: 300px;
+    position: relative;
+    overflow: hidden;
+    border: 1px solid #000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
+    border-radius: 50%;
+  }
+  
+  .PhotoFrameImage {
+    max-height: 300px;
+    object-fit: contain;
+    border-radius: 50%;
+  }
+  
+  .PhotoFrameLine {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 0%;
+    background-color: #1c204b;
+    transition: height 0.3s ease-in-out;
+  }
+.Spacer{
+    margin-top: 50px;
+}
+
 canvas{
     position:fixed;
     top: 80px;
@@ -247,6 +280,18 @@ canvas{
     }
     .TypewriterText{
         margin-left: 5%;
-        margin-right: 15%;
+        margin-right: 10%;
     }
+
+    .PhotoFrame{
+        margin: 0% 35%;
+        width: 450px;
+        height: 450px;
+    }
+
+    .PhotoFrameImage {
+        max-height: 450px;
+        object-fit: contain;
+        border-radius: 50%;
+      }
 }
