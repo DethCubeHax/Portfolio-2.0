@@ -37,11 +37,18 @@ a {
 */
 .HomeHeader {
     display: grid;
+    position: fixed;
+    top: 0;
+    left: 0;
     grid-template-columns: 5% 90% 5%;
     background-color: #1c204b;
     color: white;
     min-height: 10vh;
     min-width: 100vw;
+}
+
+.SpacerHeader{
+    margin-top: 10vh;
 }
 
 .HomeHeaderTitle {
