@@ -2,12 +2,8 @@ import React, { useEffect, useRef, useState } from 'react';
 import './Home.css';
 import './Projects.css';
 
-import Nafis from './assets/Nafis.jpg';
 import LinkedIn from './assets/LinkedIn.png';
-import Research from './assets/Research.png';
-import Art from './assets/Art.png';
-import PhotoFrame from './components/PhotoFrame';
-import Project from './assets/Project.png';
+import GPAid from './assets/GPAid.jpg';
 
 import { initializeParticles } from './components/Particles';
 import typewriter from './components/Typewriter';
@@ -52,8 +48,19 @@ const Projects = () => {
       </div>
       <div className="SpacerHeader"></div>
       {window.innerWidth > 600 && <div className='Spacer'></div>}
-        <div class="ContentWindow">
-            This will be the content window.
+        <div className="ContentWindow">
+            <div className='ProjectCard'>
+                <div className='ProjectCardTitle'>
+                    GPAid HKU Alpha
+                </div>
+                <img className='ProjectImageHolder' src={GPAid}/>
+            </div>
+            <div className='ProjectCard'>
+                Some content
+            </div>
+            <div className='ProjectCard'>
+                Some content
+            </div>
         </div>
       {window.innerWidth > 600 && <NavPanel />}
       <canvas ref={canvasRef} className="ParticleCanvas" />
