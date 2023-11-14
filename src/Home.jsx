@@ -7,6 +7,7 @@ import Research from './assets/Research.png';
 import Art from './assets/Art.png';
 import PhotoFrame from './components/PhotoFrame';
 import Project from './assets/Project.png';
+import Work from './assets/Work.png';
 
 import { initializeParticles } from './components/Particles';
 import typewriter from './components/Typewriter';
@@ -90,17 +91,17 @@ const Home = () => {
           </div>
           I do projects.
         </a>
-        <a className="TypewriterTextSmall">
+        <a className="TypewriterTextSmall" href="research">
           <div>
             <img src={Research} className="SkillIcon" alt="Research" />
           </div>
           I do research.
         </a>
-        <a className="TypewriterTextSmall">
+        <a className="TypewriterTextSmall" href="work">
           <div>
-            <img src={Art} className="SkillIcon" alt="Art" />
+            <img src={Work} className="SkillIcon" alt="Art" />
           </div>
-          I do art.
+          I do work.
         </a>
       </div>
       

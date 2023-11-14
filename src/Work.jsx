@@ -2,20 +2,18 @@ import React, { useEffect, useRef, useState } from 'react';
 import './Home.css';
 import './Projects.css';
 
-import LinkedIn from './assets/LinkedIn.png';
-import GPAid from './assets/GPAid.jpg';
-import Github from './assets/Github.png';
 import Calendar from './assets/Calendar.png';
 import Tools from './assets/Tools.png';
 import Description from './assets/Description.png';
-import Fish from './assets/Fish.jpg';
-import Sudoku from './assets/Sudoku.png';
+import WorkIcon from './assets/Work.png';
+import RA from './assets/RA.jpg';
+import Webviz from './assets/Webviz.jpg';
 
 import { initializeParticles } from './components/Particles';
 import typewriter from './components/Typewriter';
 import NavPanel from './NavPanel';
 
-const Projects = () => {
+const Work = () => {
     const canvasRef = useRef(null);
     const titleMNTextRef = useRef(null);
     const titleLNTextRef = useRef(null);
@@ -25,8 +23,8 @@ const Projects = () => {
     useEffect(() => {
         const cleanup = initializeParticles(canvasRef);
 
-        typewriter(titleMNTextRef.current, 'My', 100, 0.5);
-        typewriter(titleLNTextRef.current, 'Projects', 100, 1);
+        typewriter(titleMNTextRef.current, 'Professional', 100, 0);
+        typewriter(titleLNTextRef.current, 'Experiences', 100, 1.3);
 
         const timer = setTimeout(() => {
             setShowProjects(true);
@@ -91,30 +89,31 @@ const Projects = () => {
                         onClick={() => toggleDescription(0)}
                     >
                         <div className='ProjectCardTitle'>
-                            GPAid HKU Alpha
+                            Student RA
                         </div>
-                        <img className='ProjectImageHolder' src={GPAid} />
+                        <img className='ProjectImageHolder' src={RA} />
                         <div className={`ProjectDate ${isDescriptionShown(0) ? 'show' : ''}`}>
                             <img src={Calendar} />
-                            <div>Jan 2022 - Jun 2022</div>
+                            <div>May 2022 - Aug 2022</div>
                         </div>
                         <div className="GitHubLink">
-                            <img src={Github} />
-                            <a href="https://github.com/DethCubeHax/GPAID-Alpha-HKU" rel="noopener noreferrer">
-                                Project Source
+                            <img src={WorkIcon} />
+                            <a href="https://www.hku.hk/" rel="noopener noreferrer">
+                                The University of Hong Kong
                             </a>
                         </div>
                         <div className={`ProjectDate ${isDescriptionShown(0) ? 'show' : ''}`}>
                             <img src={Tools} />
-                            <div>React, Node, Express, MongoDB</div>
+                            <div>Unity, Blender, Quest SDK</div>
                         </div>
                         <div className={`ProjectDate ${isDescriptionShown(0) ? 'show' : ''}`}>
                             <img src={Description} />
                             <div>Description: {descriptionText}</div>
                         </div>
                         <div className={descriptionClassName(0)}>
-                            <div>A course selection app that suggests students courses to take based on the reviews of past course takers, as well as their grades.</div>
-                            <div>Built using the MERN stack,with React for the front-end, Node.js and Express for the back-end, and MongoDB for the database.</div>
+                            <div>In 3 months, I worked as a Student Research Assistant to develop a digital twin of the <a href="https://innowings.engg.hku.hk/">Innovation Wing</a> compound at HKU, with interactable VR objects.</div>
+                            <div>The 3D model was developed from scratch using the CAD model of the Innovation Wing with the textures applied.</div>
+                            <div>During the COVID-19 pandemic, the twin was used to co-host the 7th Engineering Innoshow to allow guests to attend the event online, garnering over 4000 visitors.</div>
                         </div>
                     </div>
                 </div>
@@ -126,67 +125,30 @@ const Projects = () => {
                         onClick={() => toggleDescription(1)}
                     >
                         <div className='ProjectCardTitle'>
-                            Robotic Fish, BREED
+                            Software Engineer
                         </div>
-                        <img className='ProjectImageHolder' src={Fish} />
+                        <img className='ProjectImageHolder' src={Webviz} />
                         <div className={`ProjectDate ${isDescriptionShown(1) ? 'show' : ''}`}>
                             <img src={Calendar} />
-                            <div>Jun 2022 - Present</div>
+                            <div>May 2023 - Aug 2023</div>
                         </div>
                         <div className="GitHubLink">
-                            <img src={Github} />
-                            <a href="https://github.com/DethCubeHax/GPAID-Alpha-HKU" rel="noopener noreferrer">
-                                Project Source
+                            <img src={WorkIcon} />
+                            <a href="https://www.kodifly.com/" rel="noopener noreferrer">
+                                Kodifly Limited
                             </a>
                         </div>
                         <div className={`ProjectDate ${isDescriptionShown(1) ? 'show' : ''}`}>
                             <img src={Tools} />
-                            <div>C++, ROS, Python, EasyEDA</div>
+                            <div>Vite.JS, ROS, Blender, Python,</div>
                         </div>
                         <div className={`ProjectDate ${isDescriptionShown(1) ? 'show' : ''}`}>
                             <img src={Description} />
                             <div>Description: {descriptionText}</div>
                         </div>
                         <div className={descriptionClassName(1)}>
-                            <div>As the Embedded Systems Technical Lead of the Student Interest Group, <a href="https://innowings.engg.hku.hk/breed2022/">BREED HKU</a>, I worked alongside a team of talented engineers to develop our flagship robotic fish, holding the Guinness World Record for the fastest swimming fish in the world.</div>
-                            <div>I developed the code for the fish's fins and the main motor. I also devised an algorithm to optimize the turning by using the quadrature encoder on the motor to analyse the tail fin position, and use it directly to turn the fish, greatly improving turning efficacy.</div>
-                            <div>In addition, I optimized the electrical systems by developing robust, drop-in PCBs for the mainboard and the controller. Currently, I am focusing on migrating the system away to a Raspberry Pi based system for integration of advanced sensors using ROS.</div>
-                        </div>
-                    </div>
-                </div>
-
-                {/* Project #3 */}
-                <div className="ProjectCard">
-                    <div
-                        className={`ProjectCardContent ${showProjects ? 'show' : ''}`}
-                        onClick={() => toggleDescription(2)}
-                    >
-                        <div className='ProjectCardTitle'>
-                            Sudoku Game
-                        </div>
-                        <img className='ProjectImageHolder' src={Sudoku} />
-                        <div className={`ProjectDate ${isDescriptionShown(2) ? 'show' : ''}`}>
-                            <img src={Calendar} />
-                            <div>Dec 2022</div>
-                        </div>
-                        <div className="GitHubLink">
-                            <img src={Github} />
-                            <a href="https://github.com/DethCubeHax/ENGG1340-Project" rel="noopener noreferrer">
-                                Project Source
-                            </a>
-                        </div>
-                        <div className={`ProjectDate ${isDescriptionShown(2) ? 'show' : ''}`}>
-                            <img src={Tools} />
-                            <div>C++</div>
-                        </div>
-                        <div className={`ProjectDate ${isDescriptionShown(2) ? 'show' : ''}`}>
-                            <img src={Description} />
-                            <div>Description: {descriptionText}</div>
-                        </div>
-                        <div className={descriptionClassName(2)}>
-                            <div>As part of a course project, I developed a sudoku game purely in C++.</div>
-                            <div>It features the ability to find unique boards every single time, where the player plays against the computer.</div>
-                            <div>Also features save and load options.</div>
+                            <div>Equipped with my vast knowledge of software development while at BREED HKU, I developed a LiDAR and Camera feed visualizer on a web interface using Vite.JS and Three.JS, alongside ROS. This interface could detect and draw bounding boxes around vehnicles and pedestrians, and allowed the user to add collision detectors of any shape or form to detect if an object passed through it.</div>
+                            <div>I also developed a module for Blender to simulate a LiDAR object and obtain LiDAR samples from scenes within Blender, which the company is using to simulate landslides and collect samples to train an AI to detect landslides.</div>
                         </div>
                     </div>
                 </div>
@@ -197,4 +159,4 @@ const Projects = () => {
     );
 };
 
-export default Projects;
+export default Work;
