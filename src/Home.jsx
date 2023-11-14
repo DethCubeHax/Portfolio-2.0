@@ -2,7 +2,7 @@ import React, { useEffect, useRef, useState } from 'react';
 import './Home.css';
 
 import Nafis from './assets/Nafis.jpg';
-import LinkedIn from './assets/LinkedIn.png';
+import HamburgerMenu from './assets/HamburgerMenu.png';
 import Research from './assets/Research.png';
 import Art from './assets/Art.png';
 import PhotoFrame from './components/PhotoFrame';
@@ -12,6 +12,7 @@ import Work from './assets/Work.png';
 import { initializeParticles } from './components/Particles';
 import typewriter from './components/Typewriter';
 import NavPanel from './NavPanel';
+import Sidebar from './Sidebar';
 
 const Home = () => {
   const canvasRef = useRef(null);
@@ -21,6 +22,8 @@ const Home = () => {
   const titleLNTextRef = useRef(null);
   const manyMore = useRef(null);
   const [showSkills, setShowSkills] = useState(false);
+  const [showSidebar, setShowSidebar] = useState(false);
+  const [isSidebarVisible, setIsSidebarVisible] = useState(false);
 
   useEffect(() => {
     const cleanup = initializeParticles(canvasRef);
@@ -34,7 +37,7 @@ const Home = () => {
       100,
       2
     );
-    typewriter(manyMore.current, 'And more.', 100, 12)
+    typewriter(manyMore.current, 'And more.', 100, 12);
 
     const timer = setTimeout(() => {
       setShowSkills(true);
@@ -61,6 +64,11 @@ const Home = () => {
     }
   }, [showSkills]);
 
+  useEffect(() => {
+    // Add the fade-in effect to the sidebar
+    setIsSidebarVisible(showSidebar);
+  }, [showSidebar]);
+
   return (
     <div className="Home" id="Home">
       <div className="HomeHeader">
@@ -71,16 +79,23 @@ const Home = () => {
             <div className="HomeHeaderTitleMN" ref={titleMNTextRef}></div>
             <div className="HomeHeaderTitleLN" ref={titleLNTextRef}></div>
           </div>
-          <div className="HomeHeaderTitleButtonHolder">
-            <a href="https://www.linkedin.com/in/nafis-ul-islam-207932230/">
-              <img src={LinkedIn} className="HomeHeaderTitleButton" alt="LinkedIn" />
-            </a>
-          </div>
+          {window.innerWidth < 600 && 
+                  <div className="HomeHeaderTitleButtonHolder">
+                    <img
+                      src={HamburgerMenu}
+                      className="HomeHeaderTitleButton"
+                      alt="Hamburger Menu"
+                      style={{zIndex:"2000"}}
+                      onClick={() => setShowSidebar((prevState) => !prevState)}
+                    />
+                  </div>
+          }
+
         </div>
       </div>
       <div className="SpacerHeader"></div>
       <PhotoFrame image={Nafis} />
-      {window.innerWidth > 600 && <div className='Spacer'></div>}
+      {window.innerWidth > 600 && <div className="Spacer"></div>}
       <div ref={canvasTextRef} className="TypewriterText"></div>
       {window.innerWidth > 600 && <NavPanel />}
       <canvas ref={canvasRef} className="ParticleCanvas" />
@@ -104,8 +119,10 @@ const Home = () => {
           I do work.
         </a>
       </div>
-      
+
       <div className="TypewriterTextSmallLast" ref={manyMore}></div>
+
+      {isSidebarVisible && <Sidebar onClose={() => setShowSidebar((prevState) => !prevState)} />}
     </div>
   );
 };

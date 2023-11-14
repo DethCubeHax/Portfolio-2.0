@@ -3,18 +3,16 @@ import './Home.css';
 import './Projects.css';
 
 import GPAid from './assets/GPAid.jpg';
-import Github from './assets/Github.png';
 import Calendar from './assets/Calendar.png';
-import Tools from './assets/Tools.png';
 import Description from './assets/Description.png';
-import Fish from './assets/Fish.jpg';
-import Sudoku from './assets/Sudoku.png';
 import ResearchIcon from './assets/Research.png';
 import WorkIcon from './assets/Work.png';
 
 import { initializeParticles } from './components/Particles';
 import typewriter from './components/Typewriter';
 import NavPanel from './NavPanel';
+import Sidebar from './Sidebar';
+import Links from './Links';
 
 const Research = () => {
     const canvasRef = useRef(null);

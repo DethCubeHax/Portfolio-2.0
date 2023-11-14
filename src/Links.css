@@ -1,0 +1,12 @@
+.LinksPanel{
+    display: flex;
+    flex-direction: row;
+}
+
+.LinksPanel>img{
+    height: 50px;
+    width: 50px;
+    margin: 5px;
+    opacity: 0.5;
+    transition: opacity 0.3s ease-in-out;
+}

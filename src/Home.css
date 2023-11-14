@@ -13,6 +13,15 @@ Import monteserrat font
     -ms-overflow-style: none;
 }
 
+a{
+    text-decoration: none;
+    color: white;
+    margin: 0;
+    padding: 0;
+    transition: 0.3s;
+    box-shadow: none;
+}
+
 body{
     display: block;
     background-color: #1c204b;
@@ -67,6 +76,8 @@ a:hover{
     min-width: 100vw;
     z-index: 1000;
 }
+
+
 
 .SpacerHeader{
     margin-top: 115px;
@@ -128,6 +139,7 @@ and line up on the bottom
     height: 30px;
     width: 30px;
     opacity: 0.6;
+    z-index: 1100;
 }
 
 /*
