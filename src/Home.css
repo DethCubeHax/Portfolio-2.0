@@ -30,9 +30,22 @@ body{
     opacity: 0.2;
 }
 
+/* Add a glow effect to anchor tags */
+/* using box-shadow */
 a {
     text-decoration: none;
-    color: none;
+    color: white;
+    margin: 0;
+    padding: 0;
+    transition: 0.3s;
+    box-shadow: none;
+}
+
+a:hover{
+    text-decoration: none;
+    color: white;
+    transition: 0.3s;
+    font-size: 1.3em;
 }
 
 /*
@@ -250,6 +263,12 @@ and line up on the bottom
         opacity: 1;
     }
 }
+a:hover{
+    text-decoration: none;
+    color: white;
+    transition: 0.3s;
+    font-size: 2em;
+}
 
 .PhotoFrame {
     margin-top: 50px;
@@ -311,7 +330,7 @@ and line up on the bottom
 
 
 .Skills,
-.SkillsVisible>div {
+.SkillsVisible>a {
     flex: 1
 }
 

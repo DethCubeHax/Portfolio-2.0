@@ -84,24 +84,24 @@ const Home = () => {
       {window.innerWidth > 600 && <NavPanel />}
       <canvas ref={canvasRef} className="ParticleCanvas" />
       <div className={`Skills ${showSkills ? 'SkillsVisible' : ''}`}>
-      <div className="TypewriterTextSmall">
-            <div>
-              <img src={Project} className="SkillIcon" alt="Project" />
-            </div>
-            I do projects.
+        <a className="TypewriterTextSmall" href="projects">
+          <div>
+            <img src={Project} className="SkillIcon" alt="Project" />
           </div>
-          <div className="TypewriterTextSmall">
-            <div>
-              <img src={Research} className="SkillIcon" alt="Research" />
-            </div>
-            I do research.
+          I do projects.
+        </a>
+        <a className="TypewriterTextSmall">
+          <div>
+            <img src={Research} className="SkillIcon" alt="Research" />
           </div>
-          <div className="TypewriterTextSmall">
-            <div>
-              <img src={Art} className="SkillIcon" alt="Art" />
-            </div>
-            I do art.
+          I do research.
+        </a>
+        <a className="TypewriterTextSmall">
+          <div>
+            <img src={Art} className="SkillIcon" alt="Art" />
           </div>
+          I do art.
+        </a>
       </div>
       
       <div className="TypewriterTextSmallLast" ref={manyMore}></div>
