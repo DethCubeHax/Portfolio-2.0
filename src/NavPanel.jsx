@@ -22,7 +22,7 @@ const NavPanel = () => {
   return (
 
     <div className={`NavPanel${isLoaded ? ' loaded' : ''}`}>
-      <a className='PanelButtonContainer'>
+      <a className='PanelButtonContainer' href="/">
         <img src={DethCubeHax} className="NavPanelButton" alt="DethCubeHax" />
         <div>Home</div>
       </a>
