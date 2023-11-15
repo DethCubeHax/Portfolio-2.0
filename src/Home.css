@@ -188,7 +188,7 @@ and line up on the bottom
 
 .NavPanel {
     position: fixed;
-    width: 80px;
+    min-width: 100px;
     height: 80px;
     background-color: #595b78;
     right: 40px;
@@ -216,7 +216,7 @@ and line up on the bottom
 }
 
 .PanelButtonContainer>div{
-    margin-right: 10px;
+    padding-right: 10px;
 }
 
 .NavPanelButton {
@@ -253,7 +253,7 @@ and line up on the bottom
 }
 
 .NavPanel:hover {
-    width: 150px;
+    width: 170px;
     transition: width 0.5s ease;
 }
 
