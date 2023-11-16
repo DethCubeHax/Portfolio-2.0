@@ -13,6 +13,7 @@ import { initializeParticles } from './components/Particles';
 import typewriter from './components/Typewriter';
 import NavPanel from './NavPanel';
 import Sidebar from './Sidebar';
+import Links from './Links';
 
 const Home = () => {
   const canvasRef = useRef(null);
@@ -34,14 +35,14 @@ const Home = () => {
     typewriter(
       canvasTextRef.current,
       "Hi there! I'm Nafis, aka DethCubeHax, a software engineer in the making.",
-      100,
+      50,
       2
     );
-    typewriter(manyMore.current, 'And more.', 100, 12);
+    typewriter(manyMore.current, 'And more.', 100, 3);
 
     const timer = setTimeout(() => {
       setShowSkills(true);
-    }, 10000);
+    }, 2000);
 
     return () => {
       clearTimeout(timer);
@@ -81,16 +82,10 @@ const Home = () => {
           </div>
           {window.innerWidth < 600 && 
                   <div className="HomeHeaderTitleButtonHolder">
-                    <img
-                      src={HamburgerMenu}
-                      className="HomeHeaderTitleButton"
-                      alt="Hamburger Menu"
-                      style={{zIndex:"2000"}}
-                      onClick={() => setShowSidebar((prevState) => !prevState)}
-                    />
+                    <img src={HamburgerMenu} className="HomeHeaderTitleButton" alt="Hamburger Menu" style={{zIndex:"2000"}} onClick={() => setShowSidebar((prevState) => !prevState)}/>
                   </div>
           }
-
+          {window.innerWidth > 600 && <Links />}
         </div>
       </div>
       <div className="SpacerHeader"></div>
@@ -121,7 +116,9 @@ const Home = () => {
       </div>
 
       <div className="TypewriterTextSmallLast" ref={manyMore}></div>
-
+      {window.innerWidth < 600 && 
+        <Links/>
+      }
       {isSidebarVisible && <Sidebar onClose={() => setShowSidebar((prevState) => !prevState)} />}
     </div>
   );

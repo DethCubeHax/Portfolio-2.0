@@ -215,9 +215,6 @@ and line up on the bottom
     align-items: flex-start;
 }
 
-.PanelButtonContainer>div{
-    padding-right: 10px;
-}
 
 .NavPanelButton {
     width: 50px;
@@ -452,4 +449,9 @@ canvas {
         margin-top: 20px;
         margin-right: 6%;
     }
+}
+
+body>div>div{
+    height: 100vh;
+    background-color: red;
 }

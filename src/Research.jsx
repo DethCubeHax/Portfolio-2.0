@@ -2,16 +2,15 @@ import React, { useEffect, useRef, useState } from 'react';
 import './Home.css';
 import './Projects.css';
 
-import GPAid from './assets/GPAid.jpg';
 import Calendar from './assets/Calendar.png';
 import Description from './assets/Description.png';
 import ResearchIcon from './assets/Research.png';
 import WorkIcon from './assets/Work.png';
+import UnderwaterComms from './assets/UnderwaterComms.png';
 
 import { initializeParticles } from './components/Particles';
 import typewriter from './components/Typewriter';
 import NavPanel from './NavPanel';
-import Sidebar from './Sidebar';
 import Links from './Links';
 
 const Research = () => {
@@ -78,6 +77,7 @@ const Research = () => {
                     </div>
                     <div className="HomeHeaderTitleButtonHolder"></div>
                 </div>
+                {window.innerWidth > 600 && <Links />}
             </div>
             <div className="SpacerHeader"></div>
 
@@ -92,7 +92,7 @@ const Research = () => {
                         <div className='ProjectCardTitle'>
                         Design and Implementation of a Cost-Efficient Underwater Communication System
                         </div>
-                        <img className='ProjectImageHolder' src={GPAid} />
+                        <img className='ProjectImageHolder' src={UnderwaterComms} />
                         <div className={`ProjectDate ${isDescriptionShown(0) ? 'show' : ''}`}>
                             <img src={Calendar} />
                             <div>Jan 2023 - Mar 2023</div>
