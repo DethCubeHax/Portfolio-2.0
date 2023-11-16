@@ -7,11 +7,13 @@ import Description from './assets/Description.png';
 import ResearchIcon from './assets/Research.png';
 import WorkIcon from './assets/Work.png';
 import UnderwaterComms from './assets/UnderwaterComms.png';
+import HamburgerMenu from './assets/HamburgerMenu.png';
 
 import { initializeParticles } from './components/Particles';
 import typewriter from './components/Typewriter';
 import NavPanel from './NavPanel';
 import Links from './Links';
+import Sidebar from './Sidebar';
 
 const Research = () => {
     const canvasRef = useRef(null);
@@ -19,6 +21,8 @@ const Research = () => {
     const titleLNTextRef = useRef(null);
     const [showProjects, setShowProjects] = useState(false);
     const [showDescriptionIndex, setShowDescriptionIndex] = useState(null);
+    const [showSidebar, setShowSidebar] = useState(false);
+    const [isSidebarVisible, setIsSidebarVisible] = useState(false);
 
     useEffect(() => {
         const cleanup = initializeParticles(canvasRef);
@@ -35,6 +39,11 @@ const Research = () => {
             cleanup();
         };
     }, []);
+
+
+    useEffect(() => {
+        setIsSidebarVisible(showSidebar);
+      }, [showSidebar]);
 
     useEffect(() => {
         if (showProjects) {
@@ -78,6 +87,10 @@ const Research = () => {
                     <div className="HomeHeaderTitleButtonHolder"></div>
                 </div>
                 {window.innerWidth > 600 && <Links />}
+                {window.innerWidth < 600 && 
+                  <div className="HomeHeaderTitleButtonHolder" style={{paddingRight: "50px"}}>
+                    <img src={HamburgerMenu} className="HomeHeaderTitleButton" alt="Hamburger Menu" style={{zIndex:"2000"}} onClick={() => setShowSidebar((prevState) => !prevState)}/>
+                  </div>}
             </div>
             <div className="SpacerHeader"></div>
 
@@ -122,6 +135,7 @@ const Research = () => {
             </div>
             <canvas className="Particles" ref={canvasRef}></canvas>
             {window.innerWidth > 600 && <NavPanel />}
+            {isSidebarVisible && <Sidebar onClose={() => setShowSidebar((prevState) => !prevState)} />}
         </div>
     );
 };
