@@ -116,9 +116,6 @@ const Home = () => {
       </div>
 
       <div className="TypewriterTextSmallLast" ref={manyMore}></div>
-      {window.innerWidth < 600 && 
-        <Links/>
-      }
       {isSidebarVisible && <Sidebar onClose={() => setShowSidebar((prevState) => !prevState)} />}
     </div>
   );
