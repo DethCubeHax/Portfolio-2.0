@@ -292,8 +292,8 @@ a:hover{
 
 .PhotoFrame {
     margin-top: 50px;
-    width: 300px;
-    height: 300px;
+    width: 250px;
+    height: 250px;
     position: relative;
     overflow: hidden;
     border: 1px solid #000;
