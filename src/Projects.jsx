@@ -9,6 +9,7 @@ import Calendar from './assets/Calendar.png';
 import Tools from './assets/Tools.png';
 import Description from './assets/Description.png';
 import Fish from './assets/Fish.jpg';
+import SmartDisplay from './assets/SmartDisplay.jpeg';
 import Sudoku from './assets/Sudoku.png';
 import HamburgerMenu from './assets/HamburgerMenu.png';
 
@@ -28,8 +29,8 @@ const Projects = () => {
 
     useEffect(() => {
         setIsSidebarVisible(showSidebar);
-      }, [showSidebar]);
-    
+    }, [showSidebar]);
+
     useEffect(() => {
         const cleanup = initializeParticles(canvasRef);
 
@@ -87,13 +88,11 @@ const Projects = () => {
                     </div>
                     <div className="HomeHeaderTitleButtonHolder"></div>
                 </div>
-                {window.innerWidth < 600 && 
-                  <div className="HomeHeaderTitleButtonHolder" style={{paddingRight: "50px"}}>
-                    <img src={HamburgerMenu} className="HomeHeaderTitleButton" alt="Hamburger Menu" style={{zIndex:"2000"}} onClick={() => setShowSidebar((prevState) => !prevState)}/>
-                  </div>}
+                {window.innerWidth < 600 &&
+                    <div className="HomeHeaderTitleButtonHolder" style={{ paddingRight: "50px" }}>
+                        <img src={HamburgerMenu} className="HomeHeaderTitleButton" alt="Hamburger Menu" style={{ zIndex: "2000" }} onClick={() => setShowSidebar((prevState) => !prevState)} />
+                    </div>}
             </div>
-            <div className="SpacerHeader"></div>
-
             {window.innerWidth > 600 && <div className='Spacer'></div>}
             <div className="ContentWindow">
                 {/* Project #1, GPAID HKU Alpha */}
@@ -199,6 +198,54 @@ const Projects = () => {
                             <div>As part of a course project, I developed a sudoku game purely in C++.</div>
                             <div>It features the ability to find unique boards every single time, where the player plays against the computer.</div>
                             <div>Also features save and load options.</div>
+                        </div>
+                    </div>
+                </div>
+                <div className="ProjectCard">
+                    <div
+                        className={`ProjectCardContent ${showProjects ? 'show' : ''}`}
+                        onClick={() => toggleDescription(3)}
+                    >
+                        <div className='ProjectCardTitle'>
+                            Arduino Smart Display
+                        </div>
+                        <img className='ProjectImageHolder' src={SmartDisplay} />
+                        <div className={`ProjectDate ${isDescriptionShown(3) ? 'show' : ''}`}>
+                            <img src={Calendar} />
+                            <div>Mar 2021</div>
+                        </div>
+                        <div className="GitHubLink">
+                            <img src={Github} />
+                            <a href="https://github.com/DethCubeHax/Arduino_Smart_Display" rel="noopener noreferrer">
+                                Project Source
+                            </a>
+                        </div>
+                        <div className={`ProjectDate ${isDescriptionShown(3) ? 'show' : ''}`}>
+                            <img src={Tools} />
+                            <div>C++</div>
+                        </div>
+                        <div className={`ProjectDate ${isDescriptionShown(3) ? 'show' : ''}`}>
+                            <img src={Description} />
+                            <div>Description: {descriptionText}</div>
+                        </div>
+                        <div className={descriptionClassName(3)}>
+                            <div>
+                                <p>
+                                    The `Smart_Display.ino` Arduino project is a multifunctional smart display that uses a DS3231 Real-Time Clock (RTC) module to display time and date on a TFT TouchScreen.
+                                </p>
+
+                                <p>
+                                    This project is customizable, allowing users to switch time display modes, adjust alarms, and toggle logging. It supports multiple alarms and uses a buzzer for alerts.
+                                </p>
+
+                                <p>
+                                    It can display temperature data, indicating potential use in weather monitoring. The system uses an SD card to render .bmp images on the screen for custom visuals.
+                                </p>
+
+                                <p>
+                                    The project manages the power of the DS3231 RTC module directly from the Arduino, simplifying the wiring. It's a flexible Arduino system that can serve as an alarm clock, weather station, or a general-purpose display.
+                                </p>
+                            </div>
                         </div>
                     </div>
                 </div>

@@ -88,7 +88,7 @@ const Home = () => {
           {window.innerWidth > 600 && <Links />}
         </div>
       </div>
-      <div className="SpacerHeader"></div>
+
       <PhotoFrame image={Nafis} />
       {window.innerWidth > 600 && <div className="Spacer"></div>}
       <div ref={canvasTextRef} className="TypewriterText"></div>
