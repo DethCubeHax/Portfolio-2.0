@@ -54,12 +54,12 @@
     margin-top: 15px;
     margin-bottom: 15px;
     margin-left: 20px;
-    margin-right: 40px;
     flex: 1;
     font-family: 'Montserrat', sans-serif;
     font-size: 15pt;
     /* Align text vertically */
 }
+
 
 
 /* Remove all default styles from anchor tags */

@@ -112,10 +112,11 @@ a:hover {
 
 /* Flow the flex from right to left */
 .HomeHeaderTitleButtonHolder {
-    display: flex;
-    flex-direction: row-reverse;
-    justify-content: flex-end;
+    position: absolute;
+    right: 0;
     align-items: center;
+    align-self: center; 
+    z-index: 1000;
 }
 
 /*
@@ -126,7 +127,6 @@ and line up on the bottom
 .HomeHeaderTitleButton {
     margin-top: 18px;
     height: 30px;
-    width: 30px;
     opacity: 0.6;
     z-index: 1100;
 }
