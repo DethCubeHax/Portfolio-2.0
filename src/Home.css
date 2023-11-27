@@ -1,7 +1,7 @@
 /*
 Import monteserrat font
-
 */
+
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700&display=swap');
 
 /* Disable selection, highlight and scrollbar */
@@ -13,30 +13,22 @@ Import monteserrat font
     -ms-overflow-style: none;
 }
 
-a{
-    text-decoration: none;
-    color: white;
-    margin: 0;
-    padding: 0;
-    transition: 0.3s;
-    box-shadow: none;
-}
 
-body{
+body {
     display: block;
     background-color: #1c204b;
-    max-width: 100vw;
+    min-width: 100vw;
     margin: 0;
 }
 
 .Home {
     background-color: #1c204b;
-    min-height: 100vh;
-    min-width: 100vw;
+    min-height: 100%;
+    min-width: 100%;
     z-index: -10;
 }
 
-.ParticleCanvas {
+.Particles {
     height: 85vh;
     width: 100vw;
     opacity: 0.2;
@@ -53,15 +45,11 @@ a {
     box-shadow: none;
 }
 
-a > div{
-    color: white;
-}
-
-a:hover{
+a:hover {
     text-decoration: none;
     color: white;
     transition: 0.3s;
-    font-size: 1.3em;
+    font-size: 4em;
 }
 
 /*
@@ -70,20 +58,17 @@ a:hover{
 */
 .HomeHeader {
     display: grid;
-    position: fixed;
-    top: 0;
-    left: 0;
     grid-template-columns: 5% 90% 5%;
     background-color: #1c204b;
     color: white;
     min-height: 10vh;
     min-width: 100vw;
-    z-index: 1000;
+    z-index: 950!important;
 }
 
 
 
-.SpacerHeader{
+.SpacerHeader {
     margin-top: 115px;
 }
 
@@ -169,7 +154,7 @@ and line up on the bottom
     margin-right: 5%;
 }
 
-.TypeWriterTextSmall{
+.TypeWriterTextSmall {
     font-family: 'Montserrat', sans-serif;
     font-size: 1.5em;
     font-weight: 300;
@@ -283,17 +268,11 @@ and line up on the bottom
         opacity: 1;
     }
 }
-a:hover{
-    text-decoration: none;
-    color: white;
-    transition: 0.3s;
-    font-size: 2em;
-}
 
 .PhotoFrame {
     margin-top: 50px;
-    width: 250px;
-    height: 250px;
+    width: 300px;
+    height: 300px;
     position: relative;
     overflow: hidden;
     border: 1px solid #000;
@@ -353,11 +332,14 @@ a:hover{
 .SkillsVisible>a {
     flex: 1
 }
-
 canvas {
     position: fixed;
     top: 80px;
     left: 0;
+}
+
+.TypewriterTextSmall:hover{
+    font-size: 2em !important;
 }
 
 @media (min-width: 500px) {
@@ -414,7 +396,7 @@ canvas {
         margin-top: 50px;
         max-width: 60%;
     }
-    
+
     .SkillsVisible {
         display: flex;
         opacity: 1;
@@ -428,9 +410,14 @@ canvas {
         font-family: 'Montserrat', sans-serif;
     }
 
-.Skills.visible {
-  opacity: 1;
-}
+    .TypewriterTextSmallLast:hover {
+        font-size: 2em;
+        font-family: 'Montserrat', sans-serif;
+    }
+
+    .Skills.visible {
+        opacity: 1;
+    }
 
     .SkillIcon {
         height: 100px;
@@ -449,9 +436,16 @@ canvas {
         margin-top: 20px;
         margin-right: 6%;
     }
+
+    .PanelButtonContainer > div {
+        display: none;
+        margin-top: 5px;
+        margin-left: 15px;
+        color: white;
+    }
 }
 
-body>div>div{
+body>div>div {
     height: 100vh;
     background-color: red;
 }

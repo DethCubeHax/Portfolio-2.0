@@ -23,8 +23,8 @@ const Work = () => {
     useEffect(() => {
         const cleanup = initializeParticles(canvasRef);
 
-        typewriter(titleMNTextRef.current, 'Professional', 100, 0);
-        typewriter(titleLNTextRef.current, 'Experiences', 100, 1.3);
+        typewriter(titleMNTextRef.current, 'Work', 100, 0);
+        typewriter(titleLNTextRef.current, 'Experiences', 100, 0.5);
 
         const timer = setTimeout(() => {
             setShowProjects(true);
@@ -78,7 +78,6 @@ const Work = () => {
                     <div className="HomeHeaderTitleButtonHolder"></div>
                 </div>
             </div>
-            <div className="SpacerHeader"></div>
 
             {window.innerWidth > 600 && <div className='Spacer'></div>}
             <div className="ContentWindow">

@@ -4,7 +4,7 @@ import Research from './assets/Research.png';
 import Hamburger from './assets/HamburgerMenu.png';
 import Work from './assets/Work.png';
 import Project from './assets/Project.png';
-import Art from './assets/Art.png';
+import Blog from './assets/Blog.png';
 import Mail from './assets/Mail.png';
 import './Sidebar.css';
 import { redirect } from 'react-router-dom';
@@ -20,10 +20,8 @@ const Sidebar = ({ onClose }) => {
 
     return (
         <div className="Sidebar">
-            <button className="SidebarCloseButton" onClick={onClose}>
-                <img className="SidebarCloseButton" src={Hamburger}/>
-            </button>
             <div className="Spacer"></div>
+            
             <a className="NavElement" href="/">
                 <img src={DethCubeHax} className="NavElementImage" alt="DethCubeHax" />
                 <div className="NavElementText">Home</div>
@@ -40,9 +38,9 @@ const Sidebar = ({ onClose }) => {
                 <img src={Research} className="NavElementImage" alt="DethCubeHax" />
                 <div className="NavElementText">Research</div>
             </a>
-            <a className="NavElement" href="art">
-                <img src={Art} className="NavElementImage" alt="DethCubeHax" />
-                <div className="NavElementText">Art</div>
+            <a className="NavElement" href="blog">
+                <img src={Blog} className="NavElementImage" alt="DethCubeHax" />
+                <div className="NavElementText">Blog</div>
             </a>
             {/* Mail to "ultimate.nafis.bhadra11@gmail.com" */}
             <a className="NavElement" href="mailto:ultimate.nafis.bhadra11@gmail.com">

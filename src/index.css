@@ -54,6 +54,11 @@ button:focus,
 button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
 }
+.ParticleCanvas {
+  height: 85vh;
+  width: 100vw;
+  opacity: 0.2 !important;
+}
 
 @media (prefers-color-scheme: light) {
   :root {

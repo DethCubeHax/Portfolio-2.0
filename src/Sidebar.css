@@ -11,7 +11,7 @@
     box-shadow: -2px 0 4px rgba(0, 0, 0, 0.1);
     transition: transform 0.3s ease-in-out;
     transform: translateX(100%);
-    z-index: 999;
+    z-index: 900;
   }
   
   .Sidebar.fade-in {
@@ -34,6 +34,10 @@
 .NavElement:hover{
     background-color: #1c204b;
     transition: 0.3s;
+}
+
+.NavElement:first-child{
+    padding-top: 50px !important;
 }
 
 .NavElement>img{

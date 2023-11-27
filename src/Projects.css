@@ -3,13 +3,17 @@
 /* Import fira sans font */
 @import url('https://fonts.googleapis.com/css2?family=Fira+Sans+Extra+Condensed:wght@100;200;300;400;500;600;700&display=swap');
 
+
 .ContentWindow {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    height: 100%;
-    width: 100%;
+}
+
+.ParticleCanvas {
+    height: 85vh;
+    opacity: 0.2!important;
 }
 
 a:hover{
@@ -26,6 +30,11 @@ a:hover{
     border-radius: 10px;
     margin: 10px;
     z-index: 100;
+}
+
+.ParticleCanvas {
+    height: 85vh;
+    opacity: 0.2;
 }
 
 .ProjectCard {
@@ -149,7 +158,10 @@ a:hover{
   }
 
 @media (min-width: 500px) {
-
+    .ParticleCanvas {
+        height: 85vh;
+        opacity: 0.2;
+    }
     /* turn it into a grid with 3 columns */
     .ContentWindow {
         display: grid;
