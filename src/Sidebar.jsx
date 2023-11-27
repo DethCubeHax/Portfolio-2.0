@@ -6,6 +6,9 @@ import Work from './assets/Work.png';
 import Project from './assets/Project.png';
 import Blog from './assets/Blog.png';
 import Mail from './assets/Mail.png';
+import LinkedIn from './assets/LinkedIn.png';
+import GitHub from './assets/GitHub.png';
+import Instagram from './assets/Instagram.png';
 import './Sidebar.css';
 import { redirect } from 'react-router-dom';
 
@@ -41,6 +44,18 @@ const Sidebar = ({ onClose }) => {
             <a className="NavElement" href="blog">
                 <img src={Blog} className="NavElementImage" alt="DethCubeHax" />
                 <div className="NavElementText">Blog</div>
+            </a>
+            <a className="NavElement" href="https://www.github.com/DethCubeHax">
+                <img src={GitHub} className="NavElementImage" alt="DethCubeHax" />
+                <div className="NavElementText">GitHub</div>
+            </a>
+            <a className="NavElement" href="https://www.linkedin.com/in/nafis-ul-islam-207932230/">
+                <img src={LinkedIn} className="NavElementImage" alt="DethCubeHax" />
+                <div className="NavElementText">LinkedIn</div>
+            </a>
+            <a className="NavElement" href="https://www.instagram.com/nafis.ul.islam/">
+                <img src={Instagram} className="NavElementImage" alt="DethCubeHax" />
+                <div className="NavElementText">Instagram</div>
             </a>
             {/* Mail to "ultimate.nafis.bhadra11@gmail.com" */}
             <a className="NavElement" href="mailto:ultimate.nafis.bhadra11@gmail.com">
