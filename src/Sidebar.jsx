@@ -7,7 +7,7 @@ import Project from './assets/Project.png';
 import Blog from './assets/Blog.png';
 import Mail from './assets/Mail.png';
 import LinkedIn from './assets/LinkedIn.png';
-import GitHub from './assets/GitHub.png';
+import GitHub from './assets/Github.png';
 import Instagram from './assets/Instagram.png';
 import './Sidebar.css';
 import { redirect } from 'react-router-dom';
