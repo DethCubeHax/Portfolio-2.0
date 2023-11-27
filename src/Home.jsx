@@ -81,7 +81,7 @@ const Home = () => {
             <div className="HomeHeaderTitleLN" ref={titleLNTextRef}></div>
           </div>
           {window.innerWidth < 600 && 
-                  <div className="HomeHeaderTitleButtonHolder">
+                  <div className="HomeHeaderTitleButtonHolder" style={{ paddingRight: "10px" }}>
                     <img src={HamburgerMenu} className="HomeHeaderTitleButton" alt="Hamburger Menu" style={{zIndex:"2000"}} onClick={() => setShowSidebar((prevState) => !prevState)}/>
                   </div>
           }

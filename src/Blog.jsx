@@ -82,7 +82,7 @@ const Research = () => {
                     <div className="HomeHeaderTitleButtonHolder"></div>
                 </div>
                 {window.innerWidth < 600 &&
-                    <div className="HomeHeaderTitleButtonHolder" style={{ paddingRight: "50px" }}>
+                    <div className="HomeHeaderTitleButtonHolder" style={{ paddingRight: "10px" }}>
                         <img src={HamburgerMenu} className="HomeHeaderTitleButton" alt="Hamburger Menu" style={{ zIndex: "2000" }} onClick={() => setShowSidebar((prevState) => !prevState)} />
                     </div>}
             </div>

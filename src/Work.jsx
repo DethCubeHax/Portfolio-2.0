@@ -8,10 +8,12 @@ import Description from './assets/Description.png';
 import WorkIcon from './assets/Work.png';
 import RA from './assets/RA.jpg';
 import Webviz from './assets/Webviz.jpg';
+import HamburgerMenu from './assets/HamburgerMenu.png';
 
 import { initializeParticles } from './components/Particles';
 import typewriter from './components/Typewriter';
 import NavPanel from './NavPanel';
+import Sidebar from './Sidebar';
 
 const Work = () => {
     const canvasRef = useRef(null);
@@ -19,6 +21,8 @@ const Work = () => {
     const titleLNTextRef = useRef(null);
     const [showProjects, setShowProjects] = useState(false);
     const [showDescriptionIndex, setShowDescriptionIndex] = useState(null);
+    const [showSidebar, setShowSidebar] = useState(false);
+    const [isSidebarVisible, setIsSidebarVisible] = useState(false);
 
     useEffect(() => {
         const cleanup = initializeParticles(canvasRef);
@@ -51,6 +55,11 @@ const Work = () => {
         }
     }, [showProjects]);
 
+  useEffect(() => {
+    // Add the fade-in effect to the sidebar
+    setIsSidebarVisible(showSidebar);
+  }, [showSidebar]);
+
     const toggleDescription = (index) => {
         if (showDescriptionIndex === index) {
             setShowDescriptionIndex(null);
@@ -77,6 +86,11 @@ const Work = () => {
                     </div>
                     <div className="HomeHeaderTitleButtonHolder"></div>
                 </div>
+                {window.innerWidth < 600 && 
+                  <div className="HomeHeaderTitleButtonHolder" style={{ paddingRight: "10px" }}>
+                    <img src={HamburgerMenu} className="HomeHeaderTitleButton" alt="Hamburger Menu" style={{zIndex:"2000"}} onClick={() => setShowSidebar((prevState) => !prevState)}/>
+                  </div>
+            }
             </div>
 
             {window.innerWidth > 600 && <div className='Spacer'></div>}
@@ -154,6 +168,9 @@ const Work = () => {
             </div>
             <canvas className="Particles" ref={canvasRef}></canvas>
             {window.innerWidth > 600 && <NavPanel />}
+
+            {isSidebarVisible && <Sidebar onClose={() => setShowSidebar((prevState) => !prevState)} />}
+
         </div>
     );
 };
