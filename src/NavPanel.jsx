@@ -4,7 +4,7 @@ import Research from './assets/Research.png';
 import Hamburger from './assets/HamburgerMenu.png';
 import Work from './assets/Work.png';
 import Project from './assets/Project.png';
-import Art from './assets/Art.png';
+import Blog from './assets/Blog.png';
 import Mail from './assets/Mail.png';
 const NavPanel = () => {
   const [isLoaded, setIsLoaded] = useState(false);
@@ -39,9 +39,9 @@ const NavPanel = () => {
         <img src={Research} className="NavPanelButton" alt="Research" />
         <div>Research</div>
       </a>
-      <a className='PanelButtonContainer' href="">
-        <img src={Art} className="NavPanelButton" alt="Art" />
-        <div>Art</div>
+      <a className='PanelButtonContainer' href="blog">
+        <img src={Blog} className="NavPanelButton" alt="Art" />
+        <div>Blog</div>
       </a>
       <a className='PanelButtonContainer' href="mailto:ultimate.nafis.bhadra11@gmail.com">
         <img src={Mail} className="NavPanelButton" alt="Mail" />
