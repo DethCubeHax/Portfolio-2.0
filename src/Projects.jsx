@@ -11,6 +11,7 @@ import Fish from './assets/Fish.jpg';
 import SmartDisplay from './assets/SmartDisplay.jpeg';
 import Sudoku from './assets/Sudoku.png';
 import HamburgerMenu from './assets/HamburgerMenu.png';
+import Portfolio from './assets/Portfolio.png';
 
 import { initializeParticles } from './components/Particles';
 import typewriter from './components/Typewriter';
@@ -200,6 +201,8 @@ const Projects = () => {
                         </div>
                     </div>
                 </div>
+
+                {/* Project 4 */}
                 <div className="ProjectCard">
                     <div
                         className={`ProjectCardContent ${showProjects ? 'show' : ''}`}
@@ -221,7 +224,7 @@ const Projects = () => {
                         </div>
                         <div className={`ProjectDate ${isDescriptionShown(3) ? 'show' : ''}`}>
                             <img src={Tools} />
-                            <div>C++</div>
+                            <div>C++, Arduino</div>
                         </div>
                         <div className={`ProjectDate ${isDescriptionShown(3) ? 'show' : ''}`}>
                             <img src={Description} />
@@ -245,6 +248,45 @@ const Projects = () => {
                                     The project manages the power of the DS3231 RTC module directly from the Arduino, simplifying the wiring. It's a flexible Arduino system that can serve as an alarm clock, weather station, or a general-purpose display.
                                 </p>
                             </div>
+                        </div>
+                    </div>
+                </div>
+
+                {/* Project 5 */}
+                <div className="ProjectCard">
+                    <div
+                        className={`ProjectCardContent ${showProjects ? 'show' : ''}`}
+                        onClick={() => toggleDescription(4)}
+                    >
+                        <div className='ProjectCardTitle'>
+                            Personal Portfolio/Blog
+                        </div>
+                        <img className='ProjectImageHolder' src={Portfolio} />
+                        <div className={`ProjectDate ${isDescriptionShown(4) ? 'show' : ''}`}>
+                            <img src={Calendar} />
+                            <div>Nov 2022</div>
+                        </div>
+                        <div className="GitHubLink">
+                            <img src={Github} />
+                            <a href="https://github.com/DethCubeHax/Portfolio-2.0-Public" rel="noopener noreferrer">
+                                Project Source
+                            </a>
+                        </div>
+                        <div className={`ProjectDate ${isDescriptionShown(4) ? 'show' : ''}`}>
+                            <img src={Tools} />
+                            <div>Vite.JS, Node.JS</div>
+                        </div>
+                        <div className={`ProjectDate ${isDescriptionShown(4) ? 'show' : ''}`}>
+                            <img src={Description} />
+                            <div>Description: {descriptionText}</div>
+                        </div>
+                        <div className={descriptionClassName(4)}>
+                            <div>
+                                <p>Welcome to my digital portfolio, a showcase of my software and hardware projects.</p>
+                                <p>Designed for an engaging experience, my site features interactive elements like a typewriter effect and animated project cards, and many more effects!</p>
+                                <p>Discover a variety of projects I've developed, each with detailed information and a link to the GitHub source code.</p>
+                                <p>With responsive design at its core, my site offers optimal viewing on any screen, complete with a hamburger menu for easy navigation on smaller devices.</p>
+                                <p>Whether you're a potential employer, a developer, or a tech enthusiast, I invite you to explore my work. Enjoy the journey!</p></div>
                         </div>
                     </div>
                 </div>
