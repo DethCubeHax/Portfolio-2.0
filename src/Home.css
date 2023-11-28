@@ -7,6 +7,7 @@ Import monteserrat font
 /* Disable selection, highlight and scrollbar */
 * {
     -webkit-user-select: none;
+    user-select: none;
     -webkit-tap-highlight-color: transparent;
     -webkit-overflow-scrolling: touch;
     scrollbar-width: none;
@@ -17,7 +18,7 @@ Import monteserrat font
 body {
     display: block;
     background-color: #1c204b;
-    min-width: 100vw;
+    min-width: 100%;
     margin: 0;
 }
 
@@ -30,7 +31,7 @@ body {
 
 .Particles {
     height: 85vh;
-    width: 100vw;
+    width: 100%;
     opacity: 0.2;
 }
 
@@ -62,7 +63,7 @@ a:hover {
     background-color: #1c204b;
     color: white;
     min-height: 10vh;
-    min-width: 100vw;
+    min-width: 100%;
     z-index: 950!important;
 }
 
@@ -200,7 +201,15 @@ and line up on the bottom
     align-items: flex-start;
 }
 
-
+.NavPanelText {
+    transition: opacity 0.5s;
+    transition-delay: 1s; /* Add this line */
+    opacity: 0;
+  }
+  
+  .NavPanelText.text-loaded {
+    opacity: 1;
+  }
 .NavPanelButton {
     width: 50px;
     height: 50px;
