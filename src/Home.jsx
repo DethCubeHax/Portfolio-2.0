@@ -27,6 +27,15 @@ const Home = () => {
   const [showSidebar, setShowSidebar] = useState(false);
   const [isSidebarVisible, setIsSidebarVisible] = useState(false);
   const [isTerminalVisible, setIsTerminalVisible] = useState(false);
+  const [isHovered, setIsHovered] = useState(false);
+
+  const handleMouseOver = () => {
+    setIsHovered(true);
+  };
+
+  const handleMouseOut = () => {
+    setIsHovered(false);
+  };
 
   useEffect(() => {
     const cleanup = initializeParticles(canvasRef);
@@ -121,6 +130,12 @@ const Home = () => {
       <div
         className="TypewriterTextSmallLast"
         ref={manyMore}
+        style={{ 
+          fontSize: isHovered ? '2em' : '1.5em',
+          transition: 'font-size 0.3s ease-in-out'
+        }}
+        onMouseOver={handleMouseOver}
+        onMouseOut={handleMouseOut}
         onClick={() => setIsTerminalVisible(prevState => !prevState)}
       >
       </div>
@@ -132,7 +147,7 @@ const Home = () => {
           <div className="console-label">
             <h1>Console</h1>
             <p>Here's nafisui-console, at your service! </p>
-              <p>Feel free to ask any questions about navigating the site, or about myself, and it will help you rightaway.</p>
+            <p>Feel free to ask any questions about navigating the site, or about myself, and it will help you rightaway.</p>
           </div>
         </div>
       }
