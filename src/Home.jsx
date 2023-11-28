@@ -11,6 +11,7 @@ import Work from './assets/Work.png';
 
 import { initializeParticles } from './components/Particles';
 import typewriter from './components/Typewriter';
+import Terminal from './components/Console';
 import NavPanel from './NavPanel';
 import Sidebar from './Sidebar';
 import Links from './Links';
@@ -25,6 +26,7 @@ const Home = () => {
   const [showSkills, setShowSkills] = useState(false);
   const [showSidebar, setShowSidebar] = useState(false);
   const [isSidebarVisible, setIsSidebarVisible] = useState(false);
+  const [isTerminalVisible, setIsTerminalVisible] = useState(false);
 
   useEffect(() => {
     const cleanup = initializeParticles(canvasRef);
@@ -38,7 +40,7 @@ const Home = () => {
       50,
       2
     );
-    typewriter(manyMore.current, 'And more.', 100, 3);
+    typewriter(manyMore.current, 'Need help navigating? Click me!', 50, 6);
 
     const timer = setTimeout(() => {
       setShowSkills(true);
@@ -49,14 +51,6 @@ const Home = () => {
       cleanup();
     };
   }, []);
-  
-  const getAge = () => {
-    const birthDate = new Date('2002-08-17');
-    const today = new Date();
-    const diffInMilliSeconds = Math.abs(today - birthDate);
-    const age = (diffInMilliSeconds / (1000 * 60 * 60 * 24 * 365.25)).toFixed(10); // convert milliseconds to years
-    return age;
-  };
 
   useEffect(() => {
     if (showSkills) {
@@ -88,10 +82,10 @@ const Home = () => {
             <div className="HomeHeaderTitleMN" ref={titleMNTextRef}></div>
             <div className="HomeHeaderTitleLN" ref={titleLNTextRef}></div>
           </div>
-          {window.innerWidth < 600 && 
-                  <div className="HomeHeaderTitleButtonHolder" style={{ paddingRight: "10px" }}>
-                    <img src={HamburgerMenu} className="HomeHeaderTitleButton" alt="Hamburger Menu" style={{zIndex:"2000"}} onClick={() => setShowSidebar((prevState) => !prevState)}/>
-                  </div>
+          {window.innerWidth < 600 &&
+            <div className="HomeHeaderTitleButtonHolder" style={{ paddingRight: "10px" }}>
+              <img src={HamburgerMenu} className="HomeHeaderTitleButton" alt="Hamburger Menu" style={{ zIndex: "2000" }} onClick={() => setShowSidebar((prevState) => !prevState)} />
+            </div>
           }
           {window.innerWidth > 600 && <Links />}
         </div>
@@ -102,6 +96,7 @@ const Home = () => {
       <div ref={canvasTextRef} className="TypewriterText"></div>
       {window.innerWidth > 600 && <NavPanel />}
       <canvas ref={canvasRef} className="ParticleCanvas" />
+
       <div className={`Skills ${showSkills ? 'SkillsVisible' : ''}`}>
         <a className="TypewriterTextSmall" href="projects">
           <div>
@@ -123,8 +118,27 @@ const Home = () => {
         </a>
       </div>
 
-      <div className="TypewriterTextSmallLast" ref={manyMore}></div>
-      {isSidebarVisible && <Sidebar onClose={() => setShowSidebar((prevState) => !prevState)} />}
+      <div
+        className="TypewriterTextSmallLast"
+        ref={manyMore}
+        onClick={() => setIsTerminalVisible(prevState => !prevState)}
+      >
+      </div>
+      {isTerminalVisible &&
+        <div className={`terminal-container ${isTerminalVisible ? 'visible' : ''}`}>
+          <div className="terminal-area">
+            <Terminal />
+          </div>
+          <div className="console-label">
+            <h1>Console</h1>
+            <p>Here's nafisui-console, at your service! </p>
+              <p>Feel free to ask any questions about navigating the site, or about myself, and it will help you rightaway.</p>
+          </div>
+        </div>
+      }
+
+      {isSidebarVisible && <Sidebar hideSidebar={() => setShowSidebar(false)} />}
+      <div className="Spacer"></div>
     </div>
   );
 };
