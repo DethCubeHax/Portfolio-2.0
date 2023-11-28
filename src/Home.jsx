@@ -39,7 +39,7 @@ const Home = () => {
       50,
       2
     );
-    typewriter(manyMore.current, 'And more', 50, 3);
+    typewriter(manyMore.current, 'And more.', 50, 3);
 
     const timer = setTimeout(() => {
       setShowSkills(true);
