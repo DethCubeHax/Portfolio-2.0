@@ -32,5 +32,6 @@ echo "Adding, committing, and pushing changes on public branch..."
 git add .
 git commit -m "$commit_message"
 git push public public
+git checkout main
 
 echo "Script execution completed successfully!"
