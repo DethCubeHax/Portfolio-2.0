@@ -2,22 +2,35 @@ import React, { useState, useRef, useEffect } from 'react';
 import './Terminal.css';
 
 // Command component
-const Command = ({ commandObj, username }) => {
+const Command = ({ commandObj, username, age }) => {
   const [displayedResponse, setDisplayedResponse] = useState("");
   const [currentIndex, setCurrentIndex] = useState(0);
+  const [firstRenderedAge, setFirstRenderedAge] = useState(age);
 
   useEffect(() => {
     // Start the typewriter effect if there's a response to type
-    if (commandObj.response.length > 0 && currentIndex < commandObj.response.length) {
+    const response =
+      commandObj.command === "age"
+        ? `I am ${firstRenderedAge} years old.`
+        : commandObj.response;
+
+    if (response.length > 0 && currentIndex < response.length) {
       const typingInterval = setTimeout(() => {
-        setDisplayedResponse((prevResponse) => prevResponse + commandObj.response[currentIndex]);
-        setCurrentIndex(currentIndex + 1);
+        setDisplayedResponse((prevResponse) => prevResponse + response[currentIndex]);
+        setCurrentIndex((currentIndex) => currentIndex + 1);
       }, 10); // Change delay to adjust speed of typewriter
 
       // Cleanup function
       return () => clearTimeout(typingInterval);
     }
-  }, [commandObj.response, currentIndex]);
+  }, [commandObj.command, commandObj.response, currentIndex, firstRenderedAge]);
+
+  useEffect(() => {
+    // If the command is not 'age', update the firstRenderedAge
+    if (commandObj.command !== 'age') {
+      setFirstRenderedAge(age);
+    }
+  }, [commandObj.command, age]);
 
   return (
     <div className="command-container">
@@ -51,7 +64,7 @@ const Terminal = () => {
   useEffect(() => {
     const intervalId = setInterval(() => {
       setAge(calculateAge());
-    }, 1000); // updates every second
+    }, 2000); // updates every second
 
     // Cleanup function to clear the interval when the component is unmounted
     return () => clearInterval(intervalId);
@@ -95,6 +108,13 @@ const Terminal = () => {
               response = "My email is at nafisulislam2k2@gmail.com";
               break;
             case 'age':
+              // Check if 'age' command is already in command history
+              if (commandHistory.some(item => item.command === 'age')) {
+                // If it's there, don't add it again
+                setConsoleCommand("");
+                return;
+              }
+              // If it's not there, add it
               response = `I am ${calculateAge()} years old.`;
               break;
             case 'navigate':
@@ -146,7 +166,12 @@ const Terminal = () => {
       ) : (
         <>
           {commandHistory.map((item, index) => (
-            <Command key={index} commandObj={item} username={username} />
+            <Command
+              key={item.command === 'age' ? `age-${age}` : index} // Use 'age' as part of the key for 'age' commands
+              commandObj={item}
+              username={username}
+              age={age}
+            />
           ))}
           <div className="input-line">
             <span className="prompt">{username}</span>@<span className="console-name">nafisui-console</span><span className="command-prompt">~#</span>
