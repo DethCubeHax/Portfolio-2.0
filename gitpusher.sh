@@ -31,6 +31,6 @@ cp -r ~/src .
 echo "Adding, committing, and pushing changes on public branch..."
 git add .
 git commit -m "$commit_message"
-git push origin public
+git push public public
 
 echo "Script execution completed successfully!"
