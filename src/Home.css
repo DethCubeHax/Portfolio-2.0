@@ -461,7 +461,7 @@ canvas {
 }
 
 /* For smaller screens */
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 1280px) {
     .terminal-container {
         flex-direction: column-reverse; /* Change the flex direction to vertical */
         margin-top: 0;
@@ -502,7 +502,7 @@ canvas {
 .console-label p {
     font-size: 16px;
 }
-@media (min-width: 500px) {
+@media screen and (min-width: 500px) {
 
 
     .TypewriterText {

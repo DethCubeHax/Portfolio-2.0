@@ -136,7 +136,7 @@ input {
 }
 
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 1280px) {
   .terminal {
     width: 100%; /* Take up 90% of the space on mobile */
   }
