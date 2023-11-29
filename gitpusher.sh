@@ -25,9 +25,12 @@ git checkout public
 
 # Merge files with the public src
 echo "Copying and merging src files with public src..."
-cp -r ~/src ./src
+cp -r ~/src .
 
 # Add, commit and push changes to the public branch
 echo "Adding, committing, and pushing changes on public branch..."
+git add .
+git commit -m "$commit_message"
+git push origin public
 
 echo "Script execution completed successfully!"
