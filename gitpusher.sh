@@ -17,6 +17,7 @@ git push origin main
 
 # Copy files from src to home directory
 echo "Copying files from src to home directory..."
+rm -rf ~/src
 cp -r src ~
 
 # Checkout to the public branch
