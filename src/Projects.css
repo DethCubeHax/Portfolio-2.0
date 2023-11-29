@@ -30,6 +30,7 @@ a:hover{
     border-radius: 10px;
     margin: 10px;
     z-index: 100;
+    align-self: top;
 }
 
 .ParticleCanvas {
@@ -59,6 +60,7 @@ a:hover{
     min-height: 180px;
     max-height: 180px;
     border-radius: 10px;
+    object-fit: cover; /* Add this line */
 }
 
 .GitHubLink {
@@ -168,6 +170,7 @@ a:hover{
         grid-template-columns: 1fr 1fr 1fr;
         width: 80%;
         margin-left: 10%;
+        align-items: flex-start;
     }
 
     .ProjectCard {

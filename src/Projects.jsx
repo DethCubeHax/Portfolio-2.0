@@ -12,6 +12,7 @@ import SmartDisplay from './assets/SmartDisplay.jpeg';
 import Sudoku from './assets/Sudoku.png';
 import HamburgerMenu from './assets/HamburgerMenu.png';
 import Portfolio from './assets/Portfolio.png';
+import OldBlog from './assets/OldBlog.png';
 
 import { initializeParticles } from './components/Particles';
 import typewriter from './components/Typewriter';
@@ -290,7 +291,51 @@ const Projects = () => {
                         </div>
                     </div>
                 </div>
+                {/* Project 5 */}
+                <div className="ProjectCard">
+                    <div
+                        className={`ProjectCardContent ${showProjects ? 'show' : ''}`}
+                        onClick={() => toggleDescription(5)}
+                    >
+                        <div className='ProjectCardTitle'>
+                            NelsonTalks (Deprecated)
+                        </div>
+                        <img className='ProjectImageHolder' src={OldBlog} />
+                        <div className={`ProjectDate ${isDescriptionShown(5) ? 'show' : ''}`}>
+                            <img src={Calendar} />
+                            <div>Mar 2021</div>
+                        </div>
+                        <div className="GitHubLink">
+                            <img src={Github} />
+                            <a href="https://github.com/DethCubeHax/My-Blog" rel="noopener noreferrer">
+                                Project Source
+                            </a>
+                        </div>
+                        <div className={`ProjectDate ${isDescriptionShown(5) ? 'show' : ''}`}>
+                            <img src={Tools} />
+                            <div>Flask, SQLite3, Vanilla JS</div>
+                        </div>
+                        <div className={`ProjectDate ${isDescriptionShown(5) ? 'show' : ''}`}>
+                            <img src={Description} />
+                            <div>Description: {descriptionText}</div>
+                        </div>
+                        <div className={descriptionClassName(5)}>
+                            <div>
+                                <p>
+                                    My very first web development project, a personal blog built using Flask and SQLite3.
+                                </p>
+                                <p>
+                                    It features access to content on the homepage, with an SQLite database for handling user accounts, storing articles to read later, and user comments on various posts.
+                                </p>
+                                <p>
+                                    Unfortunately due to costs, I had to shut down the server on AWS, but the source code is still available on GitHub.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
+            
             <canvas className="Particles" ref={canvasRef}></canvas>
             {window.innerWidth > 600 && <NavPanel />}
             {isSidebarVisible && <Sidebar onClose={() => setShowSidebar((prevState) => !prevState)} />}

@@ -5,4 +5,5 @@
   padding: 0;
   text-align: center;
   background-color: 1c204b;
+  z-index: -10000;
 }

@@ -7,6 +7,7 @@ Import monteserrat font
 /* Disable selection, highlight and scrollbar */
 * {
     -webkit-user-select: none;
+    user-select: none;
     -webkit-tap-highlight-color: transparent;
     -webkit-overflow-scrolling: touch;
     scrollbar-width: none;
@@ -16,21 +17,24 @@ Import monteserrat font
 
 body {
     display: block;
+    position: relative;
     background-color: #1c204b;
-    min-width: 100vw;
+    min-width: 100%;
     margin: 0;
+    z-index: -100;
 }
 
 .Home {
     background-color: #1c204b;
     min-height: 100%;
     min-width: 100%;
-    z-index: -10;
+    position: relative;
+    z-index: -100!important;
 }
 
 .Particles {
     height: 85vh;
-    width: 100vw;
+    width: 100%;
     opacity: 0.2;
 }
 
@@ -62,7 +66,7 @@ a:hover {
     background-color: #1c204b;
     color: white;
     min-height: 10vh;
-    min-width: 100vw;
+    min-width: 100%;
     z-index: 950!important;
 }
 
@@ -180,7 +184,7 @@ and line up on the bottom
     top: calc(50% - 220px);
     border-radius: 40px;
     transition: width 0.5s ease, height 0.5s ease, background-color 0.5s ease;
-    z-index: 100;
+    z-index: 10000;
     opacity: 1;
     overflow: visible;
     display: flex;
@@ -200,7 +204,15 @@ and line up on the bottom
     align-items: flex-start;
 }
 
-
+.NavPanelText {
+    transition: opacity 0.5s;
+    transition-delay: 1s; /* Add this line */
+    opacity: 0;
+  }
+  
+  .NavPanelText.text-loaded {
+    opacity: 1;
+  }
 .NavPanelButton {
     width: 50px;
     height: 50px;
@@ -336,13 +348,163 @@ canvas {
     position: fixed;
     top: 80px;
     left: 0;
+    z-index: -10;
 }
 
 .TypewriterTextSmall:hover{
     font-size: 2em !important;
 }
 
-@media (min-width: 500px) {
+
+/* Define the slide down animation */
+@keyframes slide-down {
+    0% {
+      max-height: 0;
+    }
+    100% {
+      max-height: 500px; /* Adjust this value based on your terminal's height */
+    }
+  }
+  
+  /* Define the slide up animation */
+  @keyframes slide-up {
+    0% {
+      max-height: 500px; /* This should be the same value as in the slide-down animation */
+    }
+    100% {
+      max-height: 0;
+    }
+  }
+  
+  .terminal-container {
+    /* Other styles */
+    display: flex;
+    margin-top: 50px;
+    width: 80%;
+    margin-left: 5%;
+    margin-bottom: 50px!important;
+    overflow: hidden; /* Ensure content doesn't show when sliding up/down */
+    animation: slide-up 1s forwards; /* Apply the slide-up animation by default */
+  }
+  
+  .terminal-container.visible {
+    opacity: 1;
+    margin-top: 50px;
+    margin-bottom: 50px!important;
+    padding-bottom: 50px!important;
+    max-height: 500px; /* This should be the same value as in the animations */
+    animation: slide-down 1s forwards; /* Apply the slide-down animation when visible */
+  }
+  
+  .terminal-area {
+    flex: 4;
+  }
+  
+  .console-label {
+    font-family: 'Montserrat', sans-serif;
+
+    flex: 1;
+    align-self: flex-start; /* Vertically center the label */
+    text-align: left; /* Horizontally center the label */
+    padding: 10px;
+
+  }
+  
+  .console-label h1 {
+    font-size: 2em;
+    margin-bottom: 10px;
+  }
+  
+  .console-label p {
+    font-size: 16px;
+  }
+
+/* Define the slide down animation */
+@keyframes slide-down {
+    0% {
+        max-height: 0;
+    }
+    100% {
+        max-height: 500px; /* Adjust this value based on your terminal's height */
+    }
+}
+
+/* Define the slide up animation */
+@keyframes slide-up {
+    0% {
+        max-height: 500px; /* This should be the same value as in the slide-down animation */
+    }
+    100% {
+        max-height: 0;
+    }
+}
+
+.terminal-container {
+    /* Other styles */
+    display: flex;
+    flex-direction: row;
+    margin-top: 50px;
+    width: 80%;
+    margin-left: 5%;
+    margin-bottom: 50px!important;
+    overflow: hidden; /* Ensure content doesn't show when sliding up/down */
+    animation: slide-up 1s forwards; /* Apply the slide-up animation by default */
+}
+
+.terminal-container.visible {
+    opacity: 1;
+    margin-top: 50px;
+    margin-bottom: 50px!important;
+    padding-bottom: 50px!important;
+    max-height: 500px; /* This should be the same value as in the animations */
+    animation: slide-down 1s forwards; /* Apply the slide-down animation when visible */
+}
+
+/* For smaller screens */
+@media screen and (max-width: 1280px) {
+    .terminal-container {
+        flex-direction: column-reverse; /* Change the flex direction to vertical */
+        margin-top: 0;
+    }
+
+    .terminal-container{
+        width: 100%;
+
+    }
+
+    .terminal-container.visible {
+        width: 90%!important;
+    }
+
+    .TypewriterTextSmallLast{
+        font-family: 'Montserrat', sans-serif;
+        margin-top: 20px;
+    }
+}
+
+.terminal-area {
+    flex: 4;
+}
+
+.console-label {
+    font-family: 'Montserrat', sans-serif;
+    flex: 1;
+    align-self: flex-start; /* Vertically center the label */
+    text-align: left; /* Horizontally center the label */
+    padding: 10px;
+}
+
+.console-label h1 {
+    font-size: 2em;
+    margin-bottom: 10px;
+}
+
+.console-label p {
+    font-size: 16px;
+}
+@media screen and (min-width: 500px) {
+
+
     .TypewriterText {
         font-size: 2.5em;
     }
@@ -448,4 +610,6 @@ canvas {
 body>div>div {
     height: 100vh;
     background-color: red;
+    position: relative;
+    z-index: -1000;
 }

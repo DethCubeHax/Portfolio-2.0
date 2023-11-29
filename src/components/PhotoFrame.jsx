@@ -1,12 +1,11 @@
 import React, { useEffect, useRef } from 'react';
 
 const PhotoFrame = ({ image }) => {
-  const frameRef = useRef(null);
   const imageRef = useRef(null);
   const lineRef = useRef(null);
+  const didAnimateRef = useRef(false); // New ref
 
   useEffect(() => {
-    const frame = frameRef.current;
     const image = imageRef.current;
     const line = lineRef.current;
 
@@ -15,6 +14,7 @@ const PhotoFrame = ({ image }) => {
 
     // Animation
     const animateFrame = () => {
+      if (didAnimateRef.current) return; // If animation has occurred, do nothing
       line.style.display = 'block';
       let height = 100;
       const frameAnimation = setInterval(() => {
@@ -23,32 +23,16 @@ const PhotoFrame = ({ image }) => {
         if (height <= 0) {
           clearInterval(frameAnimation);
           image.style.opacity = '1';
+          didAnimateRef.current = true; // Set animation to occurred
         }
       }, 50);
     };
 
-    // Cleanup
-    const cleanup = () => {
-      frame.removeEventListener('mouseenter', animateFrame);
-    };
-
-    // Event listener
-    frame.addEventListener('mouseenter', animateFrame);
-
-    // Load event listener
-    const handleImageLoad = () => {
-      animateFrame();
-    };
-    image.addEventListener('load', handleImageLoad);
-
-    return () => {
-      cleanup();
-      image.removeEventListener('load', handleImageLoad);
-    };
-  }, [image]);
+    animateFrame(); // Directly call the animation function
+  }, [image]); // Remove didAnimate from dependency array
 
   return (
-    <div className="PhotoFrame" ref={frameRef}>
+    <div className="PhotoFrame">
       <div className="PhotoFrameWrapper">
         <img src={image} alt="Image" className="PhotoFrameImage" ref={imageRef} />
       </div>
