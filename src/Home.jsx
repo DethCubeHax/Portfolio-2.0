@@ -11,7 +11,7 @@ import Work from './assets/Work.png';
 
 import { initializeParticles } from './components/Particles';
 import typewriter from './components/Typewriter';
-import Terminal from './components/Console';
+import Terminal from './components/Terminal';
 import NavPanel from './NavPanel';
 import Sidebar from './Sidebar';
 import Links from './Links';
