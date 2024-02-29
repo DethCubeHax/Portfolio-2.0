@@ -117,9 +117,6 @@ const Terminal = () => {
               // If it's not there, add it
               response = `I am ${calculateAge()} years old.`;
               break;
-            case 'love':
-              response = "Maybe try navigating to nafisui.com/love ;)";
-              break;
             case 'navigate':
               response = "You can navigate the site by hovering on the navbar to the right on PC, or by clicking on the hamburger menu if you're on mobile.";
               break;
@@ -130,9 +127,6 @@ const Terminal = () => {
             default:
               break;
           }
-        }
-        else if (consoleCommand === 'love') {
-          response = "Maybe try navigating to nafisui.com/love ;)... Still under construction though sighhh";
         }
         else {
           response = "Sorry, that command does not exist. Try typing 'help' to get a list of valid commands.";

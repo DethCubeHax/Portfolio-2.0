@@ -9,6 +9,7 @@ import WorkIcon from './assets/Work.png';
 import RA from './assets/RA.jpg';
 import Webviz from './assets/Webviz.jpg';
 import HamburgerMenu from './assets/HamburgerMenu.png';
+import RA_Robotics from './assets/RA_Robotics.jpg';
 
 import { initializeParticles } from './components/Particles';
 import typewriter from './components/Typewriter';
@@ -107,7 +108,7 @@ const Work = () => {
                         <img className='ProjectImageHolder' src={RA} />
                         <div className={`ProjectDate ${isDescriptionShown(0) ? 'show' : ''}`}>
                             <img src={Calendar} />
-                            <div>May 2022 - Aug 2022</div>
+                            <div>May 2022 - Apr 2023</div>
                         </div>
                         <div className="GitHubLink">
                             <img src={WorkIcon} />
@@ -127,6 +128,7 @@ const Work = () => {
                             <div>In 3 months, I worked as a Student Research Assistant to develop a digital twin of the <a href="https://innowings.engg.hku.hk/">Innovation Wing</a> compound at HKU, with interactable VR objects.</div>
                             <div>The 3D model was developed from scratch using the CAD model of the Innovation Wing with the textures applied.</div>
                             <div>During the COVID-19 pandemic, the twin was used to co-host the 7th Engineering Innoshow to allow guests to attend the event online, garnering over 4000 visitors.</div>
+                            <div>Finally, I was honoured with the opportunity to teach a group of students across various faculties on how to create similar 3D models and deploy their own game in Unity.</div>
                         </div>
                     </div>
                 </div>
@@ -162,6 +164,42 @@ const Work = () => {
                         <div className={descriptionClassName(1)}>
                             <div>Equipped with my vast knowledge of software development while at BREED HKU, I developed a LiDAR and Camera feed visualizer on a web interface using Vite.JS and Three.JS, alongside ROS. This interface could detect and draw bounding boxes around vehnicles and pedestrians, and allowed the user to add collision detectors of any shape or form to detect if an object passed through it.</div>
                             <div>I also developed a module for Blender to simulate a LiDAR object and obtain LiDAR samples from scenes within Blender, which the company is using to simulate landslides and collect samples to train an AI to detect landslides.</div>
+                        </div>
+                    </div>
+                </div>
+                {/* Project #3 */}
+                <div className="ProjectCard">
+                    <div
+                        className={`ProjectCardContent ${showProjects ? 'show' : ''}`}
+                        onClick={() => toggleDescription(2)}
+                    >
+                        <div className='ProjectCardTitle'>
+                            Student RA (Robotics)
+                        </div>
+                        <img className='ProjectImageHolder' src={RA_Robotics} />
+                        <div className={`ProjectDate ${isDescriptionShown(2) ? 'show' : ''}`}>
+                            <img src={Calendar} />
+                            <div>May 2023 - Aug 2023</div>
+                        </div>
+                        <div className="GitHubLink">
+                            <img src={WorkIcon} />
+                            <a href="https://www.hku.hk/" rel="noopener noreferrer">
+                                The University of Hong Kong
+                            </a>
+                        </div>
+                        <div className={`ProjectDate ${isDescriptionShown(2) ? 'show' : ''}`}>
+                            <img src={Tools} />
+                            <div>ROS, MoveIt, Python, OpenCV, ML</div>
+                        </div>
+                        <div className={`ProjectDate ${isDescriptionShown(2) ? 'show' : ''}`}>
+                            <img src={Description} />
+                            <div>Description: {descriptionText}</div>
+                        </div>
+                        <div className={descriptionClassName(2)}>
+                        <div> I have been developing a software stack using language models (LLMs) to convert generic user textual input into robot arm motor commands. This allows a user to control a robot arm through natural language interactions. </div> 
+                        <div> Initially, I evaluated camera information from an Intel RealSense D435 depth camera to obtain the transformation between the camera frame and my robot's base frame. </div> 
+                        <div> Currently, I am leading an investigation into suitable text-to-image object classification and language models. </div> 
+                        <div> At the same time, I am directing development of a ROS MoveIt simulation environment. This will allow testing and refining the system's motion planning. </div>
                         </div>
                     </div>
                 </div>
