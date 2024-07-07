@@ -1,6 +1,6 @@
 {
     "title": "Student RA",
-    "image": "./assets/RA.jpg",
+    "image": "../assets/RA.jpg",
     "date": "May 2022 - Apr 2023",
     "company": "The University of Hong Kong",
     "companyLink": "https://www.hku.hk/",
