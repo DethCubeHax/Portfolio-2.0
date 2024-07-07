@@ -20,7 +20,7 @@ import typewriter from './components/Typewriter';
 import NavPanel from './NavPanel';
 import Sidebar from './Sidebar';
 
-import projectsData from './projects/projects.json';
+import projectsData from './data/projects.json';
 
 const Projects = () => {
     const canvasRef = useRef(null);

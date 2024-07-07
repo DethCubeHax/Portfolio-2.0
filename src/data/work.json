@@ -1,0 +1,64 @@
+[
+    {
+        "title": "SME Banking Intern",
+        "image": "SCB",
+        "date": "Aug 2023 - Present",
+        "company": {
+            "name": "Standard Chartered Bank",
+            "url": "https://www.sc.com/hk/"
+        },
+        "tools": "Digital Platforms, Payment Systems, E-commerce",
+        "description": [
+            "Working in the SME Banking division on digital transformation and financial services innovation.",
+            "Developing and testing the SME Express digital platform, including digital signatures, ID verification, and straight-through processing.",
+            "Contributing to Project Keystone for digital onboarding and a KYC proof of concept with HKMA.",
+            "Developing a digital payment partnership program and the second phase of an e-commerce financing program for SMEs."
+        ]
+    },
+    {
+        "title": "Student RA (Robotics)",
+        "image": "RA_Robotics",
+        "date": "May 2023 - Aug 2023",
+        "company": {
+            "name": "The University of Hong Kong",
+            "url": "https://www.hku.hk/"
+        },
+        "tools": "ROS, MoveIt, Python, OpenCV, ML",
+        "description": [
+            "I have been developing a software stack using language models (LLMs) to convert generic user textual input into robot arm motor commands. This allows a user to control a robot arm through natural language interactions.",
+            "Initially, I evaluated camera information from an Intel RealSense D435 depth camera to obtain the transformation between the camera frame and my robot's base frame.",
+            "Currently, I am leading an investigation into suitable text-to-image object classification and language models.",
+            "At the same time, I am directing development of a ROS MoveIt simulation environment. This will allow testing and refining the system's motion planning."
+        ]
+    },
+    {
+        "title": "Software Engineer",
+        "image": "Webviz",
+        "date": "May 2023 - Aug 2023",
+        "company": {
+            "name": "Kodifly Limited",
+            "url": "https://www.kodifly.com/"
+        },
+        "tools": "Vite.JS, ROS, Blender, Python",
+        "description": [
+            "Equipped with my vast knowledge of software development while at BREED HKU, I developed a LiDAR and Camera feed visualizer on a web interface using Vite.JS and Three.JS, alongside ROS. This interface could detect and draw bounding boxes around vehicles and pedestrians, and allowed the user to add collision detectors of any shape or form to detect if an object passed through it.",
+            "I also developed a module for Blender to simulate a LiDAR object and obtain LiDAR samples from scenes within Blender, which the company is using to simulate landslides and collect samples to train an AI to detect landslides."
+        ]
+    },
+    {
+        "title": "Student RA",
+        "image": "RA",
+        "date": "May 2022 - Apr 2023",
+        "company": {
+            "name": "The University of Hong Kong",
+            "url": "https://www.hku.hk/"
+        },
+        "tools": "Unity, Blender, Quest SDK",
+        "description": [
+            "In 3 months, I worked as a Student Research Assistant to develop a digital twin of the Innovation Wing compound at HKU, with interactable VR objects.",
+            "The 3D model was developed from scratch using the CAD model of the Innovation Wing with the textures applied.",
+            "During the COVID-19 pandemic, the twin was used to co-host the 7th Engineering Innoshow to allow guests to attend the event online, garnering over 4000 visitors.",
+            "Finally, I was honoured with the opportunity to teach a group of students across various faculties on how to create similar 3D models and deploy their own game in Unity."
+        ]
+    }
+]

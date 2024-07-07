@@ -18,10 +18,7 @@ import typewriter from './components/Typewriter';
 import NavPanel from './NavPanel';
 import Sidebar from './Sidebar';
 
-import studentRAData from './work/studentRA.json';
-import softwareEngineerData from './work/softwareEngineer.json';
-import studentRARoboticsData from './work/studentRARobotics.json';
-import scb from './work/scb.json';
+import workExperiencesData from './data/work.json';
 
 const Work = () => {
     const canvasRef = useRef(null);
@@ -31,8 +28,6 @@ const Work = () => {
     const [showDescriptionIndex, setShowDescriptionIndex] = useState(null);
     const [showSidebar, setShowSidebar] = useState(false);
     const [isSidebarVisible, setIsSidebarVisible] = useState(false);
-
-    const workExperiences = [scb, studentRARoboticsData,  softwareEngineerData, studentRAData ];
 
     const imageMap = {
         RA: RA,
@@ -107,7 +102,7 @@ const Work = () => {
 
             {window.innerWidth > 600 && <div className='Spacer'></div>}
             <div className="ContentWindow">
-                {workExperiences.map((experience, index) => (
+                {workExperiencesData.map((experience, index) => (
                     <div className="ProjectCard" key={index}>
                         <div
                             className={`ProjectCardContent ${showProjects ? 'show' : ''}`}
@@ -123,7 +118,7 @@ const Work = () => {
                             </div>
                             <div className="GitHubLink">
                                 <img src={WorkIcon} alt="Work Icon" />
-                                <a href={experience.company.url} rel="noopener noreferrer">
+                                <a href={experience.company.url} target="_blank" rel="noopener noreferrer">
                                     {experience.company.name}
                                 </a>
                             </div>
