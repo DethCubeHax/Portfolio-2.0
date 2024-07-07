@@ -90,7 +90,7 @@ a:hover{
 .ProjectDate{
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
+    justify-content: left;
     padding-left: 5%;
     align-items: center;
     margin-left: 10px;
@@ -110,7 +110,6 @@ a:hover{
     font-weight: bold;
     color: white;
     text-decoration: none;
-    justify-content: space-between;
 }
 
 .Description{
@@ -119,7 +118,7 @@ a:hover{
     font-weight: bold;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    justify-content: left;
     padding-left: 7%;
     align-items: flex-start;
     margin-left: 10px;
@@ -145,7 +144,7 @@ a:hover{
     font-size: 1em;
     display: flex;
     flex-direction: column;
-    justify-content: space-between !important;
+    justify-content: left;
     padding-left: 7%;
     padding-right: 7%;
     text-align: left;
@@ -159,10 +158,6 @@ a:hover{
     max-height: 0; /* Instantly collapse the description div */
     transition: max-height 0.3s;
   }
-
-.JustifyText{
-    justify-content: space-between;
-}
 
 @media (min-width: 500px) {
     .ParticleCanvas {
