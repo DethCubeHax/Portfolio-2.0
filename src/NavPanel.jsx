@@ -43,7 +43,7 @@ const NavPanel = () => {
         <img src={Blog} className="NavPanelButton" alt="Art" />
         <div>Blog</div>
       </a>
-      <a className="PanelButtonContainer" href="./assets/Resume.pdf" target="_blank" rel="noopener noreferrer">
+      <a className="PanelButtonContainer" href="/files/Resume.pdf" target="_blank" rel="noopener noreferrer">
         <img src={Resume} className="NavPanelButton" alt="Resume" />
         <div>Resume</div>
       </a>
