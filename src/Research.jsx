@@ -6,14 +6,15 @@ import Calendar from './assets/Calendar.png';
 import Description from './assets/Description.png';
 import ResearchIcon from './assets/Research.png';
 import WorkIcon from './assets/Work.png';
-import UnderwaterComms from './assets/UnderwaterComms.png';
 import HamburgerMenu from './assets/HamburgerMenu.png';
+import UnderwaterComms from './assets/UnderwaterComms.png'
 
 import { initializeParticles } from './components/Particles';
 import typewriter from './components/Typewriter';
 import NavPanel from './NavPanel';
-import Links from './Links';
 import Sidebar from './Sidebar';
+
+import researchData from './data/research.json';
 
 const Research = () => {
     const canvasRef = useRef(null);
@@ -24,6 +25,11 @@ const Research = () => {
     const [showSidebar, setShowSidebar] = useState(false);
     const [isSidebarVisible, setIsSidebarVisible] = useState(false);
 
+    const imageMap = {
+        UnderwaterComms: UnderwaterComms,
+        // Add other image mappings here
+    };
+
     useEffect(() => {
         const cleanup = initializeParticles(canvasRef);
 
@@ -32,7 +38,7 @@ const Research = () => {
 
         const timer = setTimeout(() => {
             setShowProjects(true);
-        }, 1000); // Wait for 1 second before showing the projects
+        }, 1000);
 
         return () => {
             clearTimeout(timer);
@@ -40,32 +46,23 @@ const Research = () => {
         };
     }, []);
 
-
     useEffect(() => {
         setIsSidebarVisible(showSidebar);
-      }, [showSidebar]);
+    }, [showSidebar]);
 
     useEffect(() => {
         if (showProjects) {
             const projectCards = document.querySelectorAll('.ProjectCard');
             projectCards.forEach((card, index) => {
-                if (index === 0) {
+                setTimeout(() => {
                     card.classList.add('show');
-                } else {
-                    setTimeout(() => {
-                        card.classList.add('show');
-                    }, index * 500); // Delay each card by 500 milliseconds
-                }
+                }, index * 500);
             });
         }
     }, [showProjects]);
 
     const toggleDescription = (index) => {
-        if (showDescriptionIndex === index) {
-            setShowDescriptionIndex(null);
-        } else {
-            setShowDescriptionIndex(index);
-        }
+        setShowDescriptionIndex(showDescriptionIndex === index ? null : index);
     };
 
     const isDescriptionShown = (index) => showDescriptionIndex === index;
@@ -87,47 +84,46 @@ const Research = () => {
                     <div className="HomeHeaderTitleButtonHolder"></div>
                 </div>
                 {window.innerWidth < 600 && 
-                  <div className="HomeHeaderTitleButtonHolder" style={{paddingRight: "10px"}}>
-                    <img src={HamburgerMenu} className="HomeHeaderTitleButton" alt="Hamburger Menu" style={{zIndex:"2000"}} onClick={() => setShowSidebar((prevState) => !prevState)}/>
-                  </div>}
+                    <div className="HomeHeaderTitleButtonHolder" style={{paddingRight: "10px"}}>
+                        <img src={HamburgerMenu} className="HomeHeaderTitleButton" alt="Hamburger Menu" style={{zIndex:"2000"}} onClick={() => setShowSidebar((prevState) => !prevState)}/>
+                    </div>
+                }
             </div>
             <div className="ContentWindow">
-                {/* Project #1, GPAID HKU Alpha */}
-                <div className="ProjectCard">
-                    <div
-                        className={`ProjectCardContent ${showProjects ? 'show' : ''}`}
-                        onClick={() => toggleDescription(0)}
-                    >
-                        <div className='ProjectCardTitle'>
-                        Design and Implementation of a Cost-Efficient Underwater Communication System
-                        </div>
-                        <img className='ProjectImageHolder' src={UnderwaterComms} />
-                        <div className={`ProjectDate ${isDescriptionShown(0) ? 'show' : ''}`}>
-                            <img src={Calendar} />
-                            <div>Jan 2023 - Mar 2023</div>
-                        </div>
-                        <div className="GitHubLink">
-                            <img src={ResearchIcon} />
-                            <a href="https://isam2023.exordo.com/files/papers/78/final_draft/N_U_Islam__K_L_Chung__T_J_K_Ng__78.pdf" rel="noopener noreferrer">
-                                Publication
-                            </a>
-                        </div>
-                        <div className="GitHubLink">
-                            <img src={WorkIcon} />
-                            <a href="https://isam2023.hemi-makers.org/" rel="noopener noreferrer">
-                                ISAM 2023
-                            </a>
-                        </div>
-                        <div className={`ProjectDate ${isDescriptionShown(0) ? 'show' : ''}`}>
-                            <img src={Description} />
-                            <div>Description: {descriptionText}</div>
-                        </div>
-                        <div className={descriptionClassName(0)}>
-                            <div>Recognizing the importance of underwater communication between the control stations and the robots, I, alongside two other engineers developed a stable and robust communication system on a low budget. This paper presents our prototyping, methodology and the performance of the system</div>
-                            <div>The controller comprises of a drop-in, easy to build PCB designed using EasyEDA, with 2 joysticks, 1 potentiometer and 2 push buttons that can be mapped to any control for a range of underwater robots.</div>
+                {researchData.projects.map((project, index) => (
+                    <div className="ProjectCard" key={index}>
+                        <div
+                            className={`ProjectCardContent ${showProjects ? 'show' : ''}`}
+                            onClick={() => toggleDescription(index)}
+                        >
+                            <div className='ProjectCardTitle'>
+                                {project.title}
+                            </div>
+                            <img className='ProjectImageHolder' src={imageMap[project.image]} alt={project.title} />
+                            <div className={`ProjectDate ${isDescriptionShown(index) ? 'show' : ''}`}>
+                                <img src={Calendar} alt="Calendar" />
+                                <div>{project.date}</div>
+                            </div>
+                            {project.links.map((link, linkIndex) => (
+                                <div className="GitHubLink" key={linkIndex}>
+                                    <img src={link.icon === 'ResearchIcon' ? ResearchIcon : WorkIcon} alt={link.text} />
+                                    <a href={link.url} target="_blank" rel="noopener noreferrer">
+                                        {link.text}
+                                    </a>
+                                </div>
+                            ))}
+                            <div className={`ProjectDate ${isDescriptionShown(index) ? 'show' : ''}`}>
+                                <img src={Description} alt="Description" />
+                                <div>Description: {descriptionText}</div>
+                            </div>
+                            <div className={descriptionClassName(index)}>
+                                {project.description.split('\n').map((paragraph, i) => (
+                                    <div key={i}>{paragraph}</div>
+                                ))}
+                            </div>
                         </div>
                     </div>
-                </div>
+                ))}
             </div>
             <canvas className="Particles" ref={canvasRef}></canvas>
             {window.innerWidth > 600 && <NavPanel />}
