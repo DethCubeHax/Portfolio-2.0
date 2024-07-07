@@ -1,9 +1,11 @@
 {
     "title": "SME Banking Intern",
-    "image": "../assets/scb.jpg",
+    "image": "SCB",
     "date": "Aug 2023 - Present",
-    "company": "Standard Chartered",
-    "companyLink": "https://www.sc.com/",
+    "company": {
+      "name": "Standard Chartered Bank",
+      "url": "https://www.sc.com/hk/"
+    },
     "tools": "Digital Platforms, Payment Systems, E-commerce",
     "description": [
       "Working in the SME Banking division on digital transformation and financial services innovation.",
