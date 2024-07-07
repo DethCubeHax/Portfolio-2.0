@@ -58,7 +58,7 @@ const Sidebar = ({ onClose }) => {
                 <img src={Instagram} className="NavElementImage" alt="DethCubeHax" />
                 <div className="NavElementText">Instagram</div>
             </a>
-            <a className="NavElement" href="/files/Resume.pdf">
+            <a className="NavElement" href="/Resume.pdf">
                 <img src={Resume} className="NavElementImage" alt="DethCubeHax" />
                 <div className="NavElementText">Resume</div>
             </a>
