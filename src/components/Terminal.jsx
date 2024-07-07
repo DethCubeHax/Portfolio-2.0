@@ -1,6 +1,12 @@
 import React, { useState, useRef, useEffect } from 'react';
 import './Terminal.css';
 
+// Import JSON data
+import projectsData from '../data/projects.json';
+import workData from '../data/work.json';
+import researchData from '../data/research.json';
+import blogsData from '../data/blog.json';
+
 // Command component
 const Command = ({ commandObj, username, age }) => {
   const [displayedResponse, setDisplayedResponse] = useState("");
@@ -49,7 +55,7 @@ const Terminal = () => {
   const [commandHistory, setCommandHistory] = useState([]);
   const [isUsernameSet, setIsUsernameSet] = useState(false);
 
-  const validCommands = ['help', 'projects', 'work-experiences', 'publications', 'blogs', 'contact', 'clear', 'age', 'navigate'];
+  const validCommands = ['help', 'projects', 'work', 'publications', 'blogs', 'contact', 'clear', 'age', 'navigate'];
 
   const calculateAge = () => {
     const birthdate = new Date("2002-08-17");
@@ -76,8 +82,6 @@ const Terminal = () => {
     inputRef.current.focus();
   }, []);
 
-
-
   const handleCommand = (e) => {
     if (e.key === "Enter") {
       e.preventDefault();
@@ -93,16 +97,16 @@ const Terminal = () => {
               response = "List of valid commands: " + validCommands.join(', ');
               break;
             case 'projects':
-              response = "I have 6 projects.";
+              response = `I have ${projectsData.length} projects.`;
               break;
-            case 'work-experiences':
-              response = "I have worked at 2 companies before.";
+            case 'work':
+              response = `I have worked at ${workData.length} companies before.`;
               break;
             case 'publications':
-              response = "I have 1 publication.";
+              response = `I have ${researchData.projects.length} research project${researchData.projects.length !== 1 ? 's' : ''}.`
               break;
             case 'blogs':
-              response = "I have 2 blog posts.";
+              response = `I have ${blogsData.length} blog posts.`;
               break;
             case 'contact':
               response = "My email is at nafisulislam2k2@gmail.com";

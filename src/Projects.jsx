@@ -127,7 +127,7 @@ const Projects = () => {
                             </div>
                             <div className={`ProjectDate ${isDescriptionShown(index) ? 'show' : ''}`}>
                                 <img src={Description} alt="Description" />
-                                <div>Description: {descriptionText}</div>
+                                <div >Description: {descriptionText}</div>
                             </div>
                             <div className={descriptionClassName(index)}>
                                 {project.description}
