@@ -11,13 +11,8 @@ import typewriter from './components/Typewriter';
 import NavPanel from './NavPanel';
 import Sidebar from './Sidebar';
 
-// Import blog posts
-import blogPost1 from './blogpages/blogPost1.json';
-import blogPost2 from './blogpages/blogPost2.json';
-// import additional blog posts here...
-
-// Create an array of the blog posts
-const blogPosts = [blogPost1, blogPost2 /*, additional blog posts...*/];
+// Import blog posts from JSON file
+import blogPosts from './data/blog.json';
 
 const Research = () => {
     const canvasRef = useRef(null);
@@ -70,8 +65,6 @@ const Research = () => {
         setExpandedPostIndex(expandedPostIndex === index ? null : index);
     };
 
-
-
     return (
         <div className="Home" id="Home">
             <Analytics />
@@ -93,11 +86,11 @@ const Research = () => {
                 <div className='BlogContent'>
                     {blogPosts.map((post, index) => {
                         // Split the date into an array [day, month, year]
-                        const dateParts = post.date.split(',');
+                        const dateParts = post.date.split(' ');
                         // Define the string to use for the date on desktop screens
                         const desktopDate = post.date;
-                        // Define the string to use for the date on mobile screens (day and month, newline between)
-                        const mobileDate = `${dateParts[0]}`;
+                        // Define the string to use for the date on mobile screens (day and month)
+                        const mobileDate = `${dateParts[1]} ${dateParts[0]}`;
 
                         return (
                             <p
