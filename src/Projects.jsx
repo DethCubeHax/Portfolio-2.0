@@ -25,6 +25,7 @@ import projectsData from './data/projects.json';
 const Projects = () => {
     const canvasRef = useRef(null);
     const titleMNTextRef = useRef(null);
+    const titleLNTextRef = useRef(null);
     const [showProjects, setShowProjects] = useState(false);
     const [showDescriptionIndex, setShowDescriptionIndex] = useState(null);
     const [showSidebar, setShowSidebar] = useState(false);
@@ -41,7 +42,8 @@ const Projects = () => {
     useEffect(() => {
         const cleanup = initializeParticles(canvasRef);
 
-        typewriter(titleMNTextRef.current, 'Projects', 100, 0);
+        typewriter(titleMNTextRef.current, 'My', 100, 0);
+        typewriter(titleLNTextRef.current, 'Projects', 100, 0.3);
 
         const timer = setTimeout(() => {
             setShowProjects(true);
@@ -86,6 +88,7 @@ const Projects = () => {
                 <div className="HomeHeaderTitle">
                     <div className="HomeHeaderTitleHolder">
                         <div className="HomeHeaderTitleMN" ref={titleMNTextRef}></div>
+                        <div className="HomeHeaderTitleLN" ref={titleLNTextRef}></div>
                     </div>
                     <div className="HomeHeaderTitleButtonHolder"></div>
                 </div>
