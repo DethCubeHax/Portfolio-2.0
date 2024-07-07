@@ -6,15 +6,18 @@ import Calendar from './assets/Calendar.png';
 import Tools from './assets/Tools.png';
 import Description from './assets/Description.png';
 import WorkIcon from './assets/Work.png';
-import RA from './assets/RA.jpg';
-import Webviz from './assets/Webviz.jpg';
 import HamburgerMenu from './assets/HamburgerMenu.png';
-import RA_Robotics from './assets/RA_Robotics.jpg';
 
 import { initializeParticles } from './components/Particles';
 import typewriter from './components/Typewriter';
 import NavPanel from './NavPanel';
 import Sidebar from './Sidebar';
+
+// Import JSON data
+import studentRA from './work/studentRA.json';
+import softwareEngineer from './work/softwareEngineer.json';
+import studentRARobotics from './work/studentRARobotics.json';
+import scb from './work/scb.json';
 
 const Work = () => {
     const canvasRef = useRef(null);
@@ -24,8 +27,23 @@ const Work = () => {
     const [showDescriptionIndex, setShowDescriptionIndex] = useState(null);
     const [showSidebar, setShowSidebar] = useState(false);
     const [isSidebarVisible, setIsSidebarVisible] = useState(false);
+    const [images, setImages] = useState({});
+
+    const workExperiences = [scb, studentRARobotics, softwareEngineer, studentRA ];
 
     useEffect(() => {
+        const loadImages = async () => {
+            const imageModules = await Promise.all(
+                workExperiences.map(experience => import(`${experience.image}`))
+            );
+            const loadedImages = {};
+            imageModules.forEach((module, index) => {
+                loadedImages[workExperiences[index].image] = module.default;
+            });
+            setImages(loadedImages);
+        };
+
+        loadImages();
         const cleanup = initializeParticles(canvasRef);
 
         typewriter(titleMNTextRef.current, 'Work', 100, 0);
@@ -33,7 +51,7 @@ const Work = () => {
 
         const timer = setTimeout(() => {
             setShowProjects(true);
-        }, 1000); // Wait for 1 second before showing the projects
+        }, 1000);
 
         return () => {
             clearTimeout(timer);
@@ -50,16 +68,15 @@ const Work = () => {
                 } else {
                     setTimeout(() => {
                         card.classList.add('show');
-                    }, index * 500); // Delay each card by 500 milliseconds
+                    }, index * 500);
                 }
             });
         }
     }, [showProjects]);
 
-  useEffect(() => {
-    // Add the fade-in effect to the sidebar
-    setIsSidebarVisible(showSidebar);
-  }, [showSidebar]);
+    useEffect(() => {
+        setIsSidebarVisible(showSidebar);
+    }, [showSidebar]);
 
     const toggleDescription = (index) => {
         if (showDescriptionIndex === index) {
@@ -91,124 +108,54 @@ const Work = () => {
                   <div className="HomeHeaderTitleButtonHolder" style={{ paddingRight: "10px" }}>
                     <img src={HamburgerMenu} className="HomeHeaderTitleButton" alt="Hamburger Menu" style={{zIndex:"2000"}} onClick={() => setShowSidebar((prevState) => !prevState)}/>
                   </div>
-            }
+                }
             </div>
 
             {window.innerWidth > 600 && <div className='Spacer'></div>}
             <div className="ContentWindow">
-                {/* Project #1, GPAID HKU Alpha */}
-                <div className="ProjectCard">
-                    <div
-                        className={`ProjectCardContent ${showProjects ? 'show' : ''}`}
-                        onClick={() => toggleDescription(0)}
-                    >
-                        <div className='ProjectCardTitle'>
-                            Student RA
-                        </div>
-                        <img className='ProjectImageHolder' src={RA} />
-                        <div className={`ProjectDate ${isDescriptionShown(0) ? 'show' : ''}`}>
-                            <img src={Calendar} />
-                            <div>May 2022 - Apr 2023</div>
-                        </div>
-                        <div className="GitHubLink">
-                            <img src={WorkIcon} />
-                            <a href="https://www.hku.hk/" rel="noopener noreferrer">
-                                The University of Hong Kong
-                            </a>
-                        </div>
-                        <div className={`ProjectDate ${isDescriptionShown(0) ? 'show' : ''}`}>
-                            <img src={Tools} />
-                            <div>Unity, Blender, Quest SDK</div>
-                        </div>
-                        <div className={`ProjectDate ${isDescriptionShown(0) ? 'show' : ''}`}>
-                            <img src={Description} />
-                            <div>Description: {descriptionText}</div>
-                        </div>
-                        <div className={descriptionClassName(0)}>
-                            <div>In 3 months, I worked as a Student Research Assistant to develop a digital twin of the <a href="https://innowings.engg.hku.hk/">Innovation Wing</a> compound at HKU, with interactable VR objects.</div>
-                            <div>The 3D model was developed from scratch using the CAD model of the Innovation Wing with the textures applied.</div>
-                            <div>During the COVID-19 pandemic, the twin was used to co-host the 7th Engineering Innoshow to allow guests to attend the event online, garnering over 4000 visitors.</div>
-                            <div>Finally, I was honoured with the opportunity to teach a group of students across various faculties on how to create similar 3D models and deploy their own game in Unity.</div>
-                        </div>
-                    </div>
-                </div>
-
-                {/* Project #2 */}
-                <div className="ProjectCard">
-                    <div
-                        className={`ProjectCardContent ${showProjects ? 'show' : ''}`}
-                        onClick={() => toggleDescription(1)}
-                    >
-                        <div className='ProjectCardTitle'>
-                            Software Engineer
-                        </div>
-                        <img className='ProjectImageHolder' src={Webviz} />
-                        <div className={`ProjectDate ${isDescriptionShown(1) ? 'show' : ''}`}>
-                            <img src={Calendar} />
-                            <div>May 2023 - Aug 2023</div>
-                        </div>
-                        <div className="GitHubLink">
-                            <img src={WorkIcon} />
-                            <a href="https://www.kodifly.com/" rel="noopener noreferrer">
-                                Kodifly Limited
-                            </a>
-                        </div>
-                        <div className={`ProjectDate ${isDescriptionShown(1) ? 'show' : ''}`}>
-                            <img src={Tools} />
-                            <div>Vite.JS, ROS, Blender, Python,</div>
-                        </div>
-                        <div className={`ProjectDate ${isDescriptionShown(1) ? 'show' : ''}`}>
-                            <img src={Description} />
-                            <div>Description: {descriptionText}</div>
-                        </div>
-                        <div className={descriptionClassName(1)}>
-                            <div>Equipped with my vast knowledge of software development while at BREED HKU, I developed a LiDAR and Camera feed visualizer on a web interface using Vite.JS and Three.JS, alongside ROS. This interface could detect and draw bounding boxes around vehnicles and pedestrians, and allowed the user to add collision detectors of any shape or form to detect if an object passed through it.</div>
-                            <div>I also developed a module for Blender to simulate a LiDAR object and obtain LiDAR samples from scenes within Blender, which the company is using to simulate landslides and collect samples to train an AI to detect landslides.</div>
+                {workExperiences.map((experience, index) => (
+                    <div className="ProjectCard" key={index}>
+                        <div
+                            className={`ProjectCardContent ${showProjects ? 'show' : ''}`}
+                            onClick={() => toggleDescription(index)}
+                        >
+                            <div className='ProjectCardTitle'>
+                                {experience.title}
+                            </div>
+                            {images[experience.image] && (
+                                <img className='ProjectImageHolder' src={images[experience.image]} alt={experience.title} />
+                            )}
+                            <div className={`ProjectDate ${isDescriptionShown(index) ? 'show' : ''}`}>
+                                <img src={Calendar} alt="Calendar" />
+                                <div>{experience.date}</div>
+                            </div>
+                            <div className="GitHubLink">
+                                <img src={WorkIcon} alt="Work Icon" />
+                                <a href={experience.companyLink} rel="noopener noreferrer">
+                                    {experience.company}
+                                </a>
+                            </div>
+                            <div className={`ProjectDate ${isDescriptionShown(index) ? 'show' : ''}`}>
+                                <img src={Tools} alt="Tools" />
+                                <div>{experience.tools}</div>
+                            </div>
+                            <div className={`ProjectDate ${isDescriptionShown(index) ? 'show' : ''}`}>
+                                <img src={Description} alt="Description" />
+                                <div>Description: {descriptionText}</div>
+                            </div>
+                            <div className={descriptionClassName(index)}>
+                                {experience.description.map((paragraph, pIndex) => (
+                                    <div key={pIndex}>{paragraph}</div>
+                                ))}
+                            </div>
                         </div>
                     </div>
-                </div>
-                {/* Project #3 */}
-                <div className="ProjectCard">
-                    <div
-                        className={`ProjectCardContent ${showProjects ? 'show' : ''}`}
-                        onClick={() => toggleDescription(2)}
-                    >
-                        <div className='ProjectCardTitle'>
-                            Student RA (Robotics)
-                        </div>
-                        <img className='ProjectImageHolder' src={RA_Robotics} />
-                        <div className={`ProjectDate ${isDescriptionShown(2) ? 'show' : ''}`}>
-                            <img src={Calendar} />
-                            <div>May 2023 - Aug 2023</div>
-                        </div>
-                        <div className="GitHubLink">
-                            <img src={WorkIcon} />
-                            <a href="https://www.hku.hk/" rel="noopener noreferrer">
-                                The University of Hong Kong
-                            </a>
-                        </div>
-                        <div className={`ProjectDate ${isDescriptionShown(2) ? 'show' : ''}`}>
-                            <img src={Tools} />
-                            <div>ROS, MoveIt, Python, OpenCV, ML</div>
-                        </div>
-                        <div className={`ProjectDate ${isDescriptionShown(2) ? 'show' : ''}`}>
-                            <img src={Description} />
-                            <div>Description: {descriptionText}</div>
-                        </div>
-                        <div className={descriptionClassName(2)}>
-                        <div> I have been developing a software stack using language models (LLMs) to convert generic user textual input into robot arm motor commands. This allows a user to control a robot arm through natural language interactions. </div> 
-                        <div> Initially, I evaluated camera information from an Intel RealSense D435 depth camera to obtain the transformation between the camera frame and my robot's base frame. </div> 
-                        <div> Currently, I am leading an investigation into suitable text-to-image object classification and language models. </div> 
-                        <div> At the same time, I am directing development of a ROS MoveIt simulation environment. This will allow testing and refining the system's motion planning. </div>
-                        </div>
-                    </div>
-                </div>
+                ))}
             </div>
             <canvas className="Particles" ref={canvasRef}></canvas>
             {window.innerWidth > 600 && <NavPanel />}
 
             {isSidebarVisible && <Sidebar onClose={() => setShowSidebar((prevState) => !prevState)} />}
-
         </div>
     );
 };

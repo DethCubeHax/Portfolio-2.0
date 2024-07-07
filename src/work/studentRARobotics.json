@@ -1,0 +1,14 @@
+{
+    "title": "Student RA (Robotics)",
+    "image": "./assets/RA_Robotics.jpg",
+    "date": "Jan 2024 - May 2024",
+    "company": "The University of Hong Kong",
+    "companyLink": "https://www.hku.hk/",
+    "tools": "ROS, MoveIt, Python, OpenCV, ML",
+    "description": [
+      "I have been developing a software stack using language models (LLMs) to convert generic user textual input into robot arm motor commands. This allows a user to control a robot arm through natural language interactions.",
+      "Initially, I evaluated camera information from an Intel RealSense D435 depth camera to obtain the transformation between the camera frame and my robot's base frame.",
+      "Currently, I am leading an investigation into suitable text-to-image object classification and language models.",
+      "At the same time, I am directing development of a ROS MoveIt simulation environment. This will allow testing and refining the system's motion planning."
+    ]
+  }

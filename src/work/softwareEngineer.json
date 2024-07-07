@@ -1,0 +1,12 @@
+{
+    "title": "Software Engineer",
+    "image": "./assets/Webviz.jpg",
+    "date": "May 2023 - Aug 2023",
+    "company": "Kodifly Limited",
+    "companyLink": "https://www.kodifly.com/",
+    "tools": "Vite.JS, ROS, Blender, Python",
+    "description": [
+      "Equipped with my vast knowledge of software development while at BREED HKU, I developed a LiDAR and Camera feed visualizer on a web interface using Vite.JS and Three.JS, alongside ROS. This interface could detect and draw bounding boxes around vehicles and pedestrians, and allowed the user to add collision detectors of any shape or form to detect if an object passed through it.",
+      "I also developed a module for Blender to simulate a LiDAR object and obtain LiDAR samples from scenes within Blender, which the company is using to simulate landslides and collect samples to train an AI to detect landslides."
+    ]
+  }

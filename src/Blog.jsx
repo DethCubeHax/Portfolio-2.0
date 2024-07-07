@@ -5,6 +5,7 @@ import './Blog.css';
 
 import HamburgerMenu from './assets/HamburgerMenu.png';
 
+import { Analytics } from "@vercel/analytics/react"
 import { initializeParticles } from './components/Particles';
 import typewriter from './components/Typewriter';
 import NavPanel from './NavPanel';
@@ -73,6 +74,7 @@ const Research = () => {
 
     return (
         <div className="Home" id="Home">
+            <Analytics />
             <div className="HomeHeader">
                 <div></div>
                 <div className="HomeHeaderTitle">
