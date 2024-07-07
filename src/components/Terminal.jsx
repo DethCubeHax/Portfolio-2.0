@@ -103,7 +103,7 @@ const Terminal = () => {
               response = `I have worked at ${workData.length} companies before.`;
               break;
             case 'publications':
-              response = `I have ${researchData.projects.length} research project${researchData.projects.length !== 1 ? 's' : ''}.`
+              response = `I have ${researchData.projects.length} research publication${researchData.projects.length !== 1 ? 's' : ''}.`
               break;
             case 'blogs':
               response = `I have ${blogsData.length} blog posts.`;
