@@ -5,7 +5,7 @@ import './Projects.css';
 import Calendar from './assets/Calendar.png';
 import Tools from './assets/Tools.png';
 import Description from './assets/Description.png';
-import GitHubIcon from './assets/GitHub.png';
+import GitHubIcon from './assets/Github.png';
 import HamburgerMenu from './assets/HamburgerMenu.png';
 
 // Import project images
