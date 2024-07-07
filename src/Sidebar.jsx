@@ -9,6 +9,7 @@ import Mail from './assets/Mail.png';
 import LinkedIn from './assets/LinkedIn.png';
 import GitHub from './assets/Github.png';
 import Instagram from './assets/Instagram.png';
+import Resume from './assets/Resume.png';
 import './Sidebar.css';
 import { redirect } from 'react-router-dom';
 
@@ -57,11 +58,16 @@ const Sidebar = ({ onClose }) => {
                 <img src={Instagram} className="NavElementImage" alt="DethCubeHax" />
                 <div className="NavElementText">Instagram</div>
             </a>
+            <a className="NavElement" href="./assets/Resume.pdf">
+                <img src={Resume} className="NavElementImage" alt="DethCubeHax" />
+                <div className="NavElementText">Resume</div>
+            </a>
             {/* Mail to "ultimate.nafis.bhadra11@gmail.com" */}
             <a className="NavElement" href="mailto:ultimate.nafis.bhadra11@gmail.com">
                 <img src={Mail} className="NavElementImage" alt="DethCubeHax" />
                 <div className="NavElementText">Contact</div>
             </a>
+
         </div>
     );
 };

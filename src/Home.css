@@ -183,7 +183,7 @@ and line up on the bottom
     height: 80px;
     background-color: #595b78;
     right: 40px;
-    top: calc(50% - 220px);
+    top: calc(50% - 240px);
     border-radius: 40px;
     transition: width 0.5s ease, height 0.5s ease, background-color 0.5s ease;
     z-index: 10000;
@@ -196,7 +196,7 @@ and line up on the bottom
 
 .NavPanel.loaded {
     width: 80px;
-    height: 440px;
+    height: 510px;
     transition: width 0.5s ease, height 0.5s ease;
 }
 

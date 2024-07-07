@@ -6,6 +6,8 @@ import Work from './assets/Work.png';
 import Project from './assets/Project.png';
 import Blog from './assets/Blog.png';
 import Mail from './assets/Mail.png';
+import Resume from './assets/Resume.png';
+
 const NavPanel = () => {
   const [isLoaded, setIsLoaded] = useState(false);
 
@@ -20,7 +22,6 @@ const NavPanel = () => {
   }, []);
 
   return (
-
     <div className={`NavPanel${isLoaded ? ' loaded' : ''}`}>
       <a className='PanelButtonContainer' href="/">
         <img src={DethCubeHax} className="NavPanelButton" alt="DethCubeHax" />
@@ -30,7 +31,6 @@ const NavPanel = () => {
         <img src={Project} className="NavPanelButton" alt="Project" />
         <div>Projects</div>
       </a>
-
       <a className='PanelButtonContainer' href="work">
         <img src={Work} className="NavPanelButton" alt="Work" />
         <div>Work</div>
@@ -43,12 +43,14 @@ const NavPanel = () => {
         <img src={Blog} className="NavPanelButton" alt="Art" />
         <div>Blog</div>
       </a>
+      <a className="PanelButtonContainer" href="src/assets/Resume.pdf" target="_blank" rel="noopener noreferrer">
+        <img src={Resume} className="NavPanelButton" alt="Resume" />
+        <div>Resume</div>
+      </a>
       <a className='PanelButtonContainer' href="mailto:ultimate.nafis.bhadra11@gmail.com">
         <img src={Mail} className="NavPanelButton" alt="Mail" />
         <div>Mail</div>
       </a>
-
-
     </div>
   );
 };
