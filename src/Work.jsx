@@ -17,6 +17,7 @@ import { initializeParticles } from './components/Particles';
 import typewriter from './components/Typewriter';
 import NavPanel from './NavPanel';
 import Sidebar from './Sidebar';
+import Terminal from './components/Terminal';
 
 import workExperiencesData from './data/work.json';
 
@@ -28,6 +29,7 @@ const Work = () => {
     const [showDescriptionIndex, setShowDescriptionIndex] = useState(null);
     const [showSidebar, setShowSidebar] = useState(false);
     const [isSidebarVisible, setIsSidebarVisible] = useState(false);
+    const [isTerminalVisible, setIsTerminalVisible] = useState(false);
 
     const imageMap = {
         RA: RA,
@@ -141,6 +143,20 @@ const Work = () => {
             </div>
             <canvas className="Particles" ref={canvasRef}></canvas>
             {window.innerWidth > 600 && <NavPanel />}
+
+            <div className="help-container">
+                <div className="help-circle" onClick={() => setIsTerminalVisible(prevState => !prevState)}>
+                    <span>?</span>
+                </div>
+
+                {isTerminalVisible && (
+                    <div className={`terminal-container ${isTerminalVisible ? 'visible' : ''}`}>
+                        <div className="terminal-area">
+                            <Terminal />
+                        </div>
+                    </div>
+                )}
+            </div>
 
             {isSidebarVisible && <Sidebar onClose={() => setShowSidebar((prevState) => !prevState)} />}
         </div>

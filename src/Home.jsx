@@ -22,43 +22,48 @@ const Home = () => {
   const titleFNTextRef = useRef(null);
   const titleMNTextRef = useRef(null);
   const titleLNTextRef = useRef(null);
-  const manyMore = useRef(null);
   const [showSkills, setShowSkills] = useState(false);
   const [showSidebar, setShowSidebar] = useState(false);
   const [isSidebarVisible, setIsSidebarVisible] = useState(false);
   const [isTerminalVisible, setIsTerminalVisible] = useState(false);
-  const [isHovered, setIsHovered] = useState(false);
-
-  const handleMouseOver = () => {
-    setIsHovered(true);
-  };
-
-  const handleMouseOut = () => {
-    setIsHovered(false);
-  };
+  const [animationPlayed, setAnimationPlayed] = useState(false);
+  const [showIntroText, setShowIntroText] = useState(false);
 
   useEffect(() => {
     const cleanup = initializeParticles(canvasRef);
+    const hasAnimationPlayed = sessionStorage.getItem('homeAnimationPlayed');
 
-    typewriter(titleFNTextRef.current, 'Nafis', 100, 0);
-    typewriter(titleMNTextRef.current, 'ul', 100, 0.5);
-    typewriter(titleLNTextRef.current, 'Islam', 100, 1);
-    typewriter(
-      canvasTextRef.current,
-      "Hi there! I'm Nafis, aka DethCubeHax, a software engineer in the making.",
-      50,
-      2
-    );
-    typewriter(manyMore.current, 'Need help navigating? Click me!', 50, 6);
-
-    const timer = setTimeout(() => {
+    if (hasAnimationPlayed) {
+      setAnimationPlayed(true);
       setShowSkills(true);
-    }, 2000);
+      setShowIntroText(true);
+    } else {
+      typewriter(titleFNTextRef.current, 'Nafis', 100, 0);
+      typewriter(titleMNTextRef.current, 'ul', 100, 0.5);
+      typewriter(titleLNTextRef.current, 'Islam', 100, 1);
+      
+      setTimeout(() => {
+        setShowIntroText(true);
+        typewriter(
+          canvasTextRef.current,
+          "Hi there! I'm Nafis, aka DethCubeHax, a software engineer in the making.",
+          50,
+          0
+        );
+      }, 2000);
 
-    return () => {
-      clearTimeout(timer);
-      cleanup();
-    };
+      const timer = setTimeout(() => {
+        setShowSkills(true);
+        setAnimationPlayed(true);
+        sessionStorage.setItem('homeAnimationPlayed', 'true');
+      }, 4000);
+
+      return () => {
+        clearTimeout(timer);
+      };
+    }
+
+    return cleanup;
   }, []);
 
   useEffect(() => {
@@ -77,7 +82,6 @@ const Home = () => {
   }, [showSkills]);
 
   useEffect(() => {
-    // Add the fade-in effect to the sidebar
     setIsSidebarVisible(showSidebar);
   }, [showSidebar]);
 
@@ -87,9 +91,19 @@ const Home = () => {
         <div></div>
         <div className="HomeHeaderTitle">
           <div className="HomeHeaderTitleHolder">
-            <div className="HomeHeaderTitleFN" ref={titleFNTextRef}></div>
-            <div className="HomeHeaderTitleMN" ref={titleMNTextRef}></div>
-            <div className="HomeHeaderTitleLN" ref={titleLNTextRef}></div>
+            {animationPlayed ? (
+              <>
+                <div className="HomeHeaderTitleFN">Nafis</div>
+                <div className="HomeHeaderTitleMN">ul</div>
+                <div className="HomeHeaderTitleLN">Islam</div>
+              </>
+            ) : (
+              <>
+                <div className="HomeHeaderTitleFN" ref={titleFNTextRef}></div>
+                <div className="HomeHeaderTitleMN" ref={titleMNTextRef}></div>
+                <div className="HomeHeaderTitleLN" ref={titleLNTextRef}></div>
+              </>
+            )}
           </div>
           {window.innerWidth < 600 &&
             <div className="HomeHeaderTitleButtonHolder" style={{ paddingRight: "10px" }}>
@@ -102,7 +116,11 @@ const Home = () => {
 
       <PhotoFrame image={Nafis} />
       {window.innerWidth > 600 && <div className="Spacer"></div>}
-      <div ref={canvasTextRef} className="TypewriterText"></div>
+      {showIntroText && (
+        <div ref={canvasTextRef} className="TypewriterText">
+          {animationPlayed ? "Hi there! I'm Nafis, aka DethCubeHax, a software engineer in the making." : ""}
+        </div>
+      )}
       {window.innerWidth > 600 && <NavPanel />}
       <canvas ref={canvasRef} className="ParticleCanvas" />
 
@@ -127,30 +145,19 @@ const Home = () => {
         </a>
       </div>
 
-      <div
-        className="TypewriterTextSmallLast"
-        ref={manyMore}
-        style={{ 
-          fontSize: isHovered ? '2em' : '1.5em',
-          transition: 'font-size 0.3s ease-in-out'
-        }}
-        onMouseOver={handleMouseOver}
-        onMouseOut={handleMouseOut}
-        onClick={() => setIsTerminalVisible(prevState => !prevState)}
-      >
-      </div>
-      {isTerminalVisible &&
-        <div className={`terminal-container ${isTerminalVisible ? 'visible' : ''}`}>
-          <div className="terminal-area">
-            <Terminal />
-          </div>
-          <div className="console-label">
-            <h1>Console</h1>
-            <p>Here's nafisui-console, at your service! </p>
-            <p>Feel free to ask any questions about navigating the site, or about myself, and it will help you rightaway.</p>
-          </div>
+      <div className="help-container">
+        <div className="help-circle" onClick={() => setIsTerminalVisible(prevState => !prevState)}>
+          <span>?</span>
         </div>
-      }
+
+        {isTerminalVisible && (
+          <div className={`terminal-container ${isTerminalVisible ? 'visible' : ''}`}>
+            <div className="terminal-area">
+              <Terminal />
+            </div>
+          </div>
+        )}
+      </div>
 
       {isSidebarVisible && <Sidebar hideSidebar={() => setShowSidebar(false)} />}
       <div className="Spacer"></div>

@@ -13,7 +13,7 @@ const Links = () => {
             <div className="LinksPanel">
                 <a href="https://www.linkedin.com/in/nafis-ul-islam-207932230/"><img src={LinkedIn}/></a>
                 <a href="https://wa.me/85260621024" ><img src={WhatsApp}/></a>
-                <a href="https://www.instagram.com/nafis.ul.islam/"><img src={Instagram}/></a>
+                <a href="https://www.instagram.com/pixquisitee/"><img src={Instagram}/></a>
             </div>
         </>
         

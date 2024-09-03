@@ -50,11 +50,23 @@ a {
     box-shadow: none;
 }
 
+/* Remove the general anchor tag hover rule */
 a:hover {
     text-decoration: none;
     color: white;
     transition: 0.3s;
-    font-size: 4em;
+}
+
+/* Add a new hover rule specifically for the skill links */
+.TypewriterTextSmall:hover {
+    font-size: 1.2em;
+}
+
+/* Adjust the font size for small devices */
+@media screen and (max-width: 600px) {
+    .TypewriterTextSmall:hover {
+        font-size: 1.1em;
+    }
 }
 
 /*
@@ -378,49 +390,88 @@ canvas {
     }
   }
   
-  .terminal-container {
-    /* Other styles */
+  .help-container {
+    position: fixed;
+    bottom: 20px;
+    left: 20px;
     display: flex;
-    margin-top: 50px;
-    width: 80%;
-    margin-left: 5%;
-    margin-bottom: 50px!important;
-    overflow: hidden; /* Ensure content doesn't show when sliding up/down */
-    animation: slide-up 1s forwards; /* Apply the slide-up animation by default */
+    flex-direction: column;
+    align-items: flex-start;
+    z-index: 1000;
+  }
+  
+  .help-circle {
+    min-width: 50px;
+    min-height: 50px;
+    border-radius: 50%;
+    background-color: #595b78;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    margin-bottom: 5px; /* Adjusted margin */
+  }
+  
+  .help-circle span {
+    font-size: 24px;
+    font-weight: bold;
+    color: white;
+  }
+  
+  .terminal-container {
+    position: fixed;
+    bottom: -70px; /* Adjusted bottom position */
+    left: 20px;
+    right: 20px;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease;
+    background-color: none;
+    border-radius: 5px;
+    z-index: 999;
   }
   
   .terminal-container.visible {
-    opacity: 1;
-    margin-top: 50px;
-    margin-bottom: 50px!important;
-    padding-bottom: 50px!important;
-    max-height: 500px; /* This should be the same value as in the animations */
-    animation: slide-down 1s forwards; /* Apply the slide-down animation when visible */
+    max-height: calc(100vh - 155px); /* Adjusted max-height */
   }
   
   .terminal-area {
-    flex: 4;
+    padding: 0px;
+    overflow-y: auto;
+    max-height: calc(100vh - 195px); /* Adjusted max-height */
   }
   
-  .console-label {
-    font-family: 'Montserrat', sans-serif;
-
-    flex: 1;
-    align-self: flex-start; /* Vertically center the label */
-    text-align: left; /* Horizontally center the label */
-    padding: 10px;
-
-  }
+  /* Media queries for responsive design */
+  @media screen and (max-width: 600px) {
+    .help-container {
+      bottom: 10px;
+      left: 10px;
+    }
   
-  .console-label h1 {
-    font-size: 2em;
-    margin-bottom: 10px;
-  }
-  
-  .console-label p {
-    font-size: 16px;
-  }
+    .help-circle {
+      min-width: 40px;
+      min-height: 40px;
 
+    }
+  
+    .help-circle span {
+      font-size: 20px;
+    }
+  
+    .terminal-container {
+      bottom: -35px; /* Adjusted bottom position */
+      left: 10px;
+      right: 10px;
+    }
+  
+    .terminal-container.visible {
+      max-height: calc(100vh - 115px); /* Adjusted max-height */
+    }
+  
+    .terminal-area {
+      max-height: calc(100vh - 155px); /* Adjusted max-height */
+    }
+  }
 /* Define the slide down animation */
 @keyframes slide-down {
     0% {
