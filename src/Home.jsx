@@ -27,7 +27,6 @@ const Home = () => {
   const [isSidebarVisible, setIsSidebarVisible] = useState(false);
   const [isTerminalVisible, setIsTerminalVisible] = useState(false);
   const [animationPlayed, setAnimationPlayed] = useState(false);
-  const [showIntroText, setShowIntroText] = useState(false);
 
   useEffect(() => {
     const cleanup = initializeParticles(canvasRef);
@@ -36,14 +35,12 @@ const Home = () => {
     if (hasAnimationPlayed) {
       setAnimationPlayed(true);
       setShowSkills(true);
-      setShowIntroText(true);
     } else {
       typewriter(titleFNTextRef.current, 'Nafis', 100, 0);
       typewriter(titleMNTextRef.current, 'ul', 100, 0.5);
       typewriter(titleLNTextRef.current, 'Islam', 100, 1);
       
       setTimeout(() => {
-        setShowIntroText(true);
         typewriter(
           canvasTextRef.current,
           "Hi there! I'm Nafis, aka DethCubeHax, a software engineer in the making.",
@@ -116,11 +113,9 @@ const Home = () => {
 
       <PhotoFrame image={Nafis} />
       {window.innerWidth > 600 && <div className="Spacer"></div>}
-      {showIntroText && (
-        <div ref={canvasTextRef} className="TypewriterText">
-          {animationPlayed ? "Hi there! I'm Nafis, aka DethCubeHax, a software engineer in the making." : ""}
-        </div>
-      )}
+      <div ref={canvasTextRef} className="TypewriterText">
+        {animationPlayed ? "Hi there! I'm Nafis, aka DethCubeHax, a software engineer in the making." : ""}
+      </div>
       {window.innerWidth > 600 && <NavPanel />}
       <canvas ref={canvasRef} className="ParticleCanvas" />
 
