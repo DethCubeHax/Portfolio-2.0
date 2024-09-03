@@ -406,35 +406,17 @@ canvas {
     border-radius: 50%;
     background-color: #595b78;
     display: flex;
-    flex-direction: column;
     justify-content: center;
     align-items: center;
     cursor: pointer;
-    margin-bottom: 5px;
-    font-family: monospace; /* Use monospace font for a more terminal-like appearance */
-    line-height: 1; /* Reduce line height to bring the characters closer */
-}
-
-.help-circle::before {
-    content: ">";
+    margin-bottom: 5px; /* Adjusted margin */
+  }
+  
+  .help-circle span {
     font-size: 24px;
-    margin-top: -5px; /* Adjust this value to bring the ">" closer to the circle */
-    color: white;
     font-weight: bold;
-}
-
-.help-circle::after {
-    content: "_";
-    font-size: 24px;
     color: white;
-    font-weight: bold;
-    margin-top: -25px; /* Adjust this value to bring the underscore closer to the > */
-}
-
-/* Remove the span that contained the "?" */
-.help-circle span {
-    display: none;
-}
+  }
   
   .terminal-container {
     position: fixed;
@@ -467,16 +449,9 @@ canvas {
     }
   
     .help-circle {
-        min-width: 40px;
-        min-height: 40px;
-    }
+      min-width: 40px;
+      min-height: 40px;
 
-    .help-circle::before{
-        margin-top: -5px;
-    }
-    .help-circle::after {
-        font-size: 20px;
-        margin-top: -20px;
     }
   
     .help-circle span {
