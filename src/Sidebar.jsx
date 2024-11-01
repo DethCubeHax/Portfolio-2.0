@@ -63,7 +63,7 @@ const Sidebar = ({ onClose }) => {
                 <div className="NavElementText">Resume</div>
             </a>
             {/* Mail to "ultimate.nafis.bhadra11@gmail.com" */}
-            <a className="NavElement" href="mailto:ultimate.nafis.bhadra11@gmail.com">
+            <a className="NavElement" href="mailto:nafisulislam2k2@gmail.com">
                 <img src={Mail} className="NavElementImage" alt="DethCubeHax" />
                 <div className="NavElementText">Contact</div>
             </a>

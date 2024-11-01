@@ -47,7 +47,7 @@ const NavPanel = () => {
         <img src={Resume} className="NavPanelButton" alt="Resume" />
         <div>Resume</div>
       </a>
-      <a className='PanelButtonContainer' href="mailto:ultimate.nafis.bhadra11@gmail.com">
+      <a className='PanelButtonContainer' href="mailto:nafisulislam2k2@gmail.com">
         <img src={Mail} className="NavPanelButton" alt="Mail" />
         <div>Mail</div>
       </a>
