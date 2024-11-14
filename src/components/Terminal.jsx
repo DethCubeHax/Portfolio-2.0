@@ -7,32 +7,66 @@ import workData from '../data/work.json';
 import researchData from '../data/research.json';
 import blogsData from '../data/blog.json';
 
+// Add API query function
+const queryAPI = async (queryText) => {
+  try {
+    const response = await Promise.race([
+      fetch('https://green-octopus-24.telebit.io/query', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          query_text: queryText
+        })
+      }),
+      new Promise((_, reject) => 
+        setTimeout(() => reject(new Error('Timeout')), 30000)
+      )
+    ]);
+
+    const data = await response.json();
+    console.log('API Response:', data);
+    return data.response;
+  } catch (error) {
+    console.error('API Error:', error);
+    return "Oops, looks like my brains are kinda overrun, can you ask something else? Maybe try typing 'help' and seeing some FAQs instead?";
+  }
+};
+
 // Command component
 const Command = ({ commandObj, username, age }) => {
   const [displayedResponse, setDisplayedResponse] = useState("");
   const [currentIndex, setCurrentIndex] = useState(0);
   const [firstRenderedAge, setFirstRenderedAge] = useState(age);
+  const [isTyping, setIsTyping] = useState(true);
 
   useEffect(() => {
-    // Start the typewriter effect if there's a response to type
+    setDisplayedResponse("");
+    setCurrentIndex(0);
+    setIsTyping(true);
+  }, [commandObj.response]);
+
+  useEffect(() => {
     const response =
       commandObj.command === "age"
         ? `I am ${firstRenderedAge} years old.`
         : commandObj.response;
 
-    if (response.length > 0 && currentIndex < response.length) {
+    if (response.length > 0 && currentIndex < response.length && isTyping) {
       const typingInterval = setTimeout(() => {
         setDisplayedResponse((prevResponse) => prevResponse + response[currentIndex]);
         setCurrentIndex((currentIndex) => currentIndex + 1);
-      }, 10); // Change delay to adjust speed of typewriter
+        if (currentIndex === response.length - 1) {
+          setIsTyping(false);
+        }
+      }, 10);
 
-      // Cleanup function
       return () => clearTimeout(typingInterval);
     }
-  }, [commandObj.command, commandObj.response, currentIndex, firstRenderedAge]);
+  }, [commandObj.command, commandObj.response, currentIndex, firstRenderedAge, isTyping]);
 
   useEffect(() => {
-    // If the command is not 'age', update the firstRenderedAge
     if (commandObj.command !== 'age') {
       setFirstRenderedAge(age);
     }
@@ -44,7 +78,9 @@ const Command = ({ commandObj, username, age }) => {
         <span className="prompt">{username}</span>@<span className="console-name">nafisui-console</span><span className="command-prompt">~#</span>
         <div>{commandObj.command}</div>
       </div>
-      <div className="response">{`> ${displayedResponse}`}</div>
+      <div className="response">
+        {`> ${commandObj.response === "Thinking..." ? "Thinking..." : displayedResponse}`}
+      </div>
     </div>
   );
 };
@@ -54,6 +90,7 @@ const Terminal = () => {
   const [consoleCommand, setConsoleCommand] = useState("");
   const [commandHistory, setCommandHistory] = useState([]);
   const [isUsernameSet, setIsUsernameSet] = useState(false);
+  const [isWaitingForResponse, setIsWaitingForResponse] = useState(false);
 
   const validCommands = ['help', 'projects', 'work', 'publications', 'blogs', 'contact', 'clear', 'age', 'navigate'];
 
@@ -70,11 +107,10 @@ const Terminal = () => {
   useEffect(() => {
     const intervalId = setInterval(() => {
       setAge(calculateAge());
-    }, 2000); // updates every second
+    }, 2000);
 
-    // Cleanup function to clear the interval when the component is unmounted
     return () => clearInterval(intervalId);
-  }, []); // Empty dependency array means this effect runs once on mount and cleanup on unmount
+  }, []);
 
   const inputRef = useRef();
 
@@ -82,63 +118,88 @@ const Terminal = () => {
     inputRef.current.focus();
   }, []);
 
-  const handleCommand = (e) => {
+  const handleCommand = async (e) => {
     if (e.key === "Enter") {
       e.preventDefault();
+
+      if (isWaitingForResponse) {
+        return;
+      }
 
       if (!isUsernameSet) {
         setUsername(consoleCommand);
         setIsUsernameSet(true);
-      } else {
-        let response = "";
-        if (validCommands.includes(consoleCommand)) {
-          switch (consoleCommand) {
-            case 'help':
-              response = "List of valid commands: " + validCommands.join(', ');
-              break;
-            case 'projects':
-              response = `I have ${projectsData.length} projects.`;
-              break;
-            case 'work':
-              response = `I have worked at ${workData.length} companies before.`;
-              break;
-            case 'publications':
-              response = `I have ${researchData.projects.length} research publication${researchData.projects.length !== 1 ? 's' : ''}.`
-              break;
-            case 'blogs':
-              response = `I have ${blogsData.length} blog posts.`;
-              break;
-            case 'contact':
-              response = "My email is at nafisulislam2k2@gmail.com";
-              break;
-            case 'age':
-              // Check if 'age' command is already in command history
-              if (commandHistory.some(item => item.command === 'age')) {
-                // If it's there, don't add it again
-                setConsoleCommand("");
-                return;
-              }
-              // If it's not there, add it
-              response = `I am ${calculateAge()} years old.`;
-              break;
-            case 'navigate':
-              response = "You can navigate the site by hovering on the navbar to the right on PC, or by clicking on the hamburger menu if you're on mobile.";
-              break;
-            case 'clear':
-              setCommandHistory([]);
+        setConsoleCommand("");
+        return;
+      } 
+
+      let response = "";
+      if (validCommands.includes(consoleCommand)) {
+        switch (consoleCommand) {
+          case 'help':
+            response = "List of valid commands: " + validCommands.join(', ');
+            break;
+          case 'projects':
+            response = `I have ${projectsData.length} projects.`;
+            break;
+          case 'work':
+            response = `I have worked at ${workData.length} companies before.`;
+            break;
+          case 'publications':
+            response = `I have ${researchData.projects.length} research publication${researchData.projects.length !== 1 ? 's' : ''}.`
+            break;
+          case 'blogs':
+            response = `I have ${blogsData.length} blog posts.`;
+            break;
+          case 'contact':
+            response = "My email is at nafisulislam2k2@gmail.com";
+            break;
+          case 'age':
+            if (commandHistory.some(item => item.command === 'age')) {
               setConsoleCommand("");
               return;
-            default:
-              break;
-          }
-        }
-        else {
-          response = "Sorry, that command does not exist. Try typing 'help' to get a list of valid commands.";
+            }
+            response = `I am ${calculateAge()} years old.`;
+            break;
+          case 'navigate':
+            response = "You can navigate the site by hovering on the navbar to the right on PC, or by clicking on the hamburger menu if you're on mobile.";
+            break;
+          case 'clear':
+            setCommandHistory([]);
+            setConsoleCommand("");
+            return;
+          default:
+            break;
         }
         setCommandHistory([
           ...commandHistory,
           { command: consoleCommand, response: response },
         ]);
+      }
+      else {
+        setIsWaitingForResponse(true);
+        const commandId = Date.now();
+        const currentCommand = consoleCommand;
+        setConsoleCommand("");
+        
+        setCommandHistory(prev => [
+          ...prev,
+          { id: commandId, command: currentCommand, response: "Thinking..." }
+        ]);
+
+        try {
+          const apiResponse = await queryAPI(currentCommand);
+          setCommandHistory(prev => 
+            prev.map(cmd => 
+              cmd.id === commandId 
+                ? { ...cmd, response: apiResponse }
+                : cmd
+            )
+          );
+        } finally {
+          setIsWaitingForResponse(false);
+        }
+        return;
       }
       setConsoleCommand("");
     }
@@ -172,13 +233,13 @@ const Terminal = () => {
         <>
           {commandHistory.map((item, index) => (
             <Command
-              key={item.command === 'age' ? `age-${age}` : index} // Use 'age' as part of the key for 'age' commands
+              key={item.id || (item.command === 'age' ? `age-${age}` : index)}
               commandObj={item}
               username={username}
               age={age}
             />
           ))}
-          <div className="input-line">
+          <div className="input-line" style={{ display: isWaitingForResponse ? 'none' : 'flex' }}>
             <span className="prompt">{username}</span>@<span className="console-name">nafisui-console</span><span className="command-prompt">~#</span>
             <input
               ref={inputRef}
@@ -187,6 +248,8 @@ const Terminal = () => {
               onChange={(e) => setConsoleCommand(e.target.value)}
               onKeyDown={handleCommand}
               className="console-input"
+              disabled={isWaitingForResponse}
+              style={{ cursor: isWaitingForResponse ? 'not-allowed' : 'text' }}
             />
           </div>
         </>
