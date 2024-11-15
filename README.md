@@ -55,8 +55,6 @@ The project is configured to be deployed on Vercel. To deploy the project:
    ```
    Follow the prompts to complete the deployment. The `vercel.json` file contains the necessary configuration for deploying the project on Vercel.
 
-By following these steps, you can easily set up, run, and deploy my portfolio website. If you have any questions or need further assistance, feel free to th!
-
 
 
 ## File Structure
@@ -334,4 +332,4 @@ The `assets` directory contains images and styles used throughout the applicatio
   - Uses `requestAnimationFrame` to ensure a smooth and efficient animation.
 - **Usage**: Adds a dynamic text animation to various page components.
 
-This comprehensive description should give you a clear understanding of how your portfolio project is structured and how each component and page works together. If you have any more questions or need further details, feel free to ask!
+This comprehensive description should give you a clear understanding of how your portfolio project is structured and how each component and page works together. If you have any more questions or need further details, feel free to email me at [nafisulislam2k2@gmail.com](nafisulislam2k2@gmail.com)!
