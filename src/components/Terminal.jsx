@@ -219,7 +219,7 @@ const Terminal = () => {
       </div>
       {!isUsernameSet ? (
         <div className="username-input">
-          <div>Please enter your name:</div>
+          <div>Please enter your username:</div>
           <input
             ref={inputRef}
             type="text"

@@ -400,88 +400,6 @@ canvas {
     z-index: 1000;
   }
   
-  .help-pill {
-    height: 80px; /* Increased height to accommodate three lines */
-    padding: 0 40px 0 30px; /* Adjusted right padding for icon */
-    border-radius: 40px; /* Half of height */
-    background-color: #595b78;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: flex-start;
-    cursor: pointer;
-    margin-bottom: 5px;
-    position: relative;
-    transition: background-color 0.3s ease;
-    min-width: 100px;
-  }
-  
-  .help-pill:hover {
-    background-color: #6c6e8c;
-  }
-  
-  .pill-text {
-    font-family: 'Montserrat', sans-serif;
-    font-size: 16px;
-    font-weight: 500;
-    color: white;
-    margin-bottom: 2px;
-    line-height: 1.2;
-  }
-  
-  .pill-subtext {
-    font-family: 'Montserrat', sans-serif;
-    font-size: 12px;
-    color: rgba(255, 255, 255, 0.7);
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    line-height: 1.4;
-  }
-  
-  .model-name {
-    font-weight: 500;
-    color: rgba(255, 255, 255, 0.9);
-  }
-  
-  .llama-icon {
-    position: absolute;
-    right: 18px;
-    top: 50%;
-    transform: translateY(-50%);
-    font-size: 24px;
-    width: 24px;
-    height: 24px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-  
-  /* Responsive design for mobile */
-  @media screen and (max-width: 600px) {
-    .help-pill {
-      height: 70px; /* Adjusted for mobile */
-      padding: 0 35px 0 25px;
-      border-radius: 35px;
-      min-width: 160px;
-    }
-  
-    .pill-text {
-      font-size: 14px;
-    }
-  
-    .pill-subtext {
-      font-size: 10px;
-    }
-  
-    .llama-icon {
-      font-size: 20px;
-      width: 20px;
-      height: 20px;
-      right: 15px;
-    }
-  }
-  
   .help-circle {
     min-width: 50px;
     min-height: 50px;
@@ -503,7 +421,7 @@ canvas {
   .terminal-container {
     position: fixed;
     bottom: -70px; /* Adjusted bottom position */
-    left: 100px;
+    left: 20px;
     right: 20px;
     max-height: 0;
     overflow: hidden;
