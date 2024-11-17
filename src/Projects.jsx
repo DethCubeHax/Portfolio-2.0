@@ -142,18 +142,22 @@ const Projects = () => {
             {window.innerWidth > 600 && <NavPanel />}
 
             <div className="help-container">
-                <div className="help-circle" onClick={() => setIsTerminalVisible(prevState => !prevState)}>
-                    <span>?</span>
+                <div className="help-pill" onClick={() => setIsTerminalVisible(prevState => !prevState)}>
+                <span className="pill-text">AI Chatbot</span>
+                <span className="pill-subtext">Powered by</span>
+                <span className="pill-subtext">LLaMa-3.2</span>
+                <div className="llama-icon">🦙</div>
                 </div>
 
                 {isTerminalVisible && (
-                    <div className={`terminal-container ${isTerminalVisible ? 'visible' : ''}`}>
-                        <div className="terminal-area">
-                            <Terminal />
-                        </div>
+                <div className={`terminal-container ${isTerminalVisible ? 'visible' : ''}`}>
+                    <div className="terminal-area">
+                    <Terminal />
                     </div>
+                </div>
                 )}
             </div>
+
 
             {isSidebarVisible && <Sidebar onClose={() => setShowSidebar((prevState) => !prevState)} />}
         </div>

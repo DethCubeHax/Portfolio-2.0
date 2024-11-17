@@ -141,8 +141,11 @@ const Home = () => {
       </div>
 
       <div className="help-container">
-        <div className="help-circle" onClick={() => setIsTerminalVisible(prevState => !prevState)}>
-          <span>?</span>
+        <div className="help-pill" onClick={() => setIsTerminalVisible(prevState => !prevState)}>
+          <span className="pill-text">AI Chatbot</span>
+          <span className="pill-subtext">Powered by</span>
+          <span className="pill-subtext">LLaMa-3.2</span>
+          <div className="llama-icon">🦙</div>
         </div>
 
         {isTerminalVisible && (
