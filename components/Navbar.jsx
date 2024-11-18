@@ -1,51 +1,22 @@
-"use client";
-
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { HiHome, HiFolder, HiBriefcase, HiAcademicCap, HiNewspaper, HiDocument, HiMail } from 'react-icons/hi';
 import { FaLinkedin, FaWhatsapp, FaInstagram } from 'react-icons/fa';
+import ClientNavbarEffects from './ClientNavbarEffects';
 
-const Navbar = () => {
-  const [isOpen, setIsOpen] = useState(false);
-  const [isHovered, setIsHovered] = useState(false);
-  const [isTextVisible, setIsTextVisible] = useState(false);
+const routes = [
+  { path: '/', name: 'Home', icon: HiHome },
+  { path: '/projects', name: 'Projects', icon: HiFolder },
+  { path: '/work', name: 'Work', icon: HiBriefcase },
+  { path: '/research', name: 'Research', icon: HiAcademicCap },
+  { path: '/blog', name: 'Blog', icon: HiNewspaper },
+  { path: '/resume', name: 'Resume', icon: HiDocument },
+  { path: '/contact', name: 'Contact', icon: HiMail },
+];
+
+const Navbar = ({ isHovered, isTextVisible, isOpen, handleToggleOpen }) => {
   const pathname = usePathname();
-
-  useEffect(() => {
-    const navbarElement = document.querySelector('#navbar');
-    navbarElement.style.opacity = '0'; // Hide initially
-    navbarElement.style.visibility = 'hidden'; // Ensure it's not visible at the start
-
-    setTimeout(() => {
-      navbarElement.style.opacity = '1';
-      navbarElement.style.visibility = 'visible'; // Make it visible as it fades in
-      navbarElement.style.transition = 'opacity 1s ease, visibility 1s ease';
-    }, 100); // Small delay before starting the fade-in
-  }, []);
-
-  const routes = [
-    { path: '/', name: 'Home', icon: HiHome },
-    { path: '/projects', name: 'Projects', icon: HiFolder },
-    { path: '/work', name: 'Work', icon: HiBriefcase },
-    { path: '/research', name: 'Research', icon: HiAcademicCap },
-    { path: '/blog', name: 'Blog', icon: HiNewspaper },
-    { path: '/resume', name: 'Resume', icon: HiDocument },
-    { path: '/contact', name: 'Contact', icon: HiMail },
-  ];
-
-  const handleMouseEnter = () => {
-    setIsHovered(true);
-    setIsTextVisible(true);
-  };
-
-  const handleMouseLeave = () => {
-    setIsTextVisible(false);
-    setTimeout(() => {
-      setIsHovered(false);
-    }, 500);
-  };
-
   const currentPage = routes.find((route) => route.path === pathname)?.name || 'Home';
   const currentIcon = routes.find((route) => route.path === pathname)?.icon || HiHome;
 
@@ -53,8 +24,6 @@ const Navbar = () => {
     <div id="navbar" className="fixed bottom-4 left-1/2 transform -translate-x-1/2 flex justify-center items-center">
       <nav 
         className={`bg-navbar text-text rounded-full shadow-lg font-montserrat transition-all duration-300 ease-in-out ${isHovered ? 'px-12' : 'px-6'}`}
-        onMouseEnter={handleMouseEnter}
-        onMouseLeave={handleMouseLeave}
       >
         <ul className="hidden lg:flex items-center overflow-hidden">
           {routes.map((route, index) => {
@@ -98,7 +67,7 @@ const Navbar = () => {
         <div className="lg:hidden relative w-40">
           <button 
             className={`w-full py-2 px-6 text-center flex items-center justify-center gap-2 transition-colors duration-300 ${isOpen ? 'text-highlight' : ''}`}
-            onClick={() => setIsOpen(!isOpen)}
+            onClick={handleToggleOpen}
           >
             {React.createElement(currentIcon, { className: "text-2xl" })}
             <span>{currentPage}</span>
@@ -117,7 +86,6 @@ const Navbar = () => {
                     <Link
                       href={route.path}
                       className={`block py-2 px-4 text-center hover:text-highlight flex items-center justify-center gap-2 transition-all duration-300 ${isOpen ? 'translate-y-0 opacity-100' : 'translate-y-4 opacity-0'}`}
-                      onClick={() => setIsOpen(false)}
                       style={{
                         transitionDelay: isOpen ? `${delay}ms` : '0ms'
                       }}
@@ -150,4 +118,10 @@ const Navbar = () => {
   );
 };
 
-export default Navbar;
+const NavbarWrapper = () => (
+  <ClientNavbarEffects>
+    <Navbar />
+  </ClientNavbarEffects>
+);
+
+export default NavbarWrapper;
