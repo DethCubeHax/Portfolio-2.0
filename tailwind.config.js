@@ -8,8 +8,14 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        background: "var(--background)",
-        foreground: "var(--foreground)",
+        background: '#1c204b', // Dark blue
+        text: '#ffffff', // White
+        highlight: '#ff6f00', // Orange
+        navbar: '#595b78', // Muted purple/gray
+      },
+      fontFamily: {
+        montserrat: ['Montserrat', 'sans-serif'],
+        trebuchet: ['Trebuchet MS', 'sans-serif'],
       },
     },
   },
