@@ -17,6 +17,20 @@ module.exports = {
         montserrat: ['Montserrat', 'sans-serif'],
         trebuchet: ['Trebuchet MS', 'sans-serif'],
       },
+      keyframes: {
+        fadeInLeftToRight: {
+          '0%': { opacity: 0, transform: 'translateX(-20px)' },
+          '100%': { opacity: 1, transform: 'translateX(0)' },
+        },
+        fadeIn: {
+          '0%': { opacity: 0 },
+          '100%': { opacity: 1 },
+        },
+      },
+      animation: {
+        fadeInLeftToRight: 'fadeInLeftToRight 1s ease forwards',
+        fadeIn: 'fadeIn 1s ease forwards',
+      },
     },
   },
   plugins: [],
