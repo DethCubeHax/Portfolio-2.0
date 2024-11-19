@@ -35,12 +35,17 @@ const ClientNavbarEffects = ({ children }) => {
     setIsOpen(!isOpen);
   };
 
+  const handleSelectOption = (callback) => {
+    setIsOpen(false); // Trigger collapse animation
+    callback(); // Execute the link's click handler
+  };
+
   return (
     <div 
       onMouseEnter={handleMouseEnter} 
       onMouseLeave={handleMouseLeave}
     >
-      {React.cloneElement(children, { isHovered, isTextVisible, isOpen, handleToggleOpen })}
+      {React.cloneElement(children, { isHovered, isTextVisible, isOpen, handleToggleOpen, handleSelectOption })}
     </div>
   );
 };

@@ -15,7 +15,7 @@ const routes = [
   { path: '/contact', name: 'Contact', icon: HiMail },
 ];
 
-const Navbar = ({ isHovered, isTextVisible, isOpen, handleToggleOpen }) => {
+const Navbar = ({ isHovered, isTextVisible, isOpen, handleToggleOpen, handleSelectOption }) => {
   const pathname = usePathname();
   const currentPage = routes.find((route) => route.path === pathname)?.name || 'Home';
   const currentIcon = routes.find((route) => route.path === pathname)?.icon || HiHome;
@@ -86,6 +86,7 @@ const Navbar = ({ isHovered, isTextVisible, isOpen, handleToggleOpen }) => {
                     <Link
                       href={route.path}
                       className={`block py-2 px-4 text-center hover:text-highlight flex items-center justify-center gap-2 transition-all duration-300 ${isOpen ? 'translate-y-0 opacity-100' : 'translate-y-4 opacity-0'}`}
+                      onClick={() => handleSelectOption(() => {})}
                       style={{
                         transitionDelay: isOpen ? `${delay}ms` : '0ms'
                       }}
