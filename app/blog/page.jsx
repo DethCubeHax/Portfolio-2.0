@@ -21,6 +21,18 @@ const BlogPostItem = ({ item }) => {
     loadIcon();
   }, [item.icon]);
 
+  const renderContent = (content) => {
+    return content.map((paragraph, index) => (
+      <p key={index} className="whitespace-pre-wrap">
+        {paragraph.split(/\*\*(.*?)\*\*/).map((text, i) =>
+          i % 2 === 1 ? (
+            <span key={i} className="font-bold block mt-4">{text}</span>
+          ) : text
+        )}
+      </p>
+    ));
+  };
+
   return (
     <div className="flex gap-x-3 animate-fadeInDown" style={{ animationDelay: `${item.index * 0.1}s` }}>
       <div className="relative">
@@ -34,7 +46,9 @@ const BlogPostItem = ({ item }) => {
       <div className="grow pt-0.5 pb-8">
         <h3 className="font-semibold text-highlight text-2xl">{item.title}</h3>
         <span className="text-text text-lg">{item.date}</span>
-        <p className="mt-2 text-gray-600 dark:text-neutral-400">{item.content}</p>
+        <div className="mt-2 text-gray-600 dark:text-neutral-400">
+          {renderContent(item.content)}
+        </div>
         <div className="flex mt-4 space-x-2">
           {item.keywords.split(', ').map((keyword, index) => (
             <span key={index} className="text-xs bg-lightblue text-background rounded-full px-2 py-1">
