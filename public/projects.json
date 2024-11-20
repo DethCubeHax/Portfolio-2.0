@@ -1,0 +1,62 @@
+[
+  {
+    "title": "CourseSage HKU",
+    "imageUrl": "GPAid.jpg",
+    "date": "Jan 2022 - Jun 2022",
+    "gitHubLink": "https://github.com/DethCubeHax/GPAID-Alpha-HKU",
+    "tools": "React, Node, Express, MongoDB",
+    "prominentStackIcon": "FaReact",
+    "description": "A course selection app that suggests students courses to take based on the reviews of past course takers, as well as their grades. Built using the MERN stack, with React for the front-end, Node.js and Express for the back-end, and MongoDB for the database.",
+    "screenshots": [
+      "/projects/CourseSage.jpg"
+    ]
+  },
+  {
+    "title": "Robotic Fish, BREED",
+    "imageUrl": "Fish.jpg",
+    "date": "Jun 2022 - Present",
+    "gitHubLink": "https://github.com/DethCubeHax/GPAID-Alpha-HKU",
+    "tools": "C++, ROS, Python, EasyEDA",
+    "prominentStackIcon": "FaRobot",
+    "description": "As the Embedded Systems Technical Lead of the Student Interest Group, BREED HKU, I worked alongside a team of talented engineers to develop our flagship robotic fish, holding the Guinness World Record for the fastest swimming fish in the world. I developed the code for the fish's fins and the main motor, devised an algorithm to optimize turning, and optimized the electrical systems by developing robust, drop-in PCBs for the mainboard and the controller.",
+    "screenshots": [
+      "/projects/Fish.jpg"
+    ]
+  },
+  {
+    "title": "Sudoku Game",
+    "imageUrl": "Sudoku.jpg",
+    "date": "Dec 2022",
+    "gitHubLink": "https://github.com/DethCubeHax/ENGG1340-Project",
+    "tools": "C++",
+    "prominentStackIcon": "FaGamepad",
+    "description": "As part of a course project, I developed a sudoku game purely in C++. It features the ability to find unique boards every single time, where the player plays against the computer. Also features save and load options.",
+    "screenshots": [
+      "/projects/Sudoku.png"
+    ]
+  },
+  {
+    "title": "Arduino Smart Display",
+    "imageUrl": "SmartDisplay.jpg",
+    "date": "Mar 2021",
+    "gitHubLink": "https://github.com/DethCubeHax/Arduino_Smart_Display",
+    "tools": "C++, Arduino",
+    "prominentStackIcon": "FaLaptopCode",
+    "description": "The Smart_Display.ino Arduino project is a multifunctional smart display that uses a DS3231 Real-Time Clock (RTC) module to display time and date on a TFT TouchScreen. This project is customizable, allowing users to switch time display modes, adjust alarms, and toggle logging. It supports multiple alarms and uses a buzzer for alerts.",
+    "screenshots": [
+      "/projects/SmartDisplay.jpeg"
+    ]
+  },
+  {
+    "title": "Personal Portfolio/Blog",
+    "imageUrl": "Portfolio.jpg",
+    "date": "Nov 2023 - Present",
+    "gitHubLink": "https://github.com/DethCubeHax/Portfolio-2.0",
+    "tools": "Vite.JS, Node.JS",
+    "prominentStackIcon": "FaNodeJs",
+    "description": "Welcome to my digital portfolio, a showcase of my software and hardware projects. Designed for an engaging experience, my site features interactive elements like a typewriter effect and animated project cards, and many more effects! Discover a variety of projects I've developed, each with detailed information and a link to the GitHub source code. With responsive design at its core, my site offers optimal viewing on any screen, complete with a hamburger menu for easy navigation on smaller devices.",
+    "screenshots": [
+      "/projects/Portfolio.png"
+    ]
+  }
+]
