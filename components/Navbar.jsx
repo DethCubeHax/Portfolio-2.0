@@ -1,12 +1,12 @@
 import React from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { HiHome, HiFolder, HiBriefcase, HiAcademicCap, HiNewspaper, HiDocument, HiMail, HiChat } from 'react-icons/hi';
+import { HiFolder, HiBriefcase, HiAcademicCap, HiNewspaper, HiDocument, HiMail, HiChat } from 'react-icons/hi';
 import { FaLinkedin, FaWhatsapp, FaInstagram } from 'react-icons/fa';
 import ClientNavbarEffects from './ClientNavbarEffects';
 
 const routes = [
-  { path: '/', name: 'Home', icon: HiHome },
+  { path: '/', name: 'Home', icon: '/logo.png' },
   { path: '/projects', name: 'Projects', icon: HiFolder },
   { path: '/work', name: 'Work', icon: HiBriefcase },
   { path: '/research', name: 'Research', icon: HiAcademicCap },
@@ -19,7 +19,7 @@ const routes = [
 const Navbar = ({ isHovered, isTextVisible, isOpen, handleToggleOpen, handleSelectOption }) => {
   const pathname = usePathname();
   const currentPage = routes.find((route) => route.path === pathname)?.name || 'Home';
-  const currentIcon = routes.find((route) => route.path === pathname)?.icon || HiHome;
+  const currentIcon = routes.find((route) => route.path === pathname)?.icon || '/logo.png';
 
   return (
     <div id="navbar" className="fixed bottom-4 left-1/2 transform -translate-x-1/2 flex justify-center items-center">
@@ -42,9 +42,13 @@ const Navbar = ({ isHovered, isTextVisible, isOpen, handleToggleOpen, handleSele
                       rel="noopener noreferrer"
                       className={`whitespace-nowrap text-xl py-4 block flex items-center gap-3 ${isActive ? 'text-highlight' : 'hover:text-highlight'} transition-colors duration-300`}
                     >
-                      <Icon className={`text-2xl transition-transform duration-300 ${(!isHovered && !isActive) ? 'scale-100' : 'scale-105'}`} />
+                      {route.icon === '/logo.png' ? (
+                        <img src={route.icon} alt="Home" className="h-8 pr-2 transition-transform duration-300" />
+                      ) : (
+                        <Icon className={`text-2xl transition-transform duration-300 ${(!isHovered && !isActive) ? 'scale-100' : 'scale-105'}`} />
+                      )}
                       <span
-                        className={`transition-all duration-300 ease-in-out origin-left ${(!isTextVisible && !isActive) ? 'scale-x-0 w-0 opacity-0' : 'scale-x-100 w-auto opacity-100'}`}
+                        className={`transition-all duration-300 ease-in-out origin-left pr-2 ${(!isTextVisible && !isActive) ? 'scale-x-0 w-0 opacity-0' : 'scale-x-100 w-auto opacity-100'}`}
                         style={{
                           transitionDelay: isTextVisible ? `${delay}ms` : '0ms',
                         }}
@@ -57,9 +61,13 @@ const Navbar = ({ isHovered, isTextVisible, isOpen, handleToggleOpen, handleSele
                       href={route.path}
                       className={`whitespace-nowrap text-xl py-4 block flex items-center gap-3 ${isActive ? 'text-highlight' : 'hover:text-highlight'} transition-colors duration-300`}
                     >
-                      <Icon className={`text-2xl transition-transform duration-300 ${(!isHovered && !isActive) ? 'scale-100' : 'scale-105'}`} />
+                      {route.icon === '/logo.png' ? (
+                        <img src={route.icon} alt="Home" className="h-8 pr-2 transition-transform duration-300" />
+                      ) : (
+                        <Icon className={`text-2xl transition-transform duration-300 ${(!isHovered && !isActive) ? 'scale-100' : 'scale-105'}`} />
+                      )}
                       <span
-                        className={`transition-all duration-300 ease-in-out origin-left ${(!isTextVisible && !isActive) ? 'scale-x-0 w-0 opacity-0' : 'scale-x-100 w-auto opacity-100'}`}
+                        className={`transition-all duration-300 ease-in-out origin-left pr-2 ${(!isTextVisible && !isActive) ? 'scale-x-0 w-0 opacity-0' : 'scale-x-100 w-auto opacity-100'}`}
                         style={{
                           transitionDelay: isTextVisible ? `${delay}ms` : '0ms',
                         }}
@@ -70,7 +78,7 @@ const Navbar = ({ isHovered, isTextVisible, isOpen, handleToggleOpen, handleSele
                   )}
                 </li>
                 {index < routes.length - 1 &&
-                  <li className={`text-lg transition-all duration-300 ease-in-out ${isTextVisible ? 'opacity-100 w-4' : 'opacity-0 w-0'}`}
+                  <li className={`text-lg transition-all duration-300 ease-in-out ml-2 ${isTextVisible ? 'opacity-100 w-4' : 'opacity-0 w-0'}`}
                     style={{
                       transitionDelay: isTextVisible ? `${delay}ms` : '0ms',
                     }}
@@ -89,7 +97,11 @@ const Navbar = ({ isHovered, isTextVisible, isOpen, handleToggleOpen, handleSele
             className={`w-full py-2 px-6 text-center flex items-center justify-center gap-2 transition-colors duration-300 ${isOpen ? 'text-highlight' : ''}`}
             onClick={handleToggleOpen}
           >
-            {React.createElement(currentIcon, { className: "text-2xl" })}
+            {currentIcon === '/logo.png' ? (
+              <img src={currentIcon} alt="Home" className="w-8 h-8" />
+            ) : (
+              React.createElement(currentIcon, { className: "text-2xl" })
+            )}
             <span>{currentPage}</span>
           </button>
 
@@ -113,7 +125,11 @@ const Navbar = ({ isHovered, isTextVisible, isOpen, handleToggleOpen, handleSele
                           transitionDelay: isOpen ? `${delay}ms` : '0ms',
                         }}
                       >
-                        <Icon className="text-2xl" />
+                        {route.icon === '/logo.png' ? (
+                          <img src={route.icon} alt="Home" className="w-8 h-8 transition-transform duration-300" />
+                        ) : (
+                          <Icon className="text-2xl" />
+                        )}
                         <span>{route.name}</span>
                       </a>
                     ) : (
@@ -125,7 +141,11 @@ const Navbar = ({ isHovered, isTextVisible, isOpen, handleToggleOpen, handleSele
                           transitionDelay: isOpen ? `${delay}ms` : '0ms'
                         }}
                       >
-                        <Icon className="text-2xl" />
+                        {route.icon === '/logo.png' ? (
+                          <img src={route.icon} alt="Home" className="w-8 h-8 transition-transform duration-300" />
+                        ) : (
+                          <Icon className="text-2xl" />
+                        )}
                         <span>{route.name}</span>
                       </Link>
                     )}
