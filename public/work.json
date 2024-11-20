@@ -15,8 +15,8 @@
         "Developed a digital payment partnership program and the second phase of an e-commerce financing program for SMEs."
       ],
       "screenshots": [
-        "/path/to/screenshot1.jpg",
-        "/path/to/screenshot2.jpg"
+        "/work/SCB.jpg",
+        "/work/SCB_2.JPG"
       ]
     },
     {
@@ -35,8 +35,7 @@
         "At the same time, I am directing development of a ROS MoveIt simulation environment. This will allow testing and refining the system's motion planning."
       ],
       "screenshots": [
-        "/path/to/screenshot3.jpg",
-        "/path/to/screenshot4.jpg"
+        "/work/RA_Robotics.jpg"
       ]
     },
     {
@@ -53,8 +52,7 @@
         "I also developed a module for Blender to simulate a LiDAR object and obtain LiDAR samples from scenes within Blender, which the company is using to simulate landslides and collect samples to train an AI to detect landslides."
       ],
       "screenshots": [
-        "/path/to/screenshot5.jpg",
-        "/path/to/screenshot6.jpg"
+        "/work/Kodifly.jpg"
       ]
     },
     {
@@ -73,8 +71,7 @@
         "Finally, I was honoured with the opportunity to teach a group of students across various faculties on how to create similar 3D models and deploy their own game in Unity."
       ],
       "screenshots": [
-        "/path/to/screenshot7.jpg",
-        "/path/to/screenshot8.jpg"
+        "/work/RA.jpg"
       ]
     }
   ]
