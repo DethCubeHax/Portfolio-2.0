@@ -2,7 +2,7 @@ import MainLayout from "@/components/MainLayout";
 import "./globals.css";
 
 export const metadata = {
-  title: "NafisUI",
+  title: "Nafis Ul Islam",
   description: "Portfolio website of Nafis Ul Islam",
 };
 
