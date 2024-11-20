@@ -23,9 +23,7 @@ const Navbar = ({ isHovered, isTextVisible, isOpen, handleToggleOpen, handleSele
 
   return (
     <div id="navbar" className="fixed bottom-4 left-1/2 transform -translate-x-1/2 flex justify-center items-center">
-      <nav
-        className={`bg-navbar text-text rounded-full shadow-lg font-montserrat transition-all duration-300 ease-in-out ${isHovered ? 'px-12' : 'px-6'}`}
-      >
+      <nav className={`bg-navbar text-text rounded-full shadow-lg font-montserrat transition-all duration-300 ease-in-out ${isHovered ? 'px-12' : 'px-6'}`}>
         <ul className="hidden lg:flex items-center overflow-hidden">
           {routes.map((route, index) => {
             const Icon = route.icon;
@@ -92,7 +90,7 @@ const Navbar = ({ isHovered, isTextVisible, isOpen, handleToggleOpen, handleSele
         </ul>
 
         {/* Mobile Navigation */}
-        <div className="lg:hidden relative w-40">
+        <div className="lg:hidden relative w-48"> {/* Increased width on mobile */}
           <button
             className={`w-full py-2 px-6 text-center flex items-center justify-center gap-2 transition-colors duration-300 ${isOpen ? 'text-highlight' : ''}`}
             onClick={handleToggleOpen}
@@ -106,7 +104,7 @@ const Navbar = ({ isHovered, isTextVisible, isOpen, handleToggleOpen, handleSele
           </button>
 
           <div
-            className={`absolute bottom-12 left-1/2 transform -translate-x-1/2 w-40 bg-navbar rounded-lg shadow-lg overflow-hidden transition-all duration-300 ${isOpen ? 'max-h-[500px] opacity-100' : 'max-h-0 opacity-0'}`}
+            className={`absolute bottom-12 left-1/2 transform -translate-x-1/2 w-48 bg-navbar rounded-lg shadow-lg overflow-hidden transition-all duration-300 ${isOpen ? 'max-h-[500px] opacity-100' : 'max-h-0 opacity-0'}`}
           >
             <div className="py-2">
               {routes.filter((route) => route.path !== pathname).map((route, index, filteredArray) => {
