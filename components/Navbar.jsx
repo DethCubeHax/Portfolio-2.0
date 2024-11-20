@@ -1,7 +1,7 @@
 import React from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { HiHome, HiFolder, HiBriefcase, HiAcademicCap, HiNewspaper, HiDocument, HiMail } from 'react-icons/hi';
+import { HiHome, HiFolder, HiBriefcase, HiAcademicCap, HiNewspaper, HiDocument, HiMail, HiChat } from 'react-icons/hi';
 import { FaLinkedin, FaWhatsapp, FaInstagram } from 'react-icons/fa';
 import ClientNavbarEffects from './ClientNavbarEffects';
 
@@ -11,8 +11,9 @@ const routes = [
   { path: '/work', name: 'Work', icon: HiBriefcase },
   { path: '/research', name: 'Research', icon: HiAcademicCap },
   { path: '/blog', name: 'Blog', icon: HiNewspaper },
-  { path: '/resume', name: 'Resume', icon: HiDocument },
-  { path: '/contact', name: 'Contact', icon: HiMail },
+  { path: '/chatbot', name: 'AI Chatbot', icon: HiChat },
+  { path: '/resume', name: 'Resume', icon: HiDocument, external: '/Resume.pdf' },
+  { path: '/contact', name: 'Contact', icon: HiMail, external: 'mailto:nafisulislam2k2@gmail.com' },
 ];
 
 const Navbar = ({ isHovered, isTextVisible, isOpen, handleToggleOpen, handleSelectOption }) => {
@@ -22,7 +23,7 @@ const Navbar = ({ isHovered, isTextVisible, isOpen, handleToggleOpen, handleSele
 
   return (
     <div id="navbar" className="fixed bottom-4 left-1/2 transform -translate-x-1/2 flex justify-center items-center">
-      <nav 
+      <nav
         className={`bg-navbar text-text rounded-full shadow-lg font-montserrat transition-all duration-300 ease-in-out ${isHovered ? 'px-12' : 'px-6'}`}
       >
         <ul className="hidden lg:flex items-center overflow-hidden">
@@ -34,22 +35,41 @@ const Navbar = ({ isHovered, isTextVisible, isOpen, handleToggleOpen, handleSele
             return (
               <React.Fragment key={route.path}>
                 <li className="px-3">
-                  <Link 
-                    href={route.path} 
-                    className={`whitespace-nowrap text-xl py-4 block flex items-center gap-3 ${isActive ? 'text-highlight' : 'hover:text-highlight'} transition-colors duration-300`}
-                  >
-                    <Icon className={`text-2xl transition-transform duration-300 ${(!isHovered && !isActive) ? 'scale-100' : 'scale-105'}`} />
-                    <span 
-                      className={`transition-all duration-300 ease-in-out origin-left ${(!isTextVisible && !isActive) ? 'scale-x-0 w-0 opacity-0' : 'scale-x-100 w-auto opacity-100'}`}
-                      style={{
-                        transitionDelay: isTextVisible ? `${delay}ms` : '0ms',
-                      }}
+                  {route.external ? (
+                    <a
+                      href={route.external}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className={`whitespace-nowrap text-xl py-4 block flex items-center gap-3 ${isActive ? 'text-highlight' : 'hover:text-highlight'} transition-colors duration-300`}
                     >
-                      {route.name}
-                    </span>
-                  </Link>
+                      <Icon className={`text-2xl transition-transform duration-300 ${(!isHovered && !isActive) ? 'scale-100' : 'scale-105'}`} />
+                      <span
+                        className={`transition-all duration-300 ease-in-out origin-left ${(!isTextVisible && !isActive) ? 'scale-x-0 w-0 opacity-0' : 'scale-x-100 w-auto opacity-100'}`}
+                        style={{
+                          transitionDelay: isTextVisible ? `${delay}ms` : '0ms',
+                        }}
+                      >
+                        {route.name}
+                      </span>
+                    </a>
+                  ) : (
+                    <Link
+                      href={route.path}
+                      className={`whitespace-nowrap text-xl py-4 block flex items-center gap-3 ${isActive ? 'text-highlight' : 'hover:text-highlight'} transition-colors duration-300`}
+                    >
+                      <Icon className={`text-2xl transition-transform duration-300 ${(!isHovered && !isActive) ? 'scale-100' : 'scale-105'}`} />
+                      <span
+                        className={`transition-all duration-300 ease-in-out origin-left ${(!isTextVisible && !isActive) ? 'scale-x-0 w-0 opacity-0' : 'scale-x-100 w-auto opacity-100'}`}
+                        style={{
+                          transitionDelay: isTextVisible ? `${delay}ms` : '0ms',
+                        }}
+                      >
+                        {route.name}
+                      </span>
+                    </Link>
+                  )}
                 </li>
-                {index < routes.length - 1 && 
+                {index < routes.length - 1 &&
                   <li className={`text-lg transition-all duration-300 ease-in-out ${isTextVisible ? 'opacity-100 w-4' : 'opacity-0 w-0'}`}
                     style={{
                       transitionDelay: isTextVisible ? `${delay}ms` : '0ms',
@@ -65,7 +85,7 @@ const Navbar = ({ isHovered, isTextVisible, isOpen, handleToggleOpen, handleSele
 
         {/* Mobile Navigation */}
         <div className="lg:hidden relative w-40">
-          <button 
+          <button
             className={`w-full py-2 px-6 text-center flex items-center justify-center gap-2 transition-colors duration-300 ${isOpen ? 'text-highlight' : ''}`}
             onClick={handleToggleOpen}
           >
@@ -73,7 +93,7 @@ const Navbar = ({ isHovered, isTextVisible, isOpen, handleToggleOpen, handleSele
             <span>{currentPage}</span>
           </button>
 
-          <div 
+          <div
             className={`absolute bottom-12 left-1/2 transform -translate-x-1/2 w-40 bg-navbar rounded-lg shadow-lg overflow-hidden transition-all duration-300 ${isOpen ? 'max-h-[500px] opacity-100' : 'max-h-0 opacity-0'}`}
           >
             <div className="py-2">
@@ -83,17 +103,32 @@ const Navbar = ({ isHovered, isTextVisible, isOpen, handleToggleOpen, handleSele
 
                 return (
                   <div key={route.path}>
-                    <Link
-                      href={route.path}
-                      className={`block py-2 px-4 text-center hover:text-highlight flex items-center justify-center gap-2 transition-all duration-300 ${isOpen ? 'translate-y-0 opacity-100' : 'translate-y-4 opacity-0'}`}
-                      onClick={() => handleSelectOption(() => {})}
-                      style={{
-                        transitionDelay: isOpen ? `${delay}ms` : '0ms'
-                      }}
-                    >
-                      <Icon className="text-2xl" />
-                      <span>{route.name}</span>
-                    </Link>
+                    {route.external ? (
+                      <a
+                        href={route.external}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className={`block py-2 px-4 text-center hover:text-highlight flex items-center justify-center gap-2 transition-all duration-300 ${isOpen ? 'translate-y-0 opacity-100' : 'translate-y-4 opacity-0'}`}
+                        style={{
+                          transitionDelay: isOpen ? `${delay}ms` : '0ms',
+                        }}
+                      >
+                        <Icon className="text-2xl" />
+                        <span>{route.name}</span>
+                      </a>
+                    ) : (
+                      <Link
+                        href={route.path}
+                        className={`block py-2 px-4 text-center hover:text-highlight flex items-center justify-center gap-2 transition-all duration-300 ${isOpen ? 'translate-y-0 opacity-100' : 'translate-y-4 opacity-0'}`}
+                        onClick={() => handleSelectOption(() => {})}
+                        style={{
+                          transitionDelay: isOpen ? `${delay}ms` : '0ms'
+                        }}
+                      >
+                        <Icon className="text-2xl" />
+                        <span>{route.name}</span>
+                      </Link>
+                    )}
                     <div className="h-[1px] bg-text/50 mx-4" />
                   </div>
                 );
