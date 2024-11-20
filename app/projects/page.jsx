@@ -23,46 +23,45 @@ const TimelineItem = ({ item }) => {
   }, [item.prominentStackIcon]);
 
   return (
-    <div
-      className={`flex gap-x-3 animate-fadeInDown`}
-      style={{ animationDelay: `${item.index * 0.1}s` }}
-    >
-      <div className="relative last:after:hidden after:absolute after:top-7 after:bottom-0 after:start-3.5 after:w-px after:-translate-x-[0.5px] after:bg-gray-200 dark:after:bg-neutral-700">
-        <div className="relative z-10 size-7 flex justify-center items-center">
+    <div className="flex gap-x-3 animate-fadeInDown" style={{ animationDelay: `${item.index * 0.1}s` }}>
+      <div className="relative">
+        <div className="relative z-10 flex flex-col items-center justify-center text-center" style={{ height: '4rem', width: '4rem' }}>
           {ProminentIcon ? <ProminentIcon className="text-4xl text-orange-500" /> : <div>Loading...</div>}
+        </div>
+        <div className="absolute inset-0 top-14 flex items-start justify-center">
+          <div className="w-px h-full bg-gray-200 dark:bg-neutral-700"></div>
         </div>
       </div>
       <div className="grow pt-0.5 pb-8">
-        <h3 className="flex gap-x-1.5 font-semibold text-highlight text-2xl">
-          {item.title}
-        </h3>
-        <span className="text-text text-lg">
-          {item.date}
-        </span>
-        <p className="mt-2 text-gray-600 dark:text-neutral-400">
-          {item.description}
-        </p>
-        <div className="flex items-center gap-x-4">
-          <a href={item.gitHubLink} className="flex items-center gap-x-1 text-blue-500 hover:underline">
+        <h3 className="font-semibold text-highlight text-2xl">{item.title}</h3>
+        <span className="text-text text-lg">{item.date}</span>
+        <p className="mt-2 text-gray-600 dark:text-neutral-400">{item.description}</p>
+        <div className="flex items-center gap-x-4 mt-2">
+          <a
+            href={item.gitHubLink}
+            className="px-3 py-1 bg-white text-background font-semibold rounded-full hover:bg-highlight no-underline transition duration-300 flex items-center gap-x-1"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
             <FaGithub className="text-xl" /> View on GitHub
           </a>
           <button
-            className="flex items-center gap-x-1 text-blue-500 hover:underline"
+            className="px-3 py-1 bg-white text-background font-semibold rounded-full hover:bg-highlight no-underline transition duration-300 flex items-center gap-x-1"
             onClick={() => setShowImages(!showImages)}
           >
             <FaImages className="text-xl" /> Show Images
           </button>
         </div>
         {showImages && (
-          <div className="mt-2 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
+          <div className="mt-4 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
             {item.screenshots.map((src, index) => (
               <img key={index} className="rounded-lg" src={src} alt={`Screenshot ${index + 1}`} />
             ))}
           </div>
         )}
-        <div className="flex mt-2 space-x-2">
+        <div className="flex mt-4 space-x-2">
           {item.tools.split(', ').map((tool, index) => (
-            <span key={index} className="text-xs bg-white text-background rounded-full px-2 py-1">
+            <span key={index} className="text-xs bg-lightblue text-background rounded-full px-2 py-1">
               {tool}
             </span>
           ))}

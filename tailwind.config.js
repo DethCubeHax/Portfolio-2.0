@@ -12,6 +12,7 @@ module.exports = {
         text: '#ffffff', // White
         highlight: '#ff6f00', // Orange
         navbar: '#595b78', // Muted purple/gray
+        lightblue: '#add8e6', // Light blue
       },
       fontFamily: {
         montserrat: ['Montserrat', 'sans-serif'],

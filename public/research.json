@@ -1,22 +1,23 @@
 {
-    "projects": [
-      {
-        "title": "Design and Implementation of a Cost-Efficient Underwater Communication System",
-        "image": "UnderwaterComms",
-        "date": "Jan 2023 - Mar 2023",
-        "links": [
-          {
-            "icon": "ResearchIcon",
-            "text": "Publication",
-            "url": "https://isam2023.exordo.com/files/papers/78/final_draft/N_U_Islam__K_L_Chung__T_J_K_Ng__78.pdf"
-          },
-          {
-            "icon": "WorkIcon",
-            "text": "ISAM 2023",
-            "url": "https://isam2023.hemi-makers.org/"
-          }
-        ],
-        "description": "Recognizing the importance of underwater communication between the control stations and the robots, I, alongside two other engineers developed a stable and robust communication system on a low budget. This paper presents our prototyping, methodology and the performance of the system\n\nThe controller comprises of a drop-in, easy to build PCB designed using EasyEDA, with 2 joysticks, 1 potentiometer and 2 push buttons that can be mapped to any control for a range of underwater robots."
-      }
-    ]
-  }
+  "projects": [
+    {
+      "title": "Design and Implementation of a Cost-Efficient Underwater Communication System",
+      "image": "ISAM.png",
+      "date": "Jan 2023 - Mar 2023",
+      "links": [
+        {
+          "icon": "ResearchIcon",
+          "text": "Publication",
+          "url": "https://isam2023.exordo.com/files/papers/78/final_draft/N_U_Islam__K_L_Chung__T_J_K_Ng__78.pdf"
+        },
+        {
+          "icon": "WorkIcon",
+          "text": "ISAM 2023",
+          "url": "https://isam2023.hemi-makers.org/"
+        }
+      ],
+      "tools": "EasyEDA, PCB Design, Prototyping",
+      "description": "Recognizing the importance of underwater communication between the control stations and the robots, I, alongside two other engineers developed a stable and robust communication system on a low budget. This paper presents our prototyping, methodology and the performance of the system. The controller comprises of a drop-in, easy to build PCB designed using EasyEDA, with 2 joysticks, 1 potentiometer and 2 push buttons that can be mapped to any control for a range of underwater robots."
+    }
+  ]
+}

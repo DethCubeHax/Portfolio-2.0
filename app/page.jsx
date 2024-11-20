@@ -37,7 +37,7 @@ const Home = () => {
     <PageLayout title="Nafis Ul Islam">
       <div className="flex flex-col items-center">
         <PhotoFrame image="/Nafis.jpg" />
-        <div ref={canvasTextRef} className="mt-10 text-center text-white text-2xl sm:text-3xl font-montserrat font-extralight">
+        <div ref={canvasTextRef} className="mt-6 text-center text-white text-2xl sm:text-3xl font-montserrat font-extralight">
           {animationPlayed ? "Hi there! I'm Nafis, aka DethCubeHax, a software engineer in the making." : ""}
         </div>
         <div className="mt-10 grid grid-cols-1 sm:grid-cols-3 gap-8 text-center font-montserrat font-extralight text-xl sm:text-2xl">
