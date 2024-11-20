@@ -1,20 +1,20 @@
 [
   {
-    "title": "CourseSage HKU",
-    "imageUrl": "GPAid.jpg",
-    "date": "Jan 2022 - Jun 2022",
-    "gitHubLink": "https://github.com/DethCubeHax/GPAID-Alpha-HKU",
-    "tools": "React, Node, Express, MongoDB",
-    "prominentStackIcon": "FaReact",
-    "description": "A course selection app that suggests students courses to take based on the reviews of past course takers, as well as their grades. Built using the MERN stack, with React for the front-end, Node.js and Express for the back-end, and MongoDB for the database.",
+    "title": "Personal Portfolio/Blog",
+    "imageUrl": "Portfolio.jpg",
+    "date": "Nov 2023 - Present",
+    "gitHubLink": "https://github.com/DethCubeHax/Portfolio-2.0",
+    "tools": "Vite.JS, Node.JS",
+    "prominentStackIcon": "FaNodeJs",
+    "description": "Welcome to my digital portfolio, a showcase of my software and hardware projects. Designed for an engaging experience, my site features interactive elements like a typewriter effect and animated project cards, and many more effects! Discover a variety of projects I've developed, each with detailed information and a link to the GitHub source code. With responsive design at its core, my site offers optimal viewing on any screen, complete with a hamburger menu for easy navigation on smaller devices.",
     "screenshots": [
-      "/projects/CourseSage.jpg"
+      "/projects/Portfolio.png"
     ]
   },
   {
     "title": "Robotic Fish, BREED",
     "imageUrl": "Fish.jpg",
-    "date": "Jun 2022 - Present",
+    "date": "Jun 2022 - Oct 2023",
     "gitHubLink": "https://github.com/DethCubeHax/GPAID-Alpha-HKU",
     "tools": "C++, ROS, Python, EasyEDA",
     "prominentStackIcon": "FaRobot",
@@ -36,6 +36,18 @@
     ]
   },
   {
+    "title": "CourseSage HKU",
+    "imageUrl": "GPAid.jpg",
+    "date": "Jan 2022 - Jun 2022",
+    "gitHubLink": "https://github.com/DethCubeHax/GPAID-Alpha-HKU",
+    "tools": "React, Node, Express, MongoDB",
+    "prominentStackIcon": "FaReact",
+    "description": "A course selection app that suggests students courses to take based on the reviews of past course takers, as well as their grades. Built using the MERN stack, with React for the front-end, Node.js and Express for the back-end, and MongoDB for the database.",
+    "screenshots": [
+      "/projects/CourseSage.jpg"
+    ]
+  },
+  {
     "title": "Arduino Smart Display",
     "imageUrl": "SmartDisplay.jpg",
     "date": "Mar 2021",
@@ -45,18 +57,6 @@
     "description": "The Smart_Display.ino Arduino project is a multifunctional smart display that uses a DS3231 Real-Time Clock (RTC) module to display time and date on a TFT TouchScreen. This project is customizable, allowing users to switch time display modes, adjust alarms, and toggle logging. It supports multiple alarms and uses a buzzer for alerts.",
     "screenshots": [
       "/projects/SmartDisplay.jpeg"
-    ]
-  },
-  {
-    "title": "Personal Portfolio/Blog",
-    "imageUrl": "Portfolio.jpg",
-    "date": "Nov 2023 - Present",
-    "gitHubLink": "https://github.com/DethCubeHax/Portfolio-2.0",
-    "tools": "Vite.JS, Node.JS",
-    "prominentStackIcon": "FaNodeJs",
-    "description": "Welcome to my digital portfolio, a showcase of my software and hardware projects. Designed for an engaging experience, my site features interactive elements like a typewriter effect and animated project cards, and many more effects! Discover a variety of projects I've developed, each with detailed information and a link to the GitHub source code. With responsive design at its core, my site offers optimal viewing on any screen, complete with a hamburger menu for easy navigation on smaller devices.",
-    "screenshots": [
-      "/projects/Portfolio.png"
     ]
   }
 ]
