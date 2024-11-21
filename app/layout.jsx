@@ -1,5 +1,6 @@
 import MainLayout from "@/components/MainLayout";
 import { Analytics } from '@vercel/analytics/next';
+import { SpeedInsights } from "@vercel/speed-insights/next"
 import "./globals.css";
 
 export const metadata = {
@@ -17,6 +18,7 @@ export default function RootLayout({ children }) {
         {/* Pass the children into the MainLayout */}
         <MainLayout>{children}</MainLayout>
         <Analytics/>
+        <SpeedInsights/>
       </body>
     </html>
   );
