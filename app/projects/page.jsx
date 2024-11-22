@@ -1,10 +1,10 @@
 "use client";
-import React, { useState, useEffect, memo } from 'react';
-import { FaGithub, FaImages } from 'react-icons/fa';
+import React, { useState, useEffect } from 'react';
 import PageLayout from '@/components/PageLayout';
 import projects from '../../public/projects.json';
+import { FaGithub, FaImages } from 'react-icons/fa';
 
-const TimelineItem = memo(({ item, delay }) => {
+const TimelineItem = ({ item }) => {
   const [showImages, setShowImages] = useState(false);
   const [ProminentIcon, setProminentIcon] = useState(null);
 
@@ -22,7 +22,7 @@ const TimelineItem = memo(({ item, delay }) => {
   }, [item.prominentStackIcon]);
 
   return (
-    <div className="flex gap-x-3 animate-fadeInDown" style={{ animationDelay: `${delay}s`, visibility: 'hidden', animationFillMode: 'forwards' }}>
+    <div className="flex gap-x-3 animate-fadeInDown" style={{ animationDelay: `${item.index * 0.1}s` }}>
       <div className="relative">
         <div className="relative z-10 flex flex-col items-center justify-center text-center" style={{ height: '4rem', width: '4rem' }}>
           {ProminentIcon ? <ProminentIcon className="text-4xl text-orange-500" /> : <div>Loading...</div>}
@@ -70,18 +70,14 @@ const TimelineItem = memo(({ item, delay }) => {
       </div>
     </div>
   );
-});
-
-TimelineItem.displayName = 'TimelineItem';
+};
 
 const Projects = () => {
-  const sortedProjects = [...projects].sort((a, b) => a.index - b.index);
-
   return (
     <PageLayout title="My Projects">
       <div>
-        {sortedProjects.map((project, idx) => (
-          <TimelineItem key={idx} item={{ ...project, index: idx }} delay={idx * 0.1} />
+        {projects.map((project, idx) => (
+          <TimelineItem key={idx} item={{ ...project, index: idx }} />
         ))}
       </div>
     </PageLayout>
