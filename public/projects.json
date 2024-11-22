@@ -4,7 +4,7 @@
     "imageUrl": "ChatWhiz.jpg",
     "date": "Nov 2024 - Present",
     "gitHubLink": "https://github.com/DethCubeHax/ChatWhiz",
-    "tools": "FastAPI, Python, JavaScript, React, LLaMa-3.2, RAG, Ollama",
+    "tools": "FastAPI, Python, JavaScript, React",
     "prominentStackIcon": "FaCommentDots",
     "description": "ChatWhiz is an AI-powered chatbot that enhances user interaction by providing intelligent and context-aware responses. Built using FastAPI and Python for the backend, and JavaScript and React for the frontend, ChatWhiz can understand and respond to user queries with high accuracy. The chatbot leverages models from Ollama, including Llama2, which are trained on extensive datasets to generate human-like text. It employs Retrieval-Augmented Generation (RAG) to fetch relevant information from its database before generating responses. This ensures ChatWhiz provides accurate, personalized, and contextually relevant answers. The system is fine-tuned on domain-specific data and continually learns from new interactions, making it an invaluable tool for businesses and personal use.",
     "screenshots": [
@@ -12,11 +12,35 @@
     ]
   },
   {
+    "title": "CargoPrism",
+    "imageUrl": "CargoPrism.jpeg",
+    "date": "Nov 2024",
+    "gitHubLink": "https://github.com/DethCubeHax/CargoPrism",
+    "tools": "React, FastAPI, Python, Pandas, HKIA API",
+    "prominentStackIcon": "FaBox",
+    "description": "CargoPrism is an interactive, web-hosted dashboard platform designed to provide real-time competitor analysis and insights for Cathay Pacific, built as a submission candidate for the Cathay Hackathon 2024. It offers centralized, cleaned data analytics and visualization of competitor operations, focusing on flight patterns, capacity changes, and market trends. The system features customizable filters, interactive dashboards, and comprehensive performance tracking capabilities. Built with React for the frontend and FastAPI/Python for backend processing, it currently processes data from Hong Kong International Airport with plans for expansion. Key features include real-time performance monitoring, competitor pattern analysis, and data-driven decision support tools.",
+    "screenshots": [
+      "/projects/CargoPrism.jpeg"
+    ]
+  },
+  {
+    "title": "DOBOT Magician ROS Controllers",
+    "imageUrl": "DOBOT.jpg",
+    "date": "Jan 2024 - May 2024",
+    "gitHubLink": "https://github.com/DethCubeHax/DOBOT-Magician-ROS-Controllers",
+    "tools": "ROS Noetic, Ubuntu 20.04, Python 3.8.10",
+    "prominentStackIcon": "FaMicrochip",
+    "description": "This is a digital twin ROS package for the DOBOT Magician robotic arm. It provides a simple interface to control the robot arm and has been tested with ROS Noetic on Ubuntu 20.04. The package includes features like joystick control for both real and simulated robot arms, and two-way joint state communication. The development environment for this package includes Ubuntu 20.04, ROS Noetic, and Python 3.8.10. In this project, I worked on building the computer vision and control elements, enabling precise and responsive control of the robotic arm through ROS.",
+    "screenshots": [
+      "/projects/DOBOT.gif"
+    ]
+  },
+  {
     "title": "Personal Portfolio/Blog",
     "imageUrl": "Portfolio.jpg",
     "date": "Nov 2023 - Present",
     "gitHubLink": "https://github.com/DethCubeHax/Portfolio-2.0",
-    "tools": "Next.JS, Node.JS",
+    "tools": "Vite.JS, Node.JS",
     "prominentStackIcon": "FaNodeJs",
     "description": "Welcome to my digital portfolio, a showcase of my software and hardware projects. Designed for an engaging experience, my site features interactive elements like a typewriter effect and animated project cards, and many more effects! Discover a variety of projects I've developed, each with detailed information and a link to the GitHub source code. With responsive design at its core, my site offers optimal viewing on any screen, complete with a hamburger menu for easy navigation on smaller devices.",
     "screenshots": [
