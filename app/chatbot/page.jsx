@@ -4,12 +4,23 @@ import { FiUser } from 'react-icons/fi';
 import { FaRobot } from 'react-icons/fa';
 import PageLayout from '@/components/PageLayout';
 
+// Function to generate a random character string
+const generateRandomString = (length = 12) => {
+  const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+  let result = '';
+  for (let i = 0; i < length; i++) {
+    result += characters.charAt(Math.floor(Math.random() * characters.length));
+  }
+  return result;
+};
+
 const Chatbot = () => {
   const [messages, setMessages] = useState([]);
   const [input, setInput] = useState('');
   const [isSending, setIsSending] = useState(false);
   const inputRef = useRef(null);
   const messagesEndRef = useRef(null);
+  const [sessionID] = useState(generateRandomString());
 
   const validCommands = ['help', 'projects', 'work', 'publications', 'blogs', 'contact', 'clear', 'age', 'navigate'];
 
@@ -46,17 +57,17 @@ const Chatbot = () => {
     }
   }, [messages]);
 
-  const queryAPI = async (queryText, previousMessages) => {
+  const queryAPI = async (queryText) => {
     try {
       const response = await Promise.race([
         fetch('https://green-octopus-24.telebit.io/query', {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
+            'session_id': sessionID  // Send sessionID in the headers
           },
           body: JSON.stringify({
             query_text: queryText,
-            previous_messages: previousMessages,
           })
         }),
         new Promise((_, reject) => 
@@ -127,8 +138,7 @@ const Chatbot = () => {
       } else {
         setIsSending(true);
         try {
-          const previousMessages = messages.map(message => `${message.type === 'user' ? 'Question: ' : 'Answer: '}${message.text}`);
-          const apiResponse = await queryAPI(userCommand, previousMessages);
+          const apiResponse = await queryAPI(userCommand);
           const botMessage = {
             type: 'response',
             text: apiResponse,
