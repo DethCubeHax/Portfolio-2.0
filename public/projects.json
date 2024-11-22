@@ -1,10 +1,22 @@
 [
   {
+    "title": "ChatWhiz",
+    "imageUrl": "ChatWhiz.jpg",
+    "date": "Nov 2024 - Present",
+    "gitHubLink": "https://github.com/DethCubeHax/ChatWhiz",
+    "tools": "FastAPI, Python, JavaScript, React, LLaMa-3.2, RAG, Ollama",
+    "prominentStackIcon": "FaCommentDots",
+    "description": "ChatWhiz is an AI-powered chatbot that enhances user interaction by providing intelligent and context-aware responses. Built using FastAPI and Python for the backend, and JavaScript and React for the frontend, ChatWhiz can understand and respond to user queries with high accuracy. The chatbot leverages models from Ollama, including Llama2, which are trained on extensive datasets to generate human-like text. It employs Retrieval-Augmented Generation (RAG) to fetch relevant information from its database before generating responses. This ensures ChatWhiz provides accurate, personalized, and contextually relevant answers. The system is fine-tuned on domain-specific data and continually learns from new interactions, making it an invaluable tool for businesses and personal use.",
+    "screenshots": [
+      "/projects/ChatWhiz.png"
+    ]
+  },
+  {
     "title": "Personal Portfolio/Blog",
     "imageUrl": "Portfolio.jpg",
     "date": "Nov 2023 - Present",
     "gitHubLink": "https://github.com/DethCubeHax/Portfolio-2.0",
-    "tools": "Vite.JS, Node.JS",
+    "tools": "Next.JS, Node.JS",
     "prominentStackIcon": "FaNodeJs",
     "description": "Welcome to my digital portfolio, a showcase of my software and hardware projects. Designed for an engaging experience, my site features interactive elements like a typewriter effect and animated project cards, and many more effects! Discover a variety of projects I've developed, each with detailed information and a link to the GitHub source code. With responsive design at its core, my site offers optimal viewing on any screen, complete with a hamburger menu for easy navigation on smaller devices.",
     "screenshots": [
