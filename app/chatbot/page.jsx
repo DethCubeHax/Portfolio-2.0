@@ -1,4 +1,4 @@
-"use client"
+"use client";
 import React, { useState, useEffect, useRef } from 'react';
 import { FiUser } from 'react-icons/fi';
 import { FaRobot } from 'react-icons/fa';
@@ -46,7 +46,7 @@ const Chatbot = () => {
     }
   }, [messages]);
 
-  const queryAPI = async (queryText) => {
+  const queryAPI = async (queryText, previousMessages) => {
     try {
       const response = await Promise.race([
         fetch('https://green-octopus-24.telebit.io/query', {
@@ -55,7 +55,8 @@ const Chatbot = () => {
             'Content-Type': 'application/json',
           },
           body: JSON.stringify({
-            query_text: queryText
+            query_text: queryText,
+            previous_messages: previousMessages,
           })
         }),
         new Promise((_, reject) => 
@@ -126,7 +127,8 @@ const Chatbot = () => {
       } else {
         setIsSending(true);
         try {
-          const apiResponse = await queryAPI(userCommand);
+          const previousMessages = messages.map(message => `${message.type === 'user' ? 'Question: ' : 'Answer: '}${message.text}`);
+          const apiResponse = await queryAPI(userCommand, previousMessages);
           const botMessage = {
             type: 'response',
             text: apiResponse,
