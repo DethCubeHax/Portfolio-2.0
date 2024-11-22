@@ -28,7 +28,7 @@
     "title": "DOBOT Magician ROS Controllers",
     "imageUrl": "DOBOT.jpg",
     "date": "Jan 2024 - May 2024",
-    "gitHubLink": "https://github.com/DethCubeHax/DOBOT-Magician-ROS-Controllers",
+    "gitHubLink": "https://github.com/Innowing-robotics-interns/dobot_magician_ros",
     "tools": "ROS Noetic, Ubuntu 20.04, Python 3.8.10",
     "prominentStackIcon": "FaMicrochip",
     "description": "This is a digital twin ROS package for the DOBOT Magician robotic arm. It provides a simple interface to control the robot arm and has been tested with ROS Noetic on Ubuntu 20.04. The package includes features like joystick control for both real and simulated robot arms, and two-way joint state communication. The development environment for this package includes Ubuntu 20.04, ROS Noetic, and Python 3.8.10. In this project, I worked on building the computer vision and control elements, enabling precise and responsive control of the robotic arm through ROS.",
@@ -61,27 +61,27 @@
     ]
   },
   {
-    "title": "JCshell",
-    "imageUrl": "JCshell.png",
+    "title": "JCShell",
+    "imageUrl": "JCShell.png",
     "date": "Sep 2023",
-    "gitHubLink": "https://github.com/DethCubeHax/JCshell",
+    "gitHubLink": "https://github.com/DethCubeHax/JCShell",
     "tools": "C",
     "prominentStackIcon": "FaTerminal",
     "description": "JCshell is a simple shell program written in C that allows users to execute commands and manage child processes. It supports basic command execution, process management, and signal handling. Features include executing user-entered commands using execvp(), support for piping between commands, limiting the maximum number of child processes, handling SIGINT signal, and providing process information. The development platform includes MacOS Sonoma ARM64, and Ubuntu 20.04.2 LTS ARM64 and x86_64. The program implements the basic functionality of a shell without additional bonus features.",
     "screenshots": [
-      "/projects/JCshell.png"
+      "/projects/JCShell.png"
     ]
   },
   {
     "title": "BREED HKU Doggi-E: Quadruped Robot Control System",
-    "imageUrl": "DoggiE.jpg",
+    "imageUrl": "Doggi-E.png",
     "date": "Oct 2023",
-    "gitHubLink": "https://github.com/DethCubeHax/DoggiE",
+    "gitHubLink": "https://github.com/DethCubeHax/Doggi-E",
     "tools": "C++, ROS, Python",
     "prominentStackIcon": "FaDog",
     "description": "This system implements inverse kinematics control for a quadruped robot with 12 servos (3 per leg). The code controls leg movements and positioning using inverse kinematics calculations to translate desired foot positions into servo angles. The key components include a main controller for initializing and managing the robot systems, a leg controller for actuating all four legs, and an inverse kinematics module for calculating joint angles. The system is designed to ensure precise and responsive control of the robot's movements, with a focus on efficient servo actuation and real-time adjustments.",
     "screenshots": [
-      "/projects/DoggiE.png"
+      "/projects/Doggi-E.png"
     ]
   },
   {
