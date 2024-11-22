@@ -1,4 +1,4 @@
-"use client"
+"use client";
 import React, { useState } from 'react';
 import PageLayout from '@/components/PageLayout';
 import researchProjects from '../../public/research.json';
@@ -19,17 +19,18 @@ const ResearchProjectItem = ({ item }) => {
         <span className="text-text text-lg block">{item.conference}</span>
         <span className="text-xs font-medium uppercase text-text mt-1 block">{item.date}</span>
         <p className="mt-2 text-gray-600 dark:text-neutral-400">{item.description}</p>
-        <div className="flex items-center gap-x-4 mt-2">
+        <div className="flex items-center gap-4 mt-2">
           <a
             href={item.links[0].url}
             className="px-3 py-1 bg-white text-background font-semibold rounded-full hover:bg-highlight no-underline transition duration-300"
             target="_blank"
             rel="noopener noreferrer"
+            style={{ whiteSpace: "nowrap" }}
           >
             Read My Publication
           </a>
         </div>
-        <div className="flex mt-4 space-x-2">
+        <div className="flex flex-wrap mt-4 gap-2">
           {item.tools.split(', ').map((tool, index) => (
             <span key={index} className="text-xs bg-lightblue text-background rounded-full px-2 py-1">
               {tool}
