@@ -5,7 +5,7 @@
     "date": "Nov 2024 - Present",
     "gitHubLink": "https://github.com/DethCubeHax/ChatWhiz",
     "tools": "FastAPI, Python, JavaScript, React",
-    "prominentStackIcon": "FaCommentDots",
+    "prominentStackIcon": "FaRobot",
     "description": "ChatWhiz is an AI-powered chatbot that enhances user interaction by providing intelligent and context-aware responses. Built using FastAPI and Python for the backend, and JavaScript and React for the frontend, ChatWhiz can understand and respond to user queries with high accuracy. The chatbot leverages models from Ollama, including Llama2, which are trained on extensive datasets to generate human-like text. It employs Retrieval-Augmented Generation (RAG) to fetch relevant information from its database before generating responses. This ensures ChatWhiz provides accurate, personalized, and contextually relevant answers. The system is fine-tuned on domain-specific data and continually learns from new interactions, making it an invaluable tool for businesses and personal use.",
     "screenshots": [
       "/projects/ChatWhiz.png"
@@ -49,12 +49,48 @@
     ]
   },
   {
+    "title": "ParaLLaMa",
+    "imageUrl": "ParaLLaMa.png",
+    "date": "Sep 2023",
+    "gitHubLink": "https://github.com/DethCubeHax/ParaLlama",
+    "tools": "C, POSIX threads",
+    "prominentStackIcon": "FaCode",
+    "description": "ParaLlama implements a parallel matrix-vector multiplication algorithm in C using the POSIX threads (pthreads) library. This project efficiently distributes computation across multiple threads, providing a simple interface for performing matrix-vector multiplication. Key features include parallel computation, efficient workload distribution, thread synchronization, and resource usage tracking. The project was developed on Ubuntu 20.04 Docker Container and showcases a significant improvement in performance by utilizing multiple threads for computation. The main functions include thr_func for thread execution, init_mat_vec_mul for initialization, mat_vec_mul for the multiplication process, and close_mat_vec_mul for cleanup. Compilation command: gcc -o llama2 llama2.c utilities.c -O2 -pthread -lm.",
+    "screenshots": [
+      "/projects/ParaLLaMa.png"
+    ]
+  },
+  {
+    "title": "JCshell",
+    "imageUrl": "JCshell.png",
+    "date": "Sep 2023",
+    "gitHubLink": "https://github.com/DethCubeHax/JCshell",
+    "tools": "C",
+    "prominentStackIcon": "FaTerminal",
+    "description": "JCshell is a simple shell program written in C that allows users to execute commands and manage child processes. It supports basic command execution, process management, and signal handling. Features include executing user-entered commands using execvp(), support for piping between commands, limiting the maximum number of child processes, handling SIGINT signal, and providing process information. The development platform includes MacOS Sonoma ARM64, and Ubuntu 20.04.2 LTS ARM64 and x86_64. The program implements the basic functionality of a shell without additional bonus features.",
+    "screenshots": [
+      "/projects/JCshell.png"
+    ]
+  },
+  {
+    "title": "BREED HKU Doggi-E: Quadruped Robot Control System",
+    "imageUrl": "DoggiE.jpg",
+    "date": "Oct 2023",
+    "gitHubLink": "https://github.com/DethCubeHax/DoggiE",
+    "tools": "C++, ROS, Python",
+    "prominentStackIcon": "FaDog",
+    "description": "This system implements inverse kinematics control for a quadruped robot with 12 servos (3 per leg). The code controls leg movements and positioning using inverse kinematics calculations to translate desired foot positions into servo angles. The key components include a main controller for initializing and managing the robot systems, a leg controller for actuating all four legs, and an inverse kinematics module for calculating joint angles. The system is designed to ensure precise and responsive control of the robot's movements, with a focus on efficient servo actuation and real-time adjustments.",
+    "screenshots": [
+      "/projects/DoggiE.png"
+    ]
+  },
+  {
     "title": "Robotic Fish, BREED",
     "imageUrl": "Fish.jpg",
     "date": "Jun 2022 - Oct 2023",
     "gitHubLink": "https://github.com/DethCubeHax/GPAID-Alpha-HKU",
     "tools": "C++, ROS, Python, EasyEDA",
-    "prominentStackIcon": "FaRobot",
+    "prominentStackIcon": "FaFish",
     "description": "As the Embedded Systems Technical Lead of the Student Interest Group, BREED HKU, I worked alongside a team of talented engineers to develop our flagship robotic fish, holding the Guinness World Record for the fastest swimming fish in the world. I developed the code for the fish's fins and the main motor, devised an algorithm to optimize turning, and optimized the electrical systems by developing robust, drop-in PCBs for the mainboard and the controller.",
     "screenshots": [
       "/projects/Fish.jpg"
