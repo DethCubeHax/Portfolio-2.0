@@ -74,7 +74,6 @@ RootLayout
     └── PageLayout
         └── [Page Content]
 ```
-## Component Hierarchy
 
 ### Core Layout Components
 1. **RootLayout**
