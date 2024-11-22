@@ -20,7 +20,8 @@
     "prominentStackIcon": "FaBox",
     "description": "CargoPrism is an interactive, web-hosted dashboard platform designed to provide real-time competitor analysis and insights for Cathay Pacific, built as a submission candidate for the Cathay Hackathon 2024. It offers centralized, cleaned data analytics and visualization of competitor operations, focusing on flight patterns, capacity changes, and market trends. The system features customizable filters, interactive dashboards, and comprehensive performance tracking capabilities. Built with React for the frontend and FastAPI/Python for backend processing, it currently processes data from Hong Kong International Airport with plans for expansion. Key features include real-time performance monitoring, competitor pattern analysis, and data-driven decision support tools.",
     "screenshots": [
-      "/projects/CargoPrism.jpeg"
+      "/projects/CargoPrism.jpeg",
+      "/projects/CargoPrism_2.jpeg"
     ]
   },
   {
