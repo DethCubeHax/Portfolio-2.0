@@ -20,7 +20,7 @@ const WorkExperienceItem = ({ item }) => {
         <h3 className="font-semibold text-highlight text-2xl">{item.company.name}</h3>
         <span className="text-text text-lg block">{item.title}</span>
         <span className="text-xs font-medium uppercase text-text mt-1 block">{item.date}</span>
-        <ul className="mt-2 text-gray-600 dark:text-neutral-400 list-disc list-inside">
+        <ul className="mt-2 text-gray-600 dark:text-neutral-400 list-disc list-inside text-justify">
           {item.description.map((desc, index) => (
             <li key={index}>{desc}</li>
           ))}

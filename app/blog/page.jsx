@@ -23,7 +23,7 @@ const BlogPostItem = ({ item }) => {
 
   const renderContent = (content) => {
     return content.map((paragraph, index) => (
-      <p key={index} className="whitespace-pre-wrap">
+      <p key={index} className="whitespace-pre-wrap text-justify">
         {paragraph.split(/\*\*(.*?)\*\*/).map((text, i) =>
           i % 2 === 1 ? (
             <span key={i} className="font-bold block mt-4">{text}</span>
@@ -46,7 +46,7 @@ const BlogPostItem = ({ item }) => {
       <div className="grow pt-0.5 pb-8">
         <h3 className="font-semibold text-highlight text-2xl">{item.title}</h3>
         <span className="text-text text-lg">{item.date}</span>
-        <div className="mt-2 text-gray-600 dark:text-neutral-400">
+        <div className="mt-2 text-gray-600 dark:text-neutral-400 text-justify">
           {renderContent(item.content)}
         </div>
         <div className="flex mt-4 space-x-2">

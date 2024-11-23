@@ -34,7 +34,7 @@ const TimelineItem = ({ item }) => {
       <div className="grow pt-0.5 pb-8">
         <h3 className="font-semibold text-highlight text-2xl">{item.title}</h3>
         <span className="text-text text-lg">{item.date}</span>
-        <p className="mt-2 text-gray-600 dark:text-neutral-400">{item.description}</p>
+        <p className="mt-2 text-gray-600 dark:text-neutral-400 text-justify">{item.description}</p>
         <div className="flex flex-wrap items-center gap-4 mt-2">
           <a
             href={item.gitHubLink}
