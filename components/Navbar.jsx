@@ -13,7 +13,7 @@ const routes = [
   { path: '/blog', name: 'Blog', icon: HiNewspaper },
   { path: '/chatbot', name: 'AI Chatbot', icon: HiChat },
   { path: '/resume', name: 'Resume', icon: HiDocument, external: '/Resume.pdf' },
-  { path: '/contact', name: 'Contact', icon: HiMail, external: 'mailto:nafisulislam2k2@gmail.com' },
+  { path: '/contact', name: 'Contact', icon: HiMail, external: 'mailto:nafis@nafisui.com' },
 ];
 
 const Navbar = ({ isHovered, isTextVisible, isOpen, handleToggleOpen, handleSelectOption }) => {
