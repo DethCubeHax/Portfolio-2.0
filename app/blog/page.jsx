@@ -46,7 +46,7 @@ const BlogPostItem = ({ item }) => {
       <div className="grow pt-0.5 pb-8">
         <h3 className="font-semibold text-highlight text-2xl">{item.title}</h3>
         <span className="text-text text-lg">{item.date}</span>
-        <div className="mt-2 text-gray-600 dark:text-neutral-400 text-justify">
+        <div className="mt-2 text-gray-600 dark:text-neutral-200 text-justify">
           {renderContent(item.content)}
         </div>
         <div className="flex mt-4 space-x-2">

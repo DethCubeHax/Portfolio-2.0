@@ -18,7 +18,7 @@ const ResearchProjectItem = ({ item }) => {
         <h3 className="font-semibold text-highlight text-2xl">{item.title}</h3>
         <span className="text-text text-lg block">{item.conference}</span>
         <span className="text-xs font-medium uppercase text-text mt-1 block">{item.date}</span>
-        <p className="mt-2 text-gray-600 dark:text-neutral-400 text-justify">{item.description}</p>
+        <p className="mt-2 text-gray-600 dark:text-neutral-200 text-justify">{item.description}</p>
         <div className="flex items-center gap-4 mt-2">
           <a
             href={item.links[0].url}
