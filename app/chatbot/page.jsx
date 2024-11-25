@@ -45,7 +45,7 @@ const Chatbot = () => {
   useEffect(() => {
     const initialMessage = {
       type: 'response',
-      text: `Hello! I am an AI chatbot developed by Nafis, based on his projects, work experiences, and research. I can assist you with various tasks and answer your questions. \n\nHowever, I may occasionally generate incorrect information.\n\nAdditionally, here are some built-in, non-AI commands you can try: ${validCommands.join(', ')}. How can I assist you today?`,
+      text: `Hello! I am an AI chatbot developed by Nafis, based on his projects, work experiences, and research. I can answer any of your questions regarding them.\n\nPlease note that I am under active development, and I may occasionally generate incorrect information.\n\nHow can I assist you today?`,
       timestamp: new Date().toLocaleTimeString(),
     };
     setMessages([initialMessage]);
