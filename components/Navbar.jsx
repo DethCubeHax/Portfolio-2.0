@@ -107,8 +107,9 @@ const Navbar = ({ isHovered, isTextVisible, isOpen, handleToggleOpen, handleSele
             className={`absolute bottom-12 left-1/2 transform -translate-x-1/2 w-48 bg-navbar rounded-lg shadow-lg overflow-hidden transition-all duration-300 ${isOpen ? 'max-h-[500px] opacity-100' : 'max-h-0 opacity-0'}`}
           >
             <div className="py-2">
-              {routes.filter((route) => route.path !== pathname).map((route, index, filteredArray) => {
+              {routes.map((route, index) => {
                 const Icon = route.icon;
+                const isActive = pathname === route.path;
                 const delay = index * 50;
 
                 return (
@@ -118,7 +119,7 @@ const Navbar = ({ isHovered, isTextVisible, isOpen, handleToggleOpen, handleSele
                         href={route.external}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className={`block py-2 px-4 text-center hover:text-highlight flex items-center justify-center gap-2 transition-all duration-300 ${isOpen ? 'translate-y-0 opacity-100' : 'translate-y-4 opacity-0'}`}
+                        className={`block py-2 px-4 text-center ${isActive ? 'text-orange-500' : 'hover:text-highlight'} flex items-center justify-center gap-2 transition-all duration-300 ${isOpen ? 'translate-y-0 opacity-100' : 'translate-y-4 opacity-0'}`}
                         style={{
                           transitionDelay: isOpen ? `${delay}ms` : '0ms',
                         }}
@@ -133,7 +134,7 @@ const Navbar = ({ isHovered, isTextVisible, isOpen, handleToggleOpen, handleSele
                     ) : (
                       <Link
                         href={route.path}
-                        className={`block py-2 px-4 text-center hover:text-highlight flex items-center justify-center gap-2 transition-all duration-300 ${isOpen ? 'translate-y-0 opacity-100' : 'translate-y-4 opacity-0'}`}
+                        className={`block py-2 px-4 text-center ${isActive ? 'text-orange-500' : 'hover:text-highlight'} flex items-center justify-center gap-2 transition-all duration-300 ${isOpen ? 'translate-y-0 opacity-100' : 'translate-y-4 opacity-0'}`}
                         onClick={() => handleSelectOption(() => {})}
                         style={{
                           transitionDelay: isOpen ? `${delay}ms` : '0ms'
