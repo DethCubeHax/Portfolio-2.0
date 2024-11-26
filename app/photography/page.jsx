@@ -133,7 +133,7 @@ const Photography = () => {
         <select 
           onChange={handleGroupChange} 
           value={selectedGroup} 
-          className="mb-4 p-2 rounded-full border text-white bg-lightblue"
+          className="mb-4 p-2 rounded-full border text-background bg-lightblue"
         >
           <option value="All">All</option>
           <option value="Featured">Featured</option>
