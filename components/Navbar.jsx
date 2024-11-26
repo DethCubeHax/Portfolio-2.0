@@ -1,7 +1,7 @@
 import React from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { HiFolder, HiBriefcase, HiAcademicCap, HiNewspaper, HiDocument, HiMail, HiChat } from 'react-icons/hi';
+import { HiFolder, HiBriefcase, HiAcademicCap, HiNewspaper, HiDocument, HiMail, HiChat, HiCamera } from 'react-icons/hi';
 import { FaLinkedin, FaWhatsapp, FaInstagram } from 'react-icons/fa';
 import ClientNavbarEffects from './ClientNavbarEffects';
 
@@ -11,6 +11,7 @@ const routes = [
   { path: '/work', name: 'Work', icon: HiBriefcase },
   { path: '/research', name: 'Research', icon: HiAcademicCap },
   { path: '/blog', name: 'Blog', icon: HiNewspaper },
+  { path: '/photography', name: 'Photography', icon: HiCamera },
   { path: '/chatbot', name: 'AI Chatbot', icon: HiChat },
   { path: '/resume', name: 'Resume', icon: HiDocument, external: '/Resume.pdf' },
   { path: '/contact', name: 'Contact', icon: HiMail, external: 'mailto:nafis@nafisui.com' },

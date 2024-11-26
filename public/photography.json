@@ -1,9 +1,306 @@
 [
     {
         "filename": "/photography/_ZBI4126.JPG",
-        "title": "Sunset Serenity",
-        "description": "A serene landscape with a sunset.",
+        "title": "Nocturnal Serenity",
+        "description": "Serene views high above a beautiful city that never sleeps.",
         "icon": "FaCamera",
-        "group": "Hong Kong Cityscape"
+        "group": "Urban Landscapes",
+        "featured": true
+    },
+    {
+        "filename": "/photography/_ZBI4137.JPG",
+        "title": "Electric Dreams",
+        "description": "The city pulses with vibrant light.",
+        "icon": "FaCamera",
+        "group": "Urban Landscapes",
+        "featured": true
+    },
+    {
+        "filename": "/photography/Victoria_Peak.JPG",
+        "title": "Skyline Glimpse",
+        "description": "Views from Victoria Peak's silent guardian overlooking the city.",
+        "icon": "FaCamera",
+        "group": "Viewpoints",
+        "featured": false
+    },
+    {
+        "filename": "/photography/UHall_EGA.JPG",
+        "title": "Symphony of Candlelight",
+        "description": "Orchestra in University Hall, bathed in warm candlelight.",
+        "icon": "FaCamera",
+        "group": "Cultural Events",
+        "featured": true
+    },
+    {
+        "filename": "/photography/IMG_0275.JPG",
+        "title": "Shadows of Tomorrow",
+        "description": "Orchestra in University Hall, bathed in warm candlelight.",
+        "icon": "FaCamera",
+        "group": "Cultural Events",
+        "featured": false
+    },
+    {
+        "filename": "/photography/IMG_2361.JPG",
+        "title": "Moonlit Whispers",
+        "description": "Under the cloak of night, the forest whispers secrets in the language of rustling leaves and moonlit shadows, weaving a tapestry of mystery and calm.",
+        "icon": "FaCamera",
+        "group": "Nature Scenes",
+        "featured": true
+    },
+    {
+        "filename": "/photography/IMG_3824.jpg",
+        "title": "Urban Monolith",
+        "description": "A towering sentinel in the heart of the city, bathed in the golden hues of a setting sun, stands as a testament to human ingenuity and the relentless pursuit of the skies.",
+        "icon": "FaBuilding",
+        "group": "Urban Landscapes",
+        "featured": false
+    },
+    {
+        "filename": "/photography/IMG_6057.jpg",
+        "title": "Mystic Wheel",
+        "description": "A vibrant spectacle of colors as the ferris wheel lights up the night sky, casting a magical glow over the evening festivities.",
+        "icon": "FaCamera",
+        "group": "Night Views",
+        "featured": true
+    },
+    {
+        "filename": "/photography/IMG_6610.JPG",
+        "title": "Coastal Echoes",
+        "description": "The gentle caress of ocean waves against the shore, echoing the timeless dance of water and land.",
+        "icon": "FaWater",
+        "group": "Nature Scenes",
+        "featured": false
+    },
+    {
+        "filename": "/photography/IMG_7434.JPG",
+        "title": "Labyrinth of Knowledge",
+        "description": "Endless rows of wisdom bound in leather and paper, a maze of enlightenment.",
+        "icon": "FaBook",
+        "group": "Cultural Events",
+        "featured": false
+    },
+    {
+        "filename": "/photography/IMG_7502.JPG",
+        "title": "Midnight Council",
+        "description": "A clandestine gathering under the ornate shelter of night, illuminated by a single beacon of light.",
+        "icon": "FaUsers",
+        "group": "Night Views",
+        "featured": false
+    },
+    {
+        "filename": "/photography/IMG_7536.JPG",
+        "title": "An expensive, fruity store",
+        "description": "Do I really need to say it twice?",
+        "icon": "FaApple",
+        "group": "Urban Landscapes",
+        "featured": true
+    },
+    {
+        "filename": "/photography/IMG_7554.JPG",
+        "title": "Suspended Harmony",
+        "description": "A surreal composition of floating elements, defying gravity in a symphony of light and structure.",
+        "icon": "FaBalanceScale",
+        "group": "Abstract Forms",
+        "featured": false
+    },
+    {
+        "filename": "/photography/IMG_7875.jpg",
+        "title": "Crimson Veil",
+        "description": "The horizon cloaked in a crimson veil, where the sun kisses the sea goodbye under a canopy of fiery clouds.",
+        "icon": "FaSun",
+        "group": "Sunsets",
+        "featured": true
+    },
+    {
+        "filename": "/photography/IMG_7928.JPG",
+        "title": "Azure Serenade",
+        "description": "A serene melody of blue waters and skies, harmonizing with the tranquil landscape.",
+        "icon": "FaWater",
+        "group": "Nature Scenes",
+        "featured": true
+    },
+    {
+        "filename": "/photography/IMG_7937.JPG",
+        "title": "Echoes of Tranquility",
+        "description": "A serene expanse where sky and water merge in a quiet symphony of blues and grays.",
+        "icon": "FaFeather",
+        "group": "Nature Scenes",
+        "featured": true
+    },
+    {
+        "filename": "/photography/IMG_7938_jpg.JPG",
+        "title": "Whispers of the Wind",
+        "description": "A gentle breeze captured in time, whispering tales of unseen journeys across serene landscapes.",
+        "icon": "FaWind",
+        "group": "Nature Scenes",
+        "featured": true
+    },
+    {
+        "filename": "/photography/IMG_8004.JPG",
+        "title": "Twilight Canvas",
+        "description": "A canvas painted with the hues of twilight, where the sky meets the sea in a symphony of colors.",
+        "icon": "FaPaintBrush",
+        "group": "Sunsets",
+        "featured": false
+    },
+    {
+        "filename": "/photography/IMG_8077.JPG",
+        "title": "Suspended Harmony",
+        "description": "A surreal composition of floating elements, defying gravity in a symphony of light and structure.",
+        "icon": "FaBalanceScale",
+        "group": "Abstract Forms",
+        "featured": true
+    },
+    {
+        "filename": "/photography/IMG_8080.JPG",
+        "title": "Urban Pulse",
+        "description": "The rhythmic dance of the Hong Kong tram, slicing through the city's vibrant heartbeat.",
+        "icon": "FaTram",
+        "group": "Urban Landscapes",
+        "featured": true
+    },
+    {
+        "filename": "/photography/IMG_8139.JPG",
+        "title": "Veins of Light",
+        "description": "The city's arteries glow with the pulse of neon, sketching a vivid tapestry against the night.",
+        "icon": "FaCity",
+        "group": "Urban Landscapes",
+        "featured": true
+    },
+    {
+        "filename": "/photography/IMG_8212.JPG",
+        "title": "Caffeinated Whispers",
+        "description": "A cozy nook where stories unfold over the murmur of espresso machines and the clink of coffee cups.",
+        "icon": "FaCoffee",
+        "group": "Urban Scenes",
+        "featured": true
+    },
+    {
+        "filename": "/photography/IMG_8213.JPG",
+        "title": "Brewed Tales",
+        "description": "A moment of repose, where coffee aromas blend with whispered conversations.",
+        "icon": "FaMugHot",
+        "group": "Urban Scenes",
+        "featured": true
+    },
+    {
+        "filename": "/photography/IMG_8286.JPG",
+        "title": "Neon Nostalgia",
+        "description": "A vivid tableau of neon lights, casting a warm glow over the bustling culinary heart of Hong Kong.",
+        "icon": "FaUtensils",
+        "group": "Urban Scenes",
+        "featured": true
+    },
+    {
+        "filename": "/photography/IMG_8301.JPG",
+        "title": "Healing Heights",
+        "description": "A bastion of healing and knowledge, standing tall amidst the verdant embrace of nature.",
+        "icon": "FaClinicMedical",
+        "group": "Educational Landscapes",
+        "featured": false
+    },
+    {
+        "filename": "/photography/IMG_8317.JPG",
+        "title": "Balcony Serenade",
+        "description": "A tranquil retreat above the bustling cityscape, where the horizon stretches into a tapestry of twilight dreams.",
+        "icon": "FaChair",
+        "group": "Urban Landscapes",
+        "featured": false
+    },
+    {
+        "filename": "/photography/IMG_8422.JPG",
+        "title": "Gothic Pathway",
+        "description": "A shadowy trail lined with the whispers of autumn, leading to the storied halls veiled in Halloween mystique.",
+        "icon": "FaGhost",
+        "group": "Cultural Events",
+        "featured": false
+    },
+    {
+        "filename": "/photography/IMG_8521.JPG",
+        "title": "Echoes of Enlightenment",
+        "description": "A modern bastion of knowledge, where architectural lines and scholarly pursuits intersect.",
+        "icon": "FaBookReader",
+        "group": "Educational Landscapes",
+        "featured": false
+    },
+    {
+        "filename": "/photography/IMG_8551.JPG",
+        "title": "Luminous Veil",
+        "description": "A curtain of light drapes over the city, unveiling the nocturnal beauty of urban contours.",
+        "icon": "FaLightbulb",
+        "group": "Urban Landscapes",
+        "featured": true
+    },
+    {
+        "filename": "/photography/IMG_8547.JPG",
+        "title": "Cityscape Symphony",
+        "description": "A panoramic embrace of the city's luminous heart, where lights orchestrate an urban symphony.",
+        "icon": "FaCity",
+        "group": "Urban Landscapes",
+        "featured": true
+    },
+    {
+        "filename": "/photography/IMG_8688.JPG",
+        "title": "Sonic Elegance",
+        "description": "A symphony of design and function, these headphones blend aesthetic appeal with acoustic precision.",
+        "icon": "FaHeadphones",
+        "group": "Electronic Gear",
+        "featured": true
+    },
+    {
+        "filename": "/photography/IMG_8768.JPG",
+        "title": "Dessert Dusk",
+        "description": "Sweet treats and laughter under the soft glow of sunset, capturing the essence of urban leisure.",
+        "icon": "FaIceCream",
+        "group": "Urban Scenes",
+        "featured": false
+    },
+    {
+        "filename": "/photography/IMG_8787.JPG",
+        "title": "Retro Resonance",
+        "description": "A nostalgic echo of classic design meets modern technology, capturing the essence of retro elegance.",
+        "icon": "FaCameraRetro",
+        "group": "Electronic Gear",
+        "featured": true
+    },
+    {
+        "filename": "/photography/IMG_8833.JPG",
+        "title": "Pathway Pulse",
+        "description": "A rhythmic stroll through Cathay City, where every step echoes a story of transit and transition.",
+        "icon": "FaWalking",
+        "group": "Urban Scenes",
+        "featured": true
+    },
+    {
+        "filename": "/photography/IMG_8835.JPG",
+        "title": "Silent Spectacle",
+        "description": "A quiet tableau of light and shadow, painting a serene narrative in visual whispers.",
+        "icon": "FaImage",
+        "group": "Urban Scenes",
+        "featured": true
+    },
+    {
+        "filename": "/photography/IMG_9019.JPG",
+        "title": "Landing helicopter dock Hainan",
+        "description": "The imposing Helicopter Carrier Hainan, anchored in the vibrant harbor of Hong Kong, stands as a symbol of naval strength and technological prowess.",
+        "icon": "FaShip",
+        "group": "Naval Vessels",
+        "featured": true
+    },
+    {
+        "filename": "/photography/IMG_8981.JPG",
+        "title": "Full View of Hainan",
+        "description": "A comprehensive view of the Helicopter Carrier Hainan, showcasing its grandeur and strategic design as it docks in Hong Kong.",
+        "icon": "FaShip",
+        "group": "Naval Vessels",
+        "featured": true
+    },
+    {
+        "filename": "/photography/IMG_8948.jpg",
+        "title": "Caffeinated Tunes",
+        "description": "A cozy setup featuring headphones alongside a Starbucks drink, blending the worlds of sound and taste.",
+        "icon": "FaHeadphones",
+        "group": "Electronic Gear",
+        "featured": true
     }
 ]
