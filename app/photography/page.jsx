@@ -8,13 +8,12 @@ import { IoIosAperture } from 'react-icons/io';
 import { MdExposure } from 'react-icons/md';
 import exifr from 'exifr';
 
-const DescriptorButton = ({ IconComponent, label, value }) => (
-  <div className="flex items-center gap-4 px-4 py-2 bg-white text-background font-semibold rounded-full no-underline transition duration-300">
-    <IconComponent className="text-3xl text-orange-500" />
-    <div className="flex flex-col text-center">
-      <p className="text-sm">{label}</p>
-      <p className="text-xs font-light">{value}</p>
+const DescriptorButton = ({ IconComponent, value }) => (
+  <div className="flex items-center gap-2 px-2 py-1 bg-white text-background font-semibold rounded-full no-underline transition duration-300">
+    <div className="text-left">
+      <IconComponent className="text-xl text-orange-500" />
     </div>
+    <span className="text-xs font-light">{value}</span>
   </div>
 );
 
@@ -49,7 +48,6 @@ const TimelineItem = ({ item }) => {
     return Math.round(time * 1000);
   };
 
-
   return (
     <div className="flex gap-x-3 animate-fadeInDown mx-auto max-w-3xl" style={{ animationDelay: `${item.index * 0.1}s` }}>
       <div className="relative">
@@ -63,32 +61,28 @@ const TimelineItem = ({ item }) => {
       <div className="grow pt-0.5 pb-8">
         <h3 className="font-semibold text-highlight text-3xl py-2">{item.title}</h3>
         {exifData && exifData.DateTimeOriginal && (
-          <span className="text-s font-medium uppercase text-text mb-6 block">{`${new Date(exifData.DateTimeOriginal).toLocaleDateString()}`}</span>
+          <span className="text-xs font-medium uppercase text-text mt-1 block">{`${new Date(exifData.DateTimeOriginal).toLocaleDateString()}`}</span>
         )}
         <div className="flex flex-col lg:flex-row lg:items-start lg:gap-x-4 mt-2">
           <div className="w-full flex-auto lg:justify-center">
-            <img src={item.filename} alt={item.description} className="w-full h-auto mb-8 rounded-lg" style={{ maxHeight: '100%', maxWidth: '100%' }} />
+            <img src={item.filename} alt={item.description} className="w-full h-auto rounded-lg" style={{ maxHeight: '100%', maxWidth: '100%' }} />
             <p className="text-white text-2xl sm:text-3xl font-montserrat font-extralight mt-4 mb-6">{item.description}</p>
             {exifData && (
-              <div className="mt-2 text-gray-600 dark:text-neutral-200 text-justify lg:text-left flex flex-wrap gap-4">
+              <div className="mt-2 text-gray-600 dark:text-neutral-200 text-justify lg:text-left flex flex-wrap gap-2">
                 <DescriptorButton 
                   IconComponent={FaCamera} 
-                  label="ISO" 
                   value={exifData.ISO ? Math.round(exifData.ISO) : "N/A"} 
                 />
                 <DescriptorButton 
                   IconComponent={MdExposure} 
-                  label="Exposure" 
                   value={exifData.ExposureTime ? `${formatExposureTime(exifData.ExposureTime)} ms` : "N/A"} 
                 />
                 <DescriptorButton 
                   IconComponent={IoIosAperture} 
-                  label="Aperture" 
                   value={exifData.FNumber ? `f/${exifData.FNumber.toFixed(2)}` : "N/A"} 
                 />
                 <DescriptorButton 
                   IconComponent={FaRulerVertical} 
-                  label="Focal Length" 
                   value={exifData.FocalLength ? `${exifData.FocalLength.toFixed(2)} mm` : "N/A"} 
                 />
               </div>
