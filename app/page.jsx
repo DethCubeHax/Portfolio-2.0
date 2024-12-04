@@ -36,7 +36,7 @@ const Home = () => {
   return (
     <PageLayout title="Nafis Ul Islam">
       <div className="flex flex-col items-center">
-        <PhotoFrame image="/Nafis.jpg" />
+        <PhotoFrame image="/Nafis.png" />
         <div ref={canvasTextRef} className="mt-6 text-center text-white text-2xl sm:text-3xl font-montserrat font-extralight">
           {animationPlayed ? "Hi there! I'm Nafis, aka DethCubeHax, a software engineer in the making." : ""}
         </div>
