@@ -4,7 +4,6 @@ import { FiUser } from 'react-icons/fi';
 import { FaRobot } from 'react-icons/fa';
 import PageLayout from '@/components/PageLayout';
 
-// Function to generate a random character string
 const generateRandomString = (length = 12) => {
   const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
   let result = '';
@@ -18,6 +17,7 @@ const Chatbot = () => {
   const [messages, setMessages] = useState([]);
   const [input, setInput] = useState('');
   const [isSending, setIsSending] = useState(false);
+  const [user, setUser] = useState(null);
   const inputRef = useRef(null);
   const messagesEndRef = useRef(null);
   const [sessionID] = useState(generateRandomString());
@@ -37,18 +37,35 @@ const Chatbot = () => {
   useEffect(() => {
     const intervalId = setInterval(() => {
       setAge(calculateAge());
-    }, 1000); // Update age every second
+    }, 1000);
 
     return () => clearInterval(intervalId);
   }, []);
 
   useEffect(() => {
-    const initialMessage = {
-      type: 'response',
-      text: `Hello! I am an AI chatbot developed by Nafis, based on his projects, work experiences, and research. I can answer any of your questions regarding them.\n\nPlease note that I am under active development, and I may occasionally generate incorrect information.\n\nHow can I assist you today?`,
-      timestamp: new Date().toLocaleTimeString(),
+    const checkAuth = async () => {
+      try {
+        const response = await fetch('https://vercel-chatbot-api.vercel.app/api/user', {
+          credentials: 'include'
+        });
+        if (response.ok) {
+          const userData = await response.json();
+          setUser(userData);
+          
+          const initialMessage = {
+            type: 'response',
+            text: `Hello ${userData.email}! I am an AI chatbot developed by Nafis, based on his projects, work experiences, and research. I can answer any of your questions regarding them.\n\nPlease note that I am under active development, and I may occasionally generate incorrect information.\n\nHow can I assist you today?`,
+            timestamp: new Date().toLocaleTimeString(),
+          };
+          setMessages([initialMessage]);
+        }
+      } catch (error) {
+        console.error('Auth check failed:', error);
+        setUser(null);
+      }
     };
-    setMessages([initialMessage]);
+
+    checkAuth();
   }, []);
 
   useEffect(() => {
@@ -60,11 +77,11 @@ const Chatbot = () => {
   const queryAPI = async (queryText) => {
     try {
       const response = await Promise.race([
-        fetch('https://green-octopus-24.telebit.io/query', {
+        fetch('https://vercel-chatbot-api.vercel.app/query', {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
-            'session_id': sessionID  // Send sessionID in the headers
+            'session_id': sessionID
           },
           body: JSON.stringify({
             query_text: queryText,
@@ -153,9 +170,54 @@ const Chatbot = () => {
     }
   };
 
+  const signInWithGoogle = () => {
+    window.location.href = 'https://vercel-chatbot-api.vercel.app/login';
+  };
+
+  const signOut = async () => {
+    try {
+      await fetch('https://vercel-chatbot-api.vercel.app/logout', {
+        credentials: 'include'
+      });
+      setUser(null);
+      setMessages([]);
+    } catch (error) {
+      console.error('Logout failed:', error);
+    }
+  };
+
+  if (!user) {
+    return (
+      <PageLayout title="AI Chatbot">
+        <div className="min-h-screen flex items-center justify-center">
+          <button
+            onClick={signInWithGoogle}
+            className="px-4 py-2 border flex gap-2 border-slate-200 rounded-lg text-slate-700 hover:border-slate-400 hover:text-slate-900 hover:shadow transition duration-150"
+          >
+            <img 
+              className="w-6 h-6" 
+              src="https://www.svgrepo.com/show/475656/google-color.svg" 
+              loading="lazy" 
+              alt="google logo"
+            />
+            <span>Login with Google to Chat</span>
+          </button>
+        </div>
+      </PageLayout>
+    );
+  }
+
   return (
     <PageLayout title="AI Chatbot">
       <div className="bg-transparent text-text flex flex-col p-6 font-montserrat relative pb-20 overflow-hidden" style={{ maxHeight: '70vh' }}>
+        <div className="absolute top-4 right-4">
+          <button
+            onClick={signOut}
+            className="px-4 py-2 bg-red-500 text-white rounded-lg hover:bg-red-600 transition duration-150"
+          >
+            Sign Out
+          </button>
+        </div>
         <div className="messages-container overflow-y-auto flex-grow mb-4 pr-2">
           {messages.map((message, index) => (
             <div key={index} className={`message-bubble flex items-start gap-2.5 mb-2 ${message.type === 'user' ? 'justify-end' : ''}`}>
@@ -198,6 +260,7 @@ const Chatbot = () => {
             type="text"
             value={input}
             onChange={(e) => setInput(e.target.value)}
+            onKeyPress={(e) => e.key === 'Enter' && handleSend()}
             className="flex-grow p-2 border-none rounded-full bg-gray-200 text-background"
             placeholder="Type your message..."
             disabled={isSending}
