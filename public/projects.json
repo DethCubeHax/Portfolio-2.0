@@ -4,9 +4,9 @@
     "imageUrl": "ChatWhiz.jpg",
     "date": "Nov 2024 - Present",
     "gitHubLink": "https://github.com/DethCubeHax/ChatWhiz",
-    "tools": "FastAPI, Python, JavaScript, React",
+    "tools": "FastAPI, Python, Google Gemini API, Supabase",
     "prominentStackIcon": "FaRobot",
-    "description": "ChatWhiz is an AI-powered chatbot that enhances user interaction by providing intelligent and context-aware responses. Built using FastAPI and Python for the backend, and JavaScript and React for the frontend, ChatWhiz can understand and respond to user queries with high accuracy. The chatbot leverages models from Ollama, including Llama2, which are trained on extensive datasets to generate human-like text. It employs Retrieval-Augmented Generation (RAG) to fetch relevant information from its database before generating responses. This ensures ChatWhiz provides accurate, personalized, and contextually relevant answers. The system is fine-tuned on domain-specific data and continually learns from new interactions, making it an invaluable tool for businesses and personal use.",
+    "description": "ChatWhiz is an AI assistant that speaks on behalf of myself, providing accurate, context-aware responses about my professional experience and projects. Built with FastAPI and Python, it leverages Google's Gemini-2.0-flash model for natural language processing and Supabase for conversation logging (completely anonymous!). The system features real-time data synchronization from my portfolio's JSON files, comprehensive conversation history management, and rate limiting (50 requests per 24 hours per UUID). Key features include: user session management with UUID-based tracking, conversation persistence in Supabase, periodic data updates every 2 hours, and a RESTful API interface with endpoints for querying, history management, and system health monitoring. The system maintains conversation context through a 5-message sliding window and includes robust error handling and rate limiting mechanisms.",
     "screenshots": [
       "/projects/ChatWhiz.png"
     ]
