@@ -265,7 +265,7 @@ const Chatbot = () => {
                     </div>
                     <span className="text-sm font-normal text-gray-500">Delivered</span>
                   </div>
-                  <FaUser className="w-8 h-8 text-highlight" />
+                  <FiUser className="w-8 h-8 text-highlight" />
                 </>
               ) : (
                 <>
