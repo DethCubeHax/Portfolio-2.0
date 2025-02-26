@@ -4,6 +4,8 @@ import { FiUser } from 'react-icons/fi';
 import { FaRobot } from 'react-icons/fa';
 import PageLayout from '@/components/PageLayout';
 
+const API_URL = "https://vercel-chatbot-api.vercel.app";
+
 const Chatbot = () => {
   const [messages, setMessages] = useState([]);
   const [input, setInput] = useState('');
@@ -53,7 +55,11 @@ const Chatbot = () => {
 
   const checkRemainingRequests = async () => {
     try {
-      const response = await fetch('http://localhost:8000/api/remaining-requests');
+      const response = await fetch(`${API_URL}/api/remaining-requests`, {
+        headers: {
+          'Origin': 'https://nafisui.com'
+        }
+      });
       if (response.ok) {
         const data = await response.json();
         setRemainingRequests(data.remaining_requests);
@@ -66,11 +72,12 @@ const Chatbot = () => {
   const queryAPI = async (queryText) => {
     try {
       const response = await Promise.race([
-        fetch('http://localhost:8000/query', {
+        fetch(`${API_URL}/query`, {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
             'Accept': 'application/json',
+            'Origin': 'https://nafisui.com'
           },
           body: JSON.stringify({
             query_text: queryText,
@@ -89,7 +96,7 @@ const Chatbot = () => {
       }
 
       const data = await response.json();
-      await checkRemainingRequests(); // Update remaining requests after successful query
+      await checkRemainingRequests();
       return data.response;
     } catch (error) {
       console.error('API Error:', error);
