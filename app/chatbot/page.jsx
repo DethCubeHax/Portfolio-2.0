@@ -1,7 +1,7 @@
 "use client";
 import React, { useState, useEffect, useRef } from 'react';
 import { FiUser } from 'react-icons/fi';
-import { FaRobot } from 'react-icons/fa';
+import { FaRobot, FaUber } from 'react-icons/fa';
 import PageLayout from '@/components/PageLayout';
 
 const generateRandomString = (length = 12) => {
@@ -46,8 +46,13 @@ const Chatbot = () => {
     const checkAuth = async () => {
       try {
         const response = await fetch('https://vercel-chatbot-api.vercel.app/api/user', {
-          credentials: 'include'
+          credentials: 'include',
+          headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json',
+          }
         });
+        
         if (response.ok) {
           const userData = await response.json();
           setUser(userData);
@@ -58,10 +63,14 @@ const Chatbot = () => {
             timestamp: new Date().toLocaleTimeString(),
           };
           setMessages([initialMessage]);
+        } else if (response.status === 401) {
+          setUser(null);
+          setMessages([]);
         }
       } catch (error) {
         console.error('Auth check failed:', error);
         setUser(null);
+        setMessages([]);
       }
     };
 
@@ -79,8 +88,10 @@ const Chatbot = () => {
       const response = await Promise.race([
         fetch('https://vercel-chatbot-api.vercel.app/query', {
           method: 'POST',
+          credentials: 'include',
           headers: {
             'Content-Type': 'application/json',
+            'Accept': 'application/json',
             'session_id': sessionID
           },
           body: JSON.stringify({
@@ -91,6 +102,15 @@ const Chatbot = () => {
           setTimeout(() => reject(new Error('Timeout')), 30000)
         )
       ]);
+
+      if (!response.ok) {
+        if (response.status === 401) {
+          setUser(null);
+          window.location.href = 'https://vercel-chatbot-api.vercel.app/login';
+          return;
+        }
+        throw new Error(`API returned ${response.status}`);
+      }
 
       const data = await response.json();
       return data.response;
@@ -107,7 +127,7 @@ const Chatbot = () => {
         text: input,
         timestamp: new Date().toLocaleTimeString(),
       };
-      setMessages((prevMessages) => [...prevMessages, userMessage]);
+      setMessages(prevMessages => [...prevMessages, userMessage]);
 
       const userCommand = input.trim().toLowerCase();
       setInput('');
@@ -120,16 +140,16 @@ const Chatbot = () => {
             response = "List of valid commands: " + validCommands.join(', ');
             break;
           case 'projects':
-            response = `I have ${projectsData.length} projects.`;
+            response = `I have several projects in my portfolio.`;
             break;
           case 'work':
-            response = `I have worked at ${workData.length} companies before.`;
+            response = `I have worked at multiple companies before.`;
             break;
           case 'publications':
-            response = `I have ${researchData.projects.length} research publication${researchData.projects.length !== 1 ? 's' : ''}.`;
+            response = `I have multiple research publications.`;
             break;
           case 'blogs':
-            response = `I have ${blogsData.length} blog posts.`;
+            response = `I have multiple blog posts.`;
             break;
           case 'contact':
             response = "My email is at nafisulislam2k2@gmail.com";
@@ -146,41 +166,53 @@ const Chatbot = () => {
           default:
             break;
         }
-        const botMessage = {
+        setMessages(prevMessages => [...prevMessages, {
           type: 'response',
           text: response,
           timestamp: new Date().toLocaleTimeString(),
-        };
-        setMessages((prevMessages) => [...prevMessages, botMessage]);
+        }]);
       } else {
         setIsSending(true);
         try {
           const apiResponse = await queryAPI(userCommand);
-          const botMessage = {
+          setMessages(prevMessages => [...prevMessages, {
             type: 'response',
             text: apiResponse,
             timestamp: new Date().toLocaleTimeString(),
-          };
-          setMessages((prevMessages) => [...prevMessages, botMessage]);
+          }]);
         } catch (error) {
           console.error('Error sending message:', error);
+        } finally {
+          setIsSending(false);
         }
-        setIsSending(false);
       }
     }
   };
 
   const signInWithGoogle = () => {
-    window.location.href = 'https://vercel-chatbot-api.vercel.app/login';
+    try {
+      window.location.href = 'https://vercel-chatbot-api.vercel.app/login';
+    } catch (error) {
+      console.error('Login redirect failed:', error);
+    }
   };
 
   const signOut = async () => {
     try {
-      await fetch('https://vercel-chatbot-api.vercel.app/logout', {
-        credentials: 'include'
+      const response = await fetch('https://vercel-chatbot-api.vercel.app/logout', {
+        credentials: 'include',
+        headers: {
+          'Accept': 'application/json',
+          'Content-Type': 'application/json',
+        }
       });
-      setUser(null);
-      setMessages([]);
+      
+      if (response.ok) {
+        setUser(null);
+        setMessages([]);
+      } else {
+        console.error('Logout failed:', await response.text());
+      }
     } catch (error) {
       console.error('Logout failed:', error);
     }
@@ -223,7 +255,7 @@ const Chatbot = () => {
             <div key={index} className={`message-bubble flex items-start gap-2.5 mb-2 ${message.type === 'user' ? 'justify-end' : ''}`}>
               {message.type === 'user' ? (
                 <>
-                  <div className="flex flex-col gap-1 max-w-[500px] text-right">
+                  <div className="flex flex-col gap-1 max-w-lg text-right">
                     <div className="flex items-center space-x-2 rtl:space-x-reverse justify-end">
                       <span className="text-sm font-semibold text-text">You</span>
                       <span className="text-sm font-normal text-gray-500">{message.timestamp}</span>
@@ -233,12 +265,12 @@ const Chatbot = () => {
                     </div>
                     <span className="text-sm font-normal text-gray-500">Delivered</span>
                   </div>
-                  <FiUser className="w-8 h-8 text-highlight" />
+                  <FaUser className="w-8 h-8 text-highlight" />
                 </>
               ) : (
                 <>
                   <FaRobot className="w-8 h-8 text-highlight" />
-                  <div className="flex flex-col gap-1 max-w-[500px]">
+                  <div className="flex flex-col gap-1 max-w-lg">
                     <div className="flex items-center space-x-2 rtl:space-x-reverse">
                       <span className="text-sm font-semibold text-highlight">Bot</span>
                       <span className="text-sm font-normal text-gray-500">{message.timestamp}</span>
